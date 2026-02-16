@@ -6,55 +6,74 @@
   <title>Dakota Rayne | Official</title>
   <meta name="description" content="Official site for Dakota Rayne. Stream music, watch videos, and follow." />
 
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b12;
-      color: white;
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at top, #2a1a3f 0%, #0f0c18 60%, #07060c 100%);
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      text-align: center;
     }
 
     .container {
       width: 90%;
-      max-width: 600px;
-      text-align: center;
+      max-width: 620px;
+      padding: 40px 20px;
     }
 
     h1 {
-      font-size: 40px;
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
       margin-bottom: 10px;
       letter-spacing: 1px;
+      text-shadow: 0 0 25px rgba(255, 215, 170, 0.3);
     }
 
-    p {
+    .tagline {
+      font-size: 15px;
       opacity: 0.8;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .btn {
       display: block;
-      margin: 12px 0;
-      padding: 14px;
+      margin: 14px 0;
+      padding: 16px;
       text-decoration: none;
-      color: white;
-      background: #1c1c28;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
-      transition: 0.2s ease;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(255,215,170,0.08), rgba(255,255,255,0.05));
+      border-radius: 16px;
+      border: 1px solid rgba(255,215,170,0.25);
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+      font-weight: 600;
+      letter-spacing: 0.5px;
     }
 
     .btn:hover {
-      background: #2a2a40;
+      background: linear-gradient(135deg, rgba(255,215,170,0.18), rgba(255,255,255,0.08));
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255,215,170,0.2);
     }
 
     .footer {
-      margin-top: 30px;
+      margin-top: 40px;
       font-size: 12px;
       opacity: 0.5;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 40px;
+      }
     }
   </style>
 </head>
@@ -62,13 +81,13 @@
 <body>
   <div class="container">
     <h1>Dakota Rayne</h1>
-    <p>Official Links</p>
+    <div class="tagline">Official Music & Links</div>
 
-    <a class="btn" href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp?si=XP-NfoqiQZCgekH2s30cng" target="_blank">Spotify</a>
-    <a class="btn" href="https://www.youtube.com/@DakotaRayneVEVO" target="_blank">YouTube / VEVO</a>
-    <a class="btn" href="https://music.apple.com/gb/artist/dakota-rayne/1844519098" target="_blank">Apple Music</a>
-    <a class="btn" href="https://www.instagram.com/dakotarayneofficial/" target="_blank">Instagram</a>
-    <a class="btn" href="https://www.tiktok.com/@dakotarayneofficial" target="_blank">TikTok</a>
+    <a class="btn" href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp?si=XP-NfoqiQZCgekH2s30cng" target="_blank">🎧 Stream on Spotify</a>
+    <a class="btn" href="https://www.youtube.com/@DakotaRayneVEVO" target="_blank">🎬 Watch on YouTube / VEVO</a>
+    <a class="btn" href="https://music.apple.com/gb/artist/dakota-rayne/1844519098" target="_blank">🍎 Apple Music</a>
+    <a class="btn" href="https://www.instagram.com/dakotarayneofficial/" target="_blank">📸 Instagram</a>
+    <a class="btn" href="https://www.tiktok.com/@dakotarayneofficial" target="_blank">🎵 TikTok</a>
 
     <div class="footer">
       © Dakota Rayne
