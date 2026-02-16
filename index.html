@@ -121,7 +121,7 @@
     .thumb {
       position: relative;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: 28px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.4);
       transition: transform 0.4s ease;
     }
@@ -135,6 +135,34 @@
     }
     .thumb:hover img {
       transform: scale(1.1);
+    }
+    .thumb .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 80%);
+      pointer-events: none;
+    }
+    .thumb .vevo {
+      position: absolute;
+      bottom: 16px;
+      left: 20px;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      opacity: 0.9;
+      letter-spacing: 1px;
+    }
+    .thumb .title {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 2px;
+      color: white;
+      text-shadow: 0 0 20px rgba(255,215,170,0.6), 0 2px 8px black;
+      text-align: center;
     }
     .thumb .play-icon {
       position: absolute;
@@ -150,17 +178,6 @@
     .thumb:hover .play-icon {
       opacity: 1;
     }
-    .thumb .title {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.8));
-      padding: 30px 20px 20px;
-      font-size: 20px;
-      font-weight: 600;
-      text-shadow: 0 2px 10px black;
-    }
     .footer {
       margin-top: 100px;
       font-size: 12px;
@@ -171,9 +188,10 @@
       to { opacity: 1; transform: translateY(0); }
     }
     @media (max-width: 600px) {
-      h1 { font-size: 60px; letter-spacing: 2px; terug }
+      h1 { font-size: 60px; letter-spacing: 2px; }
       h2 { font-size: 36px; }
       .btn { font-size: 16px; }
+      .thumb .title { font-size: 24px; bottom: 30px; }
     }
   </style>
 </head>
@@ -221,33 +239,75 @@
       <div class="thumbnails">
         <a href="https://www.youtube.com/watch?v=sJvWebzSqSQ" target="_blank" class="thumb">
           <img src="https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg" alt="Play with Fire">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Play with Fire</div>
+          </div>
           <i class="fas fa-play-circle play-icon"></i>
-          <div class="title">Play with Fire</div>
         </a>
         <a href="https://www.youtube.com/watch?v=38KeUOs27qw" target="_blank" class="thumb">
           <img src="https://i.ytimg.com/vi/38KeUOs27qw/maxresdefault.jpg" alt="Diamonds and Diesel">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Diamonds and Diesel</div>
+          </div>
           <i class="fas fa-play-circle play-icon"></i>
-          <div class="title">Diamonds and Diesel</div>
         </a>
         <a href="https://www.youtube.com/watch?v=Xyj1sB9pdbI" target="_blank" class="thumb">
           <img src="https://i.ytimg.com/vi/Xyj1sB9pdbI/maxresdefault.jpg" alt="Cowgirl Up">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Cowgirl Up</div>
+          </div>
           <i class="fas fa-play-circle play-icon"></i>
-          <div class="title">Cowgirl Up</div>
         </a>
         <a href="https://www.youtube.com/watch?v=2Nirq0Tu8cs" target="_blank" class="thumb">
           <img src="https://i.ytimg.com/vi/2Nirq0Tu8cs/maxresdefault.jpg" alt="Can't Tie Me Down">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Can't Tie Me Down</div>
+          </div>
           <i class="fas fa-play-circle play-icon"></i>
-          <div class="title">Can't Tie Me Down</div>
         </a>
         <a href="https://www.youtube.com/watch?v=tRhd0FP7DEg" target="_blank" class="thumb">
           <img src="https://i.ytimg.com/vi/tRhd0FP7DEg/maxresdefault.jpg" alt="Back in Boots">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Back in Boots</div>
+          </div>
           <i class="fas fa-play-circle play-icon"></i>
-          <div class="title">Back in Boots</div>
         </a>
         <a href="https://www.youtube.com/watch?v=K3HNZho8ByE" target="_blank" class="thumb">
           <img src="https://i.ytimg.com/vi/K3HNZho8ByE/maxresdefault.jpg" alt="Stronger Without You">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Stronger Without You</div>
+          </div>
           <i class="fas fa-play-circle play-icon"></i>
-          <div class="title">Stronger Without You</div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=TikINJIdg6E" target="_blank" class="thumb">
+          <img src="https://i.ytimg.com/vi/TikINJIdg6E/maxresdefault.jpg" alt="Holographic Rain">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Holographic Rain</div>
+          </div>
+          <i class="fas fa-play-circle play-icon"></i>
+        </a>
+        <a href="https://www.youtube.com/watch?v=rXRG4I0mWSU" target="_blank" class="thumb">
+          <img src="https://i.ytimg.com/vi/rXRG4I0mWSU/maxresdefault.jpg" alt="Backroad Bonfire">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Backroad Bonfire</div>
+          </div>
+          <i class="fas fa-play-circle play-icon"></i>
+        </a>
+        <a href="https://www.youtube.com/watch?v=9lZulIA1Doc" target="_blank" class="thumb">
+          <img src="https://i.ytimg.com/vi/9lZulIA1Doc/maxresdefault.jpg" alt="Open Road Open Heart">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">Open Road Open Heart</div>
+          </div>
+          <i class="fas fa-play-circle play-icon"></i>
         </a>
       </div>
     </div>
@@ -257,4 +317,4 @@
     </div>
   </div>
 </body>
-</html
+</html>
