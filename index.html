@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dakota Rayne | Official</title>
-  <meta name="description" content="Official site for Dakota Rayne. Stream music, watch videos, and follow." />
 
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
@@ -12,34 +11,41 @@
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: radial-gradient(circle at top, #2a1a3f 0%, #0f0c18 60%, #07060c 100%);
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      color: white;
       min-height: 100vh;
-      text-align: center;
+      background: url('hero.jpg') center center / cover no-repeat fixed;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(20,10,30,0.7), rgba(5,5,10,0.9));
+      z-index: 0;
     }
 
     .container {
-      width: 90%;
+      position: relative;
+      z-index: 1;
       max-width: 620px;
-      padding: 40px 20px;
+      margin: 0 auto;
+      padding: 100px 20px 60px;
+      text-align: center;
     }
 
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 52px;
+      font-size: 56px;
       margin-bottom: 10px;
-      letter-spacing: 1px;
-      text-shadow: 0 0 25px rgba(255, 215, 170, 0.3);
+      text-shadow: 0 0 30px rgba(255,215,170,0.4);
     }
 
     .tagline {
-      font-size: 15px;
-      opacity: 0.8;
-      margin-bottom: 35px;
-      letter-spacing: 1px;
+      font-size: 14px;
+      opacity: 0.85;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
@@ -49,9 +55,9 @@
       padding: 16px;
       text-decoration: none;
       color: #ffffff;
-      background: linear-gradient(135deg, rgba(255,215,170,0.08), rgba(255,255,255,0.05));
+      background: linear-gradient(135deg, rgba(255,215,170,0.12), rgba(255,255,255,0.05));
       border-radius: 16px;
-      border: 1px solid rgba(255,215,170,0.25);
+      border: 1px solid rgba(255,215,170,0.35);
       backdrop-filter: blur(8px);
       transition: all 0.25s ease;
       font-weight: 600;
@@ -59,20 +65,20 @@
     }
 
     .btn:hover {
-      background: linear-gradient(135deg, rgba(255,215,170,0.18), rgba(255,255,255,0.08));
+      background: linear-gradient(135deg, rgba(255,215,170,0.25), rgba(255,255,255,0.1));
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(255,215,170,0.2);
+      box-shadow: 0 8px 25px rgba(255,215,170,0.3);
     }
 
     .footer {
-      margin-top: 40px;
+      margin-top: 50px;
       font-size: 12px;
-      opacity: 0.5;
+      opacity: 0.6;
     }
 
     @media (max-width: 600px) {
       h1 {
-        font-size: 40px;
+        font-size: 42px;
       }
     }
   </style>
@@ -95,3 +101,4 @@
   </div>
 </body>
 </html>
+
