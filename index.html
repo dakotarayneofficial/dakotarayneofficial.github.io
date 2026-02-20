@@ -273,7 +273,12 @@
     <div class="section">
       <h2>Latest Music Video: A Night with Dakota</h2>
       <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/Q57JYGuU2V4" allowfullscreen></iframe>
+      <iframe
+  id="latestVideo"
+  src="https://www.youtube.com/embed?listType=playlist&list=UU5BRDu0rLn0mi3KebYC29Vw&enablejsapi=1"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
       </div>
     </div>
 
@@ -386,6 +391,9 @@
       copyBtn.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(email);
+          if (window.gtag) {
+  gtag('event','click',{event_category:'engagement',event_label:'Email Copied'});
+}
           copyBtn.innerHTML = '<i class="fas fa-check"></i> Email Copied!';
           setTimeout(() => {
             copyBtn.innerHTML = originalHTML;
@@ -399,5 +407,30 @@
       });
     }
   </script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+<script>
+  var player;
+  var hasTrackedPlay = false;
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('latestVideo', {
+      events: {
+        'onStateChange': onPlayerStateChange
+      }
+    });
+  }
+
+  function onPlayerStateChange(event) {
+    if (event.data === YT.PlayerState.PLAYING && !hasTrackedPlay) {
+      hasTrackedPlay = true;
+      if (window.gtag) {
+        gtag('event', 'video_play', {
+          event_category: 'engagement',
+          event_label: 'Latest Music Video'
+        });
+      }
+    }
+  }
+</script>
 </body>
 </html>
