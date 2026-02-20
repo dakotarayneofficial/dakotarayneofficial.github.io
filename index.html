@@ -206,60 +206,85 @@
       .thumb .title { font-size: 24px; bottom: 30px; }
     }
   </style>
+
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P4H8ETCF8E"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-P4H8ETCF8E');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4H8ETCF8E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P4H8ETCF8E');
+  </script>
 </head>
+
 <body>
   <div class="container">
     <h1>Dakota Rayne</h1>
     <div class="tagline">Official Music & Links</div>
 
-   <div class="links">
-  <a class="btn" 
-     href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp" 
-     target="_blank"
-     onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Spotify'});}">
-    <i class="fab fa-spotify"></i> Stream on Spotify
-  </a>
+    <div class="links">
+      <a class="btn"
+         href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp"
+         target="_blank"
+         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Spotify'});}">
+        <i class="fab fa-spotify"></i> Stream on Spotify
+      </a>
 
-  <a class="btn" 
-     href="https://www.youtube.com/@DakotaRayneVEVO" 
-     target="_blank"
-     onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'YouTube'});}">
-    <i class="fab fa-youtube"></i> Watch on YouTube / VEVO
-  </a>
+      <a class="btn"
+         href="https://www.youtube.com/@DakotaRayneVEVO"
+         target="_blank"
+         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'YouTube'});}">
+        <i class="fab fa-youtube"></i> Watch on YouTube / VEVO
+      </a>
 
-  <a class="btn" 
-     href="https://music.apple.com/gb/artist/dakota-rayne/1844519098" 
-     target="_blank"
-     onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Apple Music'});}">
-    <i class="fab fa-apple"></i> Apple Music
-  </a>
+      <a class="btn"
+         href="https://music.apple.com/gb/artist/dakota-rayne/1844519098"
+         target="_blank"
+         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Apple Music'});}">
+        <i class="fab fa-apple"></i> Apple Music
+      </a>
 
-  <a class="btn" 
-     href="https://www.instagram.com/dakotarayneofficial/" 
-     target="_blank"
-     onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Instagram'});}">
-    <i class="fab fa-instagram"></i> Instagram
-  </a>
+      <a class="btn"
+         href="https://www.instagram.com/dakotarayneofficial/"
+         target="_blank"
+         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Instagram'});}">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
 
-  <a class="btn" 
-     href="https://www.tiktok.com/@dakotarayneofficial" 
-     target="_blank"
-     onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'TikTok'});}">
-    <i class="fab fa-tiktok"></i> TikTok
-  </a>
+      <a class="btn"
+         href="https://www.tiktok.com/@dakotarayneofficial"
+         target="_blank"
+         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'TikTok'});}">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
 
-  <button type="button" class="btn copy-btn">
-    <i class="fas fa-envelope"></i> Contact Dakota
-  </button>
-</div>
+      <button type="button" class="btn copy-btn">
+        <i class="fas fa-envelope"></i> Contact Dakota
+      </button>
+    </div>
+
+    <!-- ✅ SPOTIFY EMBED SECTION ADDED HERE -->
+    <div class="section">
+      <h2>Listen on Spotify</h2>
+
+      <div style="max-width: 700px; margin: 0 auto;">
+        <iframe
+          data-testid="embed-iframe"
+          style="border-radius:20px; box-shadow:0 15px 40px rgba(0,0,0,0.6);"
+          src="https://open.spotify.com/embed/artist/6goTvZkqQf25HQ2lTyRCSp?utm_source=generator"
+          width="100%"
+          height="380"
+          frameBorder="0"
+          allowfullscreen=""
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy">
+        </iframe>
+      </div>
+
+      <p class="promo-text">
+        Follow Dakota on Spotify for new releases every Friday.
+      </p>
+    </div>
 
     <div class="section">
       <h2>About Dakota Rayne</h2>
@@ -273,12 +298,12 @@
     <div class="section">
       <h2>Latest Music Video: A Night with Dakota</h2>
       <div class="video-embed">
-      <iframe
-  id="latestVideo"
-  src="https://www.youtube.com/embed?listType=playlist&list=UU5BRDu0rLn0mi3KebYC29Vw&enablejsapi=1"
-  allow="autoplay; encrypted-media"
-  allowfullscreen>
-</iframe>
+        <iframe
+          id="latestVideo"
+          src="https://www.youtube.com/embed?listType=playlist&list=UU5BRDu0rLn0mi3KebYC29Vw&enablejsapi=1"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
       </div>
     </div>
 
@@ -377,22 +402,24 @@
         </a>
       </div>
     </div>
-<div class="section">
-  <h2>Start Your Own Music Journey</h2>
 
-  <a href="https://distrokid.com/vip/seven/10480046"
-     target="_blank"
-     onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'DistroKid Referral'});}">
+    <div class="section">
+      <h2>Start Your Own Music Journey</h2>
 
-    <img src="https://zjtytzhrxgvahwtgpzgc.supabase.co/storage/v1/object/public/portraits/distro.jpg"
-         alt="Join DistroKid"
-         style="max-width: 400px; width: 100%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); transition: transform 0.3s ease;">
-  </a>
+      <a href="https://distrokid.com/vip/seven/10480046"
+         target="_blank"
+         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'DistroKid Referral'});}">
 
-  <p class="promo-text">
-    Release your music worldwide in minutes. Keep 100% of your royalties.
-  </p>
-</div>
+        <img src="https://zjtytzhrxgvahwtgpzgc.supabase.co/storage/v1/object/public/portraits/distro.jpg"
+             alt="Join DistroKid"
+             style="max-width: 400px; width: 100%; border-radius: 20px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); transition: transform 0.3s ease;">
+      </a>
+
+      <p class="promo-text">
+        Release your music worldwide in minutes. Keep 100% of your royalties.
+      </p>
+    </div>
+
     <div class="footer">
       © Dakota Rayne
     </div>
@@ -407,8 +434,8 @@
         try {
           await navigator.clipboard.writeText(email);
           if (window.gtag) {
-  gtag('event','click',{event_category:'engagement',event_label:'Email Copied'});
-}
+            gtag('event','click',{event_category:'engagement',event_label:'Email Copied'});
+          }
           copyBtn.innerHTML = '<i class="fas fa-check"></i> Email Copied!';
           setTimeout(() => {
             copyBtn.innerHTML = originalHTML;
@@ -422,30 +449,31 @@
       });
     }
   </script>
+
   <script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  var player;
-  var hasTrackedPlay = false;
+  <script>
+    var player;
+    var hasTrackedPlay = false;
 
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('latestVideo', {
-      events: {
-        'onStateChange': onPlayerStateChange
-      }
-    });
-  }
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('latestVideo', {
+        events: {
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
 
-  function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING && !hasTrackedPlay) {
-      hasTrackedPlay = true;
-      if (window.gtag) {
-        gtag('event', 'video_play', {
-          event_category: 'engagement',
-          event_label: 'Latest Music Video'
-        });
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.PLAYING && !hasTrackedPlay) {
+        hasTrackedPlay = true;
+        if (window.gtag) {
+          gtag('event', 'video_play', {
+            event_category: 'engagement',
+            event_label: 'Latest Music Video'
+          });
+        }
       }
     }
-  }
-</script>
+  </script>
 </body>
 </html>
