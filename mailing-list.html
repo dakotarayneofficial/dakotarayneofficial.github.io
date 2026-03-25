@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mailing List | Dakota Rayne</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #0b0b16, #13101f);
+    }
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 100px 20px 80px;
+    }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      letter-spacing: 3px;
+      margin: 0 0 20px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.9;
+      opacity: 0.95;
+    }
+    .card {
+      margin-top: 30px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,215,170,0.2);
+      border-radius: 18px;
+      padding: 28px;
+    }
+    input[type="email"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 16px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: none;
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 18px;
+      opacity: 0.95;
+    }
+    button {
+      padding: 16px 22px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #ffd7aa;
+      color: #111;
+      font-size: 16px;
+    }
+    .small {
+      font-size: 14px;
+      opacity: 0.75;
+      margin-top: 18px;
+    }
+    a {
+      color: #ffd7aa;
+      text-decoration: none;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 35px;
+      font-weight: 600;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 48px; }
+      p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mailing List</h1>
+    <p>Get new music, video drops, and major Dakota Rayne updates direct to your inbox.</p>
+
+    <div class="card">
+      <form>
+        <input type="email" placeholder="Enter your email address" required>
+
+        <label>
+          <input type="checkbox" required>
+          I agree to receive email updates from Dakota Rayne and understand I can unsubscribe at any time.
+        </label>
+
+        <button type="submit">Join the Mailing List</button>
+      </form>
+
+      <p class="small">
+        By signing up, you agree to the handling of your information as described in the
+        <a href="privacy.html">Privacy Policy</a>.
+      </p>
+    </div>
+
+    <a class="back-link" href="index.html">← Back to Home</a>
+  </div>
+</body>
+</html>
