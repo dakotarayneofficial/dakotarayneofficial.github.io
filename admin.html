@@ -1,0 +1,210 @@
+That confirms it: **`admin.html` is not on your GitHub Pages site yet**.
+
+Your homepage works because `index.html` is published.
+Your admin page 404s because **that file hasn’t been uploaded/committed**.
+
+### What you need to do
+
+Put `admin.html` in the **same place as `index.html`** in your GitHub Pages repo.
+
+If your repo root currently has:
+
+```text
+index.html
+```
+
+it should become:
+
+```text
+index.html
+admin.html
+```
+
+### Quick GitHub Pages fix
+
+Go to the GitHub repository that powers the site.
+
+Either use the GitHub web interface:
+
+* open the repo
+* click **Add file**
+* choose **Create new file**
+* name it `admin.html`
+* paste in the admin page code
+* commit it to the branch GitHub Pages is publishing from
+
+Or upload the file directly into the repo root.
+
+Then wait a minute or two and open:
+
+```text
+https://dakotarayne.com/admin.html
+```
+
+### Important
+
+Because you’re on **GitHub Pages**, the filename must match exactly:
+
+```text
+admin.html
+```
+
+Not:
+
+* `Admin.html`
+* `admin.htm`
+* `admin.html.txt`
+
+### Check the repo branch too
+
+Make sure GitHub Pages is publishing from the same branch where you added the file, usually:
+
+* `main`
+  or
+* `gh-pages`
+
+### After upload
+
+The 404 should disappear and you should see:
+
+* email box
+* send login link button
+
+### The admin page code again
+
+Use this as your `admin.html` file, with your real Supabase values inserted:
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin – Dakota Rayne</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b12;
+      color: white;
+      padding: 40px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      border: none;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      background: #ffb36b;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Admin Panel</h1>
+
+  <div id="login">
+    <input type="email" id="email" placeholder="Enter your email">
+    <button onclick="login()">Send Login Link</button>
+  </div>
+
+  <div id="editor" class="hidden">
+    <h2>Edit Bio</h2>
+    <textarea id="bio"></textarea>
+    <button onclick="saveBio()">Save Bio</button>
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://gammajebcccpnwodgrgj.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_bI93om5WFMm4xFeYC24ogA_pMbCeERK';
+
+    const { createClient } = supabase;
+    const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function login() {
+      const email = document.getElementById('email').value;
+
+      const { error } = await client.auth.signInWithOtp({
+        email: email
+      });
+
+      if (error) {
+        alert('Login failed: ' + error.message);
+      } else {
+        alert('Check your email for login link');
+      }
+    }
+
+    async function checkUser() {
+      const { data } = await client.auth.getUser();
+
+      if (data?.user) {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('editor').classList.remove('hidden');
+        loadBio();
+      }
+    }
+
+    async function loadBio() {
+      const { data, error } = await client
+        .from('site_content')
+        .select('body')
+        .eq('section_key', 'bio')
+        .single();
+
+      if (error) {
+        alert('Failed to load bio: ' + error.message);
+        return;
+      }
+
+      document.getElementById('bio').value = data?.body || '';
+    }
+
+    async function saveBio() {
+      const body = document.getElementById('bio').value;
+
+      const { error } = await client
+        .from('site_content')
+        .update({ body, updated_at: new Date().toISOString() })
+        .eq('section_key', 'bio');
+
+      if (error) {
+        alert('Save failed: ' + error.message);
+      } else {
+        alert('Saved!');
+      }
+    }
+
+    checkUser();
+  </script>
+</body>
+</html>
+```
+
+Once that file is in the repo root, the URL should work.
