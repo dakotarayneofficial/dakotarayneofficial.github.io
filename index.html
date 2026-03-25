@@ -15,6 +15,7 @@
       background: url('https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg') center center / cover no-repeat fixed;
       position: relative;
     }
+
     body::before {
       content: "";
       position: absolute;
@@ -22,6 +23,7 @@
       background: linear-gradient(to bottom, rgba(20,10,30,0.6) 0%, rgba(10,8,15,0.85) 60%, rgba(5,5,10,0.95) 100%);
       z-index: 0;
     }
+
     .container {
       position: relative;
       z-index: 1;
@@ -30,6 +32,7 @@
       padding: 120px 20px 80px;
       text-align: center;
     }
+
     h1 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 100px;
@@ -38,6 +41,7 @@
       text-shadow: 0 0 30px rgba(255,215,170,0.4);
       animation: fadeIn 1.5s ease forwards;
     }
+
     .tagline {
       font-size: 16px;
       opacity: 0.9;
@@ -47,6 +51,7 @@
       animation: fadeIn 1.5s ease 0.3s forwards;
       opacity: 0;
     }
+
     .links {
       display: flex;
       flex-direction: column;
@@ -56,6 +61,7 @@
       animation: fadeIn 1.5s ease 0.6s forwards;
       opacity: 0;
     }
+
     .btn {
       display: flex;
       align-items: center;
@@ -74,21 +80,26 @@
       font-size: 18px;
       cursor: pointer;
     }
+
     .btn i {
       font-size: 1.4em;
     }
+
     .btn:hover {
       background: linear-gradient(135deg, rgba(255,215,170,0.25), rgba(255,255,255,0.1));
       transform: translateY(-5px);
       box-shadow: 0 10px 30px rgba(255,215,170,0.3);
     }
+
     button.btn {
       border: none;
       outline: none;
     }
+
     .section {
       margin-top: 100px;
     }
+
     h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 48px;
@@ -96,6 +107,7 @@
       letter-spacing: 2px;
       text-shadow: 0 0 20px rgba(255,215,170,0.3);
     }
+
     .bio {
       max-width: 800px;
       margin: 0 auto 60px;
@@ -103,6 +115,7 @@
       line-height: 1.8;
       opacity: 0.95;
     }
+
     .promo-text {
       max-width: 800px;
       margin: 0 auto 40px;
@@ -110,6 +123,7 @@
       opacity: 0.9;
       font-style: italic;
     }
+
     .video-embed {
       position: relative;
       padding-bottom: 56.25%;
@@ -119,41 +133,52 @@
       box-shadow: 0 15px 40px rgba(0,0,0,0.6);
       margin-bottom: 80px;
     }
+
     .video-embed iframe {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: 0;
     }
+
     .thumbnails {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
     }
+
     .thumb {
       position: relative;
       overflow: hidden;
       border-radius: 28px;
       box-shadow: 0 8px 25px rgba(0,0,0,0.4);
       transition: transform 0.4s ease;
+      text-decoration: none;
     }
+
     .thumb:hover {
       transform: translateY(-10px);
     }
+
     .thumb img {
       width: 100%;
       display: block;
       transition: transform 0.4s ease;
     }
+
     .thumb:hover img {
       transform: scale(1.1);
     }
+
     .thumb .overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 80%);
       pointer-events: none;
     }
+
     .thumb .vevo {
       position: absolute;
       bottom: 16px;
@@ -164,6 +189,7 @@
       opacity: 0.9;
       letter-spacing: 1px;
     }
+
     .thumb .title {
       position: absolute;
       bottom: 40px;
@@ -175,7 +201,10 @@
       color: white;
       text-shadow: 0 0 20px rgba(255,215,170,0.6), 0 2px 8px black;
       text-align: center;
+      padding: 0 14px;
+      box-sizing: border-box;
     }
+
     .thumb .play-icon {
       position: absolute;
       top: 50%;
@@ -187,18 +216,22 @@
       transition: opacity 0.3s ease;
       pointer-events: none;
     }
+
     .thumb:hover .play-icon {
       opacity: 1;
     }
+
     .footer {
       margin-top: 100px;
       font-size: 12px;
       opacity: 0.6;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     @media (max-width: 600px) {
       h1 { font-size: 60px; letter-spacing: 2px; }
       h2 { font-size: 36px; }
@@ -206,6 +239,7 @@
       .thumb .title { font-size: 24px; bottom: 30px; }
     }
   </style>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4H8ETCF8E"></script>
   <script>
@@ -219,50 +253,61 @@
   <div class="container">
     <h1>Dakota Rayne</h1>
     <div class="tagline">Official Music & Links</div>
+
     <div class="links">
       <a class="btn"
          href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp"
          target="_blank"
+         rel="noopener noreferrer"
          onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Spotify'});}">
         <i class="fab fa-spotify"></i> Stream on Spotify
       </a>
+
       <a class="btn"
          href="https://www.youtube.com/@DakotaRayneVEVO"
          target="_blank"
+         rel="noopener noreferrer"
          onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'YouTube'});}">
         <i class="fab fa-youtube"></i> Watch on YouTube / VEVO
       </a>
+
       <a class="btn"
          href="https://music.apple.com/gb/artist/dakota-rayne/1844519098"
          target="_blank"
+         rel="noopener noreferrer"
          onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Apple Music'});}">
         <i class="fab fa-apple"></i> Apple Music
       </a>
+
       <a class="btn"
          href="https://www.instagram.com/dakotarayneofficial/"
          target="_blank"
+         rel="noopener noreferrer"
          onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Instagram'});}">
         <i class="fab fa-instagram"></i> Instagram
       </a>
+
       <a class="btn"
          href="https://www.tiktok.com/@dakotarayneofficial"
          target="_blank"
+         rel="noopener noreferrer"
          onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'TikTok'});}">
         <i class="fab fa-tiktok"></i> TikTok
       </a>
+
       <a class="btn" href="about.html">
-  <i class="fas fa-user"></i> About
-</a>
+        <i class="fas fa-user"></i> About
+      </a>
 
-<a class="btn" href="contact.html">
-  <i class="fas fa-envelope"></i> Contact / Booking
-</a>
+      <a class="btn" href="contact.html">
+        <i class="fas fa-envelope"></i> Contact / Booking
+      </a>
 
-<a class="btn" href="mailing-list.html">
-  <i class="fas fa-paper-plane"></i> Join Mailing List
-</a>
+      <a class="btn" href="mailing-list.html">
+        <i class="fas fa-paper-plane"></i> Join Mailing List
+      </a>
     </div>
-    <!-- ✅ SPOTIFY EMBED SECTION ADDED HERE -->
+
     <div class="section">
       <h2>Listen on Spotify</h2>
       <div style="max-width: 700px; margin: 0 auto;">
@@ -272,7 +317,7 @@
           src="https://open.spotify.com/embed/artist/6goTvZkqQf25HQ2lTyRCSp?utm_source=generator"
           width="100%"
           height="380"
-          frameBorder="0"
+          frameborder="0"
           allowfullscreen=""
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
           loading="lazy">
@@ -282,17 +327,19 @@
         Follow Dakota on Spotify for new releases every Friday.
       </p>
     </div>
+
     <div class="section">
       <h2>About Dakota Rayne</h2>
       <div class="bio">
         <p>Somewhere between Nashville and nowhere, Dakota Rayne writes songs that hit where truth and fiction blur. Her voice carries the warmth of Southern nights and the edge of a storm rolling in.</p>
-       <p>Equal parts heart and grit.</p>
+        <p>Equal parts heart and grit.</p>
         <p>“I’m as real as you need me to be. Lose yourself in the music and forget what you don’t know.”</p>
         <p>Dakota: The AI Country Star. Crafted to deliver genuine heart & joy through music.</p>
       </div>
     </div>
+
     <div class="section">
-      <h2 id="latestVideoTitle">Latest Music Video</h2>
+      <h2>Latest Music Video</h2>
       <div class="video-embed">
         <iframe
           id="latestVideo"
@@ -302,13 +349,17 @@
         </iframe>
       </div>
     </div>
+
     <div class="section">
       <h2>More Music Videos</h2>
       <div class="thumbnails" id="videoGrid"></div>
+    </div>
+
     <div class="section">
       <h2>Start Your Own Music Journey</h2>
       <a href="https://distrokid.com/vip/seven/10480046"
          target="_blank"
+         rel="noopener noreferrer"
          onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'DistroKid Referral'});}">
         <img src="https://zjtytzhrxgvahwtgpzgc.supabase.co/storage/v1/object/public/portraits/distro.jpg"
              alt="Join DistroKid"
@@ -318,31 +369,42 @@
         Release your music worldwide in minutes. Keep 100% of your royalties.
       </p>
     </div>
- <div class="footer">
-  © Dakota Rayne. All rights reserved.<br>
-  <a href="privacy.html" style="color:#ffd7aa; text-decoration:none;">Privacy Policy</a> |
-  <a href="cookies.html" style="color:#ffd7aa; text-decoration:none;">Cookie Policy</a> |
-  <a href="terms.html" style="color:#ffd7aa; text-decoration:none;">Terms of Use</a> |
-  <a href="contact.html" style="color:#ffd7aa; text-decoration:none;">Contact</a>
-</div>
+
+    <div class="footer">
+      © Dakota Rayne. All rights reserved.<br>
+      <a href="privacy.html" style="color:#ffd7aa; text-decoration:none;">Privacy Policy</a> |
+      <a href="cookies.html" style="color:#ffd7aa; text-decoration:none;">Cookie Policy</a> |
+      <a href="terms.html" style="color:#ffd7aa; text-decoration:none;">Terms of Use</a> |
+      <a href="contact.html" style="color:#ffd7aa; text-decoration:none;">Contact</a>
+    </div>
   </div>
+
   <script>
     const copyBtn = document.querySelector('.copy-btn');
+
     if (copyBtn) {
       const email = 'dakotarayneofficial@gmail.com';
       const originalHTML = copyBtn.innerHTML;
+
       copyBtn.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(email);
+
           if (window.gtag) {
-            gtag('event','click',{event_category:'engagement',event_label:'Email Copied'});
+            gtag('event','click',{
+              event_category:'engagement',
+              event_label:'Email Copied'
+            });
           }
+
           copyBtn.innerHTML = '<i class="fas fa-check"></i> Email Copied!';
+
           setTimeout(() => {
             copyBtn.innerHTML = originalHTML;
           }, 3000);
         } catch (err) {
           copyBtn.innerHTML = '<i class="fas fa-times"></i> Copy Failed';
+
           setTimeout(() => {
             copyBtn.innerHTML = originalHTML;
           }, 3000);
@@ -350,20 +412,24 @@
       });
     }
   </script>
+
   <script src="https://www.youtube.com/iframe_api"></script>
   <script>
-    var player;
-    var hasTrackedPlay = false;
+    let player;
+    let hasTrackedPlay = false;
+
     function onYouTubeIframeAPIReady() {
       player = new YT.Player('latestVideo', {
         events: {
-          'onStateChange': onPlayerStateChange
+          onStateChange: onPlayerStateChange
         }
       });
     }
+
     function onPlayerStateChange(event) {
       if (event.data === YT.PlayerState.PLAYING && !hasTrackedPlay) {
         hasTrackedPlay = true;
+
         if (window.gtag) {
           gtag('event', 'video_play', {
             event_category: 'engagement',
@@ -373,97 +439,85 @@
       }
     }
   </script>
+
   <script>
-  const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY';
-  const CHANNEL_ID = 'UC5BRDu0rLn0mi3KebYC29Vw';
+    const CHANNEL_ID = 'UC5BRDu0rLn0mi3KebYC29Vw';
+    const FEATURED_VIDEO_ID = 'sJvWebzSqSQ';
 
-  async function loadLatestVideo() {
-    try {
-      // 1. Get uploads playlist ID for the channel
-      const channelRes = await fetch(
-        `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
-      );
-      const channelData = await channelRes.json();
+    async function loadRandomVideos() {
+      try {
+        const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
+        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
-      const uploadsPlaylistId =
-        channelData.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+        const res = await fetch(apiUrl);
+        const data = await res.json();
 
-      if (!uploadsPlaylistId) return;
+        if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
+          console.error('No videos returned from feed.');
+          return;
+        }
 
-      // 2. Get the newest uploaded video from that playlist
-      const playlistRes = await fetch(
-        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=1&key=${YOUTUBE_API_KEY}`
-      );
-      const playlistData = await playlistRes.json();
+        let videos = data.items
+          .map(video => {
+            let videoId = '';
 
-      const latestItem = playlistData.items?.[0];
-      if (!latestItem) return;
+            try {
+              const url = new URL(video.link);
+              videoId = url.searchParams.get('v') || '';
+            } catch (e) {
+              console.error('Invalid video URL:', video.link);
+            }
 
-      const videoTitle = latestItem.snippet.title;
-      const videoId = latestItem.snippet.resourceId.videoId;
+            return {
+              ...video,
+              videoId
+            };
+          })
+          .filter(video => video.videoId && video.videoId !== FEATURED_VIDEO_ID);
 
-      // 3. Update the heading
-      document.getElementById('latestVideoTitle').textContent =
-        `Latest Music Video: ${videoTitle}`;
+        videos.sort(() => Math.random() - 0.5);
 
-      // 4. Update iframe to the exact latest video
-      const iframe = document.getElementById('latestVideo');
-      iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;
-    } catch (error) {
-      console.error('Failed to load latest video:', error);
+        const selected = videos.slice(0, 6);
+        const grid = document.getElementById('videoGrid');
+
+        grid.innerHTML = '';
+
+        selected.forEach(video => {
+          const thumb = document.createElement('a');
+          thumb.href = video.link;
+          thumb.target = '_blank';
+          thumb.rel = 'noopener noreferrer';
+          thumb.className = 'thumb';
+
+          const maxres = `https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg`;
+          const fallback = `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`;
+
+          thumb.innerHTML = `
+            <img src="${maxres}" alt="${video.title}" onerror="this.onerror=null;this.src='${fallback}';">
+            <div class="overlay">
+              <span class="vevo">vevo</span>
+              <div class="title">${video.title}</div>
+            </div>
+            <i class="fas fa-play-circle play-icon"></i>
+          `;
+
+          thumb.addEventListener('click', () => {
+            if (window.gtag) {
+              gtag('event', 'click', {
+                event_category: 'engagement',
+                event_label: `Random Video: ${video.title}`
+              });
+            }
+          });
+
+          grid.appendChild(thumb);
+        });
+      } catch (err) {
+        console.error('Failed to load random videos:', err);
+      }
     }
-  }
 
-  loadLatestVideo();
-</script>
-    <script>
-  const CHANNEL_ID = 'UC5BRDu0rLn0mi3KebYC29Vw';
-
-  async function loadRandomVideos() {
-    try {
-      const res = await fetch(
-        `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`
-      );
-      const data = await res.json();
-
-      let videos = data.items;
-
-      // Shuffle array
-      videos = videos.sort(() => 0.5 - Math.random());
-
-      // Take 6 random videos
-      const selected = videos.slice(0, 6);
-
-      const grid = document.getElementById('videoGrid');
-      grid.innerHTML = '';
-
-      selected.forEach(video => {
-        const videoId = video.link.split('v=')[1];
-        const thumbnail = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
-
-        const el = document.createElement('a');
-        el.href = video.link;
-        el.target = "_blank";
-        el.className = "thumb";
-
-        el.innerHTML = `
-          <img src="${thumbnail}" alt="${video.title}">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">${video.title}</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        `;
-
-        grid.appendChild(el);
-      });
-
-    } catch (err) {
-      console.error('Failed to load videos:', err);
-    }
-  }
-
-  loadRandomVideos();
-</script>
+    loadRandomVideos();
+  </script>
 </body>
 </html>
