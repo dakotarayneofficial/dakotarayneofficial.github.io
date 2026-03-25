@@ -4,77 +4,413 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact | Dakota Rayne</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg-dark: #05050a;
+      --bg-mid: #130d1d;
+      --gold: #ffd7aa;
+      --gold-soft: rgba(255, 215, 170, 0.18);
+      --white-soft: rgba(255,255,255,0.88);
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,215,170,0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       color: white;
-      min-height: 100vh;
-      background: linear-gradient(to bottom, #0b0b16, #13101f);
+      background:
+        radial-gradient(circle at top, rgba(52, 29, 74, 0.85), transparent 35%),
+        linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 80%);
     }
+
     .container {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 100px 20px 80px;
+      padding: 90px 20px 100px;
     }
-    h1, h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 2px;
-      margin: 0 0 20px;
+
+    .hero {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto 70px;
     }
-    h1 { font-size: 72px; }
-    h2 { font-size: 40px; margin-top: 50px; }
-    p, li {
-      font-size: 18px;
-      line-height: 1.9;
-      opacity: 0.95;
-    }
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,215,170,0.2);
-      border-radius: 18px;
-      padding: 28px;
-      margin-top: 30px;
-    }
-    a {
-      color: #ffd7aa;
-      text-decoration: none;
-    }
-    .back-link {
+
+    .eyebrow {
       display: inline-block;
-      margin-top: 35px;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
       font-weight: 600;
     }
+
+    h1 {
+      margin: 0 0 18px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 82px;
+      line-height: 0.95;
+      letter-spacing: 3px;
+      text-shadow: 0 0 28px rgba(255,215,170,0.12);
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.86);
+      margin: 0 auto 16px;
+    }
+
+    .hero strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      padding: 30px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.20);
+    }
+
+    h2 {
+      margin: 0 0 18px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      letter-spacing: 2px;
+    }
+
+    .lead {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.84);
+      margin-bottom: 22px;
+    }
+
+    .email-box {
+      display: block;
+      padding: 18px 20px;
+      margin: 22px 0 18px;
+      border-radius: 18px;
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(135deg, rgba(255,215,170,0.16), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,215,170,0.28);
+      font-weight: 600;
+      font-size: 18px;
+      word-break: break-word;
+      transition: 0.25s ease;
+    }
+
+    .email-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(255,215,170,0.14);
+    }
+
+    .subtle {
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.62);
+      margin-top: 10px;
+    }
+
+    .list {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .list-item {
+      padding: 18px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+    }
+
+    .list-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold);
+      font-size: 15px;
+      letter-spacing: 0.3px;
+    }
+
+    .list-item span {
+      color: rgba(255,255,255,0.82);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .form {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: white;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font: inherit;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(255,255,255,0.42);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .checkbox {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.68);
+    }
+
+    .checkbox input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      flex: 0 0 auto;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      border: 1px solid rgba(255,215,170,0.35);
+      background: linear-gradient(135deg, rgba(255,215,170,0.18), rgba(255,255,255,0.05));
+      transition: 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(255,215,170,0.16);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--gold);
+    }
+
+    .note-band {
+      margin-top: 34px;
+      padding: 24px 24px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(255,215,170,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,215,170,0.14);
+      color: rgba(255,255,255,0.84);
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .footer-links {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer-links a {
+      color: var(--gold);
+      text-decoration: none;
+      opacity: 0.88;
+      margin: 0 10px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 58px;
+      }
+
+      h2 {
+        font-size: 34px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+    }
+
     @media (max-width: 600px) {
-      h1 { font-size: 48px; }
-      h2 { font-size: 32px; }
-      p, li { font-size: 16px; }
+      .container {
+        padding-top: 70px;
+      }
+
+      h1 {
+        font-size: 48px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Contact</h1>
-    <p>For bookings, press enquiries, collaborations, or general contact, please use the email below.</p>
 
-    <div class="card">
-      <h2>Bookings, Press & Collaborations</h2>
-      <p><strong>Email:</strong> <a href="mailto:dakotarayneofficial@gmail.com">dakotarayneofficial@gmail.com</a></p>
-      <p>Please include who you are, what you’re contacting about, and any relevant links, deadlines, or background information.</p>
+    <section class="hero">
+      <span class="eyebrow">Contact / Booking</span>
+      <h1>Start the Conversation</h1>
+      <p>
+        Dakota Rayne is available for <strong>creative partnerships, visual campaigns, media features, and digital experience concepts</strong>.
+      </p>
+      <p>
+        If you have an idea that fits the Dakota world — or want to explore something custom — this is the place to reach out.
+      </p>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>Enquiries</h2>
+        <div class="lead">
+          For direct enquiries, partnerships, press, or collaborations, use the email below or send a message through the form.
+        </div>
+
+        <a class="email-box" href="mailto:dakotarayneofficial@gmail.com?subject=Dakota%20Rayne%20Enquiry">
+          dakotarayneofficial@gmail.com
+        </a>
+
+        <div class="subtle">
+          Best for collaboration ideas, artist features, visual campaigns, digital concepts, content partnerships, and media opportunities.
+        </div>
+
+        <div class="note-band">
+          Dakota Rayne is presented as a premium digital artist experience. Enquiries are welcomed from brands, media, creatives, and anyone interested in building something distinctive around the project.
+        </div>
+
+        <div class="list">
+          <div class="list-item">
+            <strong>Brand / Creative Partnerships</strong>
+            <span>Concept-led collaborations, stylised campaign visuals, or Dakota-led digital storytelling ideas.</span>
+          </div>
+
+          <div class="list-item">
+            <strong>Media / Press Features</strong>
+            <span>Interviews, writeups, coverage angles, artist concept features, and future-facing music conversations.</span>
+          </div>
+
+          <div class="list-item">
+            <strong>Custom Experience Ideas</strong>
+            <span>Special visual concepts, showcase pieces, one-off digital activations, or something more ambitious.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Send a Message</h2>
+
+        <form class="form" action="mailto:dakotarayneofficial@gmail.com" method="post" enctype="text/plain">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your name">
+          </div>
+
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="your@email.com">
+          </div>
+
+          <div>
+            <label for="enquiry-type">Enquiry Type</label>
+            <select id="enquiry-type" name="enquiry-type">
+              <option>Brand / Creative Partnership</option>
+              <option>Media / Press</option>
+              <option>Content Collaboration</option>
+              <option>Custom Experience Idea</option>
+              <option>General Enquiry</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us a little about your idea, project, or enquiry."></textarea>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" name="consent" required>
+            <span>I consent to being contacted about this enquiry.</span>
+          </label>
+
+          <div class="btn-row">
+            <button class="btn" type="submit">Send Enquiry</button>
+            <a class="btn secondary" href="experience.html">View Experience</a>
+          </div>
+        </form>
+
+        <div class="subtle">
+          This simple form opens your email app. A fuller form setup can be added later.
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="experience.html">Experience</a>
+      <a href="privacy.html">Privacy Policy</a>
     </div>
 
-    <div class="card">
-      <h2>What to Include</h2>
-      <ul>
-        <li>Your name or organisation</li>
-        <li>The reason for your enquiry</li>
-        <li>Relevant links or references</li>
-        <li>Any important timing or deadlines</li>
-      </ul>
-    </div>
-
-    <a class="back-link" href="index.html">← Back to Home</a>
   </div>
 </body>
 </html>
