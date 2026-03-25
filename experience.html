@@ -4,178 +4,445 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Dakota Rayne Experience</title>
-
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg-dark: #05050a;
+      --bg-mid: #130d1d;
+      --gold: #ffd7aa;
+      --gold-soft: rgba(255, 215, 170, 0.22);
+      --white-soft: rgba(255,255,255,0.88);
+      --card: rgba(255,255,255,0.05);
+      --border: rgba(255,215,170,0.18);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: 'Montserrat', sans-serif;
       color: white;
-      background: radial-gradient(circle at top, #1a1025, #05050a 80%);
+      background:
+        radial-gradient(circle at top, rgba(52, 29, 74, 0.85), transparent 35%),
+        linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-dark) 80%);
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 100px 20px;
-      text-align: center;
+      padding: 90px 20px 100px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
     h1 {
+      margin: 0 0 18px;
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 72px;
+      font-size: 84px;
+      line-height: 0.95;
       letter-spacing: 3px;
-      margin-bottom: 20px;
+      text-shadow: 0 0 28px rgba(255,215,170,0.14);
     }
 
-    h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 42px;
-      margin-top: 80px;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
+    .hero-sub {
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--white-soft);
+      max-width: 620px;
+      margin-bottom: 28px;
     }
 
-    p {
+    .hero-copy p,
+    .section-copy {
       font-size: 18px;
-      line-height: 1.8;
-      opacity: 0.9;
-      max-width: 700px;
-      margin: 0 auto 20px;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.84);
+      margin: 0 0 18px;
     }
 
-    .highlight {
-      font-size: 20px;
-      font-style: italic;
-      opacity: 0.85;
-      margin-bottom: 40px;
-    }
-
-    .grid {
-      display: grid;
-      gap: 20px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,215,170,0.2);
-      border-radius: 20px;
-      padding: 30px;
-      text-align: left;
-      backdrop-filter: blur(6px);
-    }
-
-    .card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .cta {
-      margin-top: 80px;
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
     }
 
     .btn {
       display: inline-block;
-      padding: 16px 28px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, rgba(255,215,170,0.2), rgba(255,255,255,0.05));
-      border: 1px solid rgba(255,215,170,0.4);
-      color: white;
+      padding: 16px 24px;
+      border-radius: 14px;
       text-decoration: none;
+      color: white;
       font-weight: 600;
-      transition: 0.3s;
+      border: 1px solid rgba(255,215,170,0.35);
+      background: linear-gradient(135deg, rgba(255,215,170,0.18), rgba(255,255,255,0.05));
+      transition: 0.25s ease;
     }
 
     .btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(255,215,170,0.3);
+      box-shadow: 0 10px 28px rgba(255,215,170,0.18);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--gold);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      border: 1px solid rgba(255,215,170,0.20);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-image-caption {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.58));
+      border: 1px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+      font-size: 14px;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-image-caption strong {
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .section {
+      margin-top: 90px;
+    }
+
+    h2 {
+      margin: 0 0 20px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      letter-spacing: 2px;
+      text-align: center;
+      text-shadow: 0 0 18px rgba(255,215,170,0.10);
+    }
+
+    .section-intro {
+      max-width: 760px;
+      margin: 0 auto 36px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.84);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px;
+      letter-spacing: 1px;
+      color: white;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .feature-band {
+      margin-top: 90px;
+      padding: 34px 30px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, rgba(255,215,170,0.10), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,215,170,0.20);
+      text-align: center;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .feature-band p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 22px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .gallery {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255,215,170,0.16);
+      background: rgba(255,255,255,0.03);
+      min-height: 220px;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .gallery-placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      padding: 26px;
+      text-align: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 15px;
+      line-height: 1.7;
+      background:
+        linear-gradient(135deg, rgba(255,215,170,0.05), rgba(255,255,255,0.02));
+    }
+
+    .cta {
+      margin-top: 100px;
+      text-align: center;
+      padding: 42px 24px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,215,170,0.16);
+    }
+
+    .cta p {
+      max-width: 760px;
+      margin: 0 auto 24px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.84);
     }
 
     .back {
-      margin-top: 60px;
-      display: block;
-      font-size: 14px;
-      opacity: 0.6;
+      display: inline-block;
+      margin-top: 26px;
+      color: var(--gold);
       text-decoration: none;
-      color: #ffd7aa;
+      opacity: 0.85;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 62px;
+      }
+
+      .grid,
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      h2 {
+        font-size: 38px;
+      }
+
+      .hero-sub {
+        font-size: 20px;
+      }
+
+      .feature-band p {
+        font-size: 19px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding-top: 70px;
+      }
+
+      h1 {
+        font-size: 50px;
+      }
+
+      .hero-sub,
+      .hero-copy p,
+      .section-intro,
+      .cta p,
+      .section-copy {
+        font-size: 16px;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
 
-    <h1>The Dakota Rayne Experience™</h1>
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Digital Artist Concept</span>
+        <h1>The Dakota Rayne Experience™</h1>
+        <div class="hero-sub">
+          A premium next-generation country-pop experience built for modern media, brands, visual campaigns, and digital audiences.
+        </div>
 
-    <p class="highlight">
-      A next-generation country artist built for the algorithm era.
-    </p>
+        <p>
+          Dakota Rayne is not positioned as a traditional performer. She is a fully produced artist world: music, visuals, identity, atmosphere, and storytelling combined into one scalable digital experience.
+        </p>
 
-    <p>
-      Dakota Rayne is not a traditional performer — she’s a fully produced digital artist experience designed for modern platforms, brands, and audiences.
-    </p>
+        <p>
+          The result is something cinematic, flexible, and instantly attention-grabbing — designed for the internet era, but polished enough to feel like a real entertainment property.
+        </p>
 
-    <p>
-      Combining cinematic visuals, original music, and character-driven storytelling, Dakota delivers a consistent, high-impact presence that exists entirely in the digital world.
-    </p>
-
-    <p class="highlight">
-      This isn’t live performance. This is something new.
-    </p>
-
-    <h2>What’s Available</h2>
-
-    <div class="grid">
-
-      <div class="card">
-        <h3>Content Collaborations</h3>
-        <p>Custom short-form content, platform-native storytelling, and branded integrations designed to feel organic and high-impact.</p>
+        <div class="hero-buttons">
+          <a class="btn" href="contact.html">Contact / Booking</a>
+          <a class="btn secondary" href="index.html">Back to Home</a>
+        </div>
       </div>
 
-      <div class="card">
-        <h3>Music & Visual Campaigns</h3>
-        <p>Use Dakota Rayne music and visuals as the centrepiece of cinematic digital campaigns and promotional releases.</p>
+      <div class="hero-visual">
+        <div class="hero-image-card">
+          <img src="experience1.png" alt="Dakota Rayne Experience concept visual">
+          <div class="hero-image-caption">
+            <strong>Concept Visual:</strong> an illustration of the Dakota Rayne experience in action — immersive, cinematic, and designed to feel bigger than a standard artist page.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What It Can Be</h2>
+      <div class="section-intro">
+        The Dakota Rayne Experience can be adapted as a visual music property, a digital campaign centerpiece, a branded content concept, or a media-ready entertainment format.
       </div>
 
-      <div class="card">
-        <h3>Digital Appearances</h3>
-        <p>Interview-style content, direct-to-camera segments, and personality-driven features for media and brand channels.</p>
-      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Content Collaborations</h3>
+          <p>
+            Short-form campaign content, stylised brand integrations, music-led reels, and platform-native storytelling designed to feel entertaining rather than promotional.
+          </p>
+        </div>
 
-      <div class="card">
-        <h3>Creative Partnerships</h3>
-        <p>Long-term collaborations, co-branded content, and narrative-driven series built around Dakota’s world.</p>
-      </div>
+        <div class="card">
+          <h3>Visual Campaigns</h3>
+          <p>
+            High-impact visuals built around Dakota’s identity, from cinematic promo pieces to concept-led campaign assets that create intrigue and shareability.
+          </p>
+        </div>
 
+        <div class="card">
+          <h3>Digital Appearances</h3>
+          <p>
+            Character-driven interview pieces, speaking-to-camera style segments, world-building clips, and media features that make the artist concept feel tangible and alive.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Creative Partnerships</h3>
+          <p>
+            Bespoke collaborations for brands, platforms, or campaigns looking for something more futuristic, distinctive, and culturally current than standard artist promotion.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="feature-band">
+      <p>
+        This is not about pretending Dakota is a conventional live act. It is about presenting a premium digital entertainment experience with the polish, atmosphere, and emotional pull of a major artist world.
+      </p>
     </div>
 
-    <h2>Why Dakota Works</h2>
+    <section class="section">
+      <h2>Experience Visuals</h2>
+      <div class="section-intro">
+        This section is ready for expansion. Right now it highlights the first concept image, but more experience visuals can be added later as the world grows.
+      </div>
 
-    <p>
-      Dakota exists where music, technology, and storytelling meet.
-    </p>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="experience1.png" alt="Dakota Rayne Experience visual 1">
+        </div>
 
-    <p>
-      She is always on-brand. Always available. Infinitely scalable.
-    </p>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            Future concept visual placeholder.<br>
+            Add <strong>experience2.png</strong> later and replace this block with another image tile.
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p class="highlight">
-      No scheduling. No limitations. Just consistent, high-quality output.
-    </p>
-
-    <div class="cta">
+    <section class="cta">
       <h2>Enquiries</h2>
-      <p>For collaborations, media features, or brand partnerships:</p>
-
-      <a class="btn" href="contact.html">
-        Contact / Booking
-      </a>
-    </div>
-
-    <a href="index.html" class="back">← Back to Home</a>
+      <p>
+        For collaborations, concept partnerships, media features, or bespoke Dakota Rayne experience ideas, use the contact page to start the conversation.
+      </p>
+      <a class="btn" href="contact.html">Make an Enquiry</a>
+      <br>
+      <a class="back" href="index.html">← Back to Home</a>
+    </section>
 
   </div>
 </body>
