@@ -14,10 +14,12 @@
       max-width: 800px;
       margin: auto;
     }
-    h1 { margin-bottom: 20px; }
+    h1 {
+      margin-bottom: 20px;
+    }
     textarea {
       width: 100%;
-      height: 220px;
+      height: 200px;
       padding: 15px;
       border-radius: 10px;
       border: none;
@@ -28,7 +30,7 @@
     input {
       width: 100%;
       padding: 12px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       border-radius: 8px;
       border: none;
       box-sizing: border-box;
@@ -41,10 +43,10 @@
       color: black;
       font-weight: bold;
       cursor: pointer;
-      margin-right: 10px;
     }
-    .hidden { display: none; }
-    .status { margin-top: 12px; opacity: 0.85; }
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -52,17 +54,13 @@
 
   <div id="login">
     <input type="email" id="email" placeholder="Enter your email">
-    <input type="password" id="password" placeholder="Enter your password">
-    <button onclick="login()">Log In</button>
-    <div class="status" id="login-status"></div>
+    <button onclick="login()">Send Login Link</button>
   </div>
 
   <div id="editor" class="hidden">
     <h2>Edit Bio</h2>
     <textarea id="bio"></textarea>
     <button onclick="saveBio()">Save Bio</button>
-    <button onclick="logout()">Log Out</button>
-    <div class="status" id="editor-status"></div>
   </div>
 
   <script>
@@ -73,34 +71,23 @@
     const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
     async function login() {
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value;
-      const status = document.getElementById('login-status');
-      status.textContent = 'Logging in...';
+      const email = document.getElementById('email').value;
 
-      const { error } = await client.auth.signInWithPassword({ email, password });
+      const { error } = await client.auth.signInWithOtp({
+        email: email
+      });
 
       if (error) {
-        status.textContent = 'Login failed: ' + error.message;
-        return;
+        alert('Login failed: ' + error.message);
+      } else {
+        alert('Check your email for login link');
       }
-
-      status.textContent = '';
-      checkUser();
-    }
-
-    async function logout() {
-      await client.auth.signOut();
-      document.getElementById('editor').classList.add('hidden');
-      document.getElementById('login').classList.remove('hidden');
-      document.getElementById('editor-status').textContent = '';
     }
 
     async function checkUser() {
       const { data } = await client.auth.getUser();
-      const user = data?.user;
 
-      if (user) {
+      if (data?.user) {
         document.getElementById('login').classList.add('hidden');
         document.getElementById('editor').classList.remove('hidden');
         loadBio();
@@ -108,9 +95,6 @@
     }
 
     async function loadBio() {
-      const status = document.getElementById('editor-status');
-      status.textContent = 'Loading bio...';
-
       const { data, error } = await client
         .from('site_content')
         .select('body')
@@ -118,18 +102,15 @@
         .single();
 
       if (error) {
-        status.textContent = 'Failed to load bio: ' + error.message;
+        alert('Failed to load bio: ' + error.message);
         return;
       }
 
       document.getElementById('bio').value = data?.body || '';
-      status.textContent = '';
     }
 
     async function saveBio() {
       const body = document.getElementById('bio').value;
-      const status = document.getElementById('editor-status');
-      status.textContent = 'Saving...';
 
       const { error } = await client
         .from('site_content')
@@ -137,9 +118,9 @@
         .eq('section_key', 'bio');
 
       if (error) {
-        status.textContent = 'Save failed: ' + error.message;
+        alert('Save failed: ' + error.message);
       } else {
-        status.textContent = 'Saved.';
+        alert('Saved!');
       }
     }
 
