@@ -1,80 +1,4 @@
-That confirms it: **`admin.html` is not on your GitHub Pages site yet**.
 
-Your homepage works because `index.html` is published.
-Your admin page 404s because **that file hasn’t been uploaded/committed**.
-
-### What you need to do
-
-Put `admin.html` in the **same place as `index.html`** in your GitHub Pages repo.
-
-If your repo root currently has:
-
-```text
-index.html
-```
-
-it should become:
-
-```text
-index.html
-admin.html
-```
-
-### Quick GitHub Pages fix
-
-Go to the GitHub repository that powers the site.
-
-Either use the GitHub web interface:
-
-* open the repo
-* click **Add file**
-* choose **Create new file**
-* name it `admin.html`
-* paste in the admin page code
-* commit it to the branch GitHub Pages is publishing from
-
-Or upload the file directly into the repo root.
-
-Then wait a minute or two and open:
-
-```text
-https://dakotarayne.com/admin.html
-```
-
-### Important
-
-Because you’re on **GitHub Pages**, the filename must match exactly:
-
-```text
-admin.html
-```
-
-Not:
-
-* `Admin.html`
-* `admin.htm`
-* `admin.html.txt`
-
-### Check the repo branch too
-
-Make sure GitHub Pages is publishing from the same branch where you added the file, usually:
-
-* `main`
-  or
-* `gh-pages`
-
-### After upload
-
-The 404 should disappear and you should see:
-
-* email box
-* send login link button
-
-### The admin page code again
-
-Use this as your `admin.html` file, with your real Supabase values inserted:
-
-```html
 <!doctype html>
 <html lang="en">
 <head>
@@ -205,6 +129,4 @@ Use this as your `admin.html` file, with your real Supabase values inserted:
   </script>
 </body>
 </html>
-```
 
-Once that file is in the repo root, the URL should work.
