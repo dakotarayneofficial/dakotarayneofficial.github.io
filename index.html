@@ -304,73 +304,7 @@
     </div>
     <div class="section">
       <h2>More Music Videos</h2>
-      <div class="thumbnails">
-        <a href="https://www.youtube.com/watch?v=sJvWebzSqSQ" target="_blank" class="thumb">
-          <img src="https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg" alt="Play with Fire">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">Play with Fire</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=38KeUOs27qw" target="_blank" class="thumb">
-          <img src="https://i.ytimg.com/vi/38KeUOs27qw/maxresdefault.jpg" alt="Diamonds and Diesel">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">Diamonds and Diesel</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=TikINJIdg6E" target="_blank" class="thumb">
-          <img src="https://i.ytimg.com/vi/TikINJIdg6E/maxresdefault.jpg" alt="Holographic Rain">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">Holographic Rain</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=XNPgzcpbjOw" target="_blank" class="thumb">
-          <img src="https://i.ytimg.com/vi/XNPgzcpbjOw/maxresdefault.jpg" alt="Small-Town Heart, Big Dreams">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">Small-Town Heart, Big Dreams</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=s3LUCofT7II" target="_blank" class="thumb">
-          <img src="https://i.ytimg.com/vi/s3LUCofT7II/maxresdefault.jpg" alt="Barbed Wire Heart">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">Barbed Wire Heart</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=t0pb7BG9QMA" target="_blank" class="thumb">
-          <img src="https://i.ytimg.com/vi/t0pb7BG9QMA/maxresdefault.jpg" alt="Dirt Road Diva">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">Dirt Road Diva</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=uQokFuJArQ4" target="_blank" class="thumb">
-          <img src="https://i.ytimg.com/vi/uQokFuJArQ4/maxresdefault.jpg" alt="Cowgirl Up">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">Cowgirl Up</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        </a>
-        <a href="https://www.youtube.com/watch?v=ghkldqfj1hE" target="_blank" class="thumb">
-          <img src="https://i.ytimg.com/vi/ghkldqfj1hE/maxresdefault.jpg" alt="Stand My Ground">
-          <div class="overlay">
-            <span class="vevo">vevo</span>
-            <div class="title">Stand My Ground</div>
-          </div>
-          <i class="fas fa-play-circle play-icon"></i>
-        </a>
-      </div>
-    </div>
+      <div class="thumbnails" id="videoGrid"></div>
     <div class="section">
       <h2>Start Your Own Music Journey</h2>
       <a href="https://distrokid.com/vip/seven/10480046"
@@ -481,6 +415,55 @@
   }
 
   loadLatestVideo();
+</script>
+    <script>
+  const CHANNEL_ID = 'UC5BRDu0rLn0mi3KebYC29Vw';
+
+  async function loadRandomVideos() {
+    try {
+      const res = await fetch(
+        `https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`
+      );
+      const data = await res.json();
+
+      let videos = data.items;
+
+      // Shuffle array
+      videos = videos.sort(() => 0.5 - Math.random());
+
+      // Take 6 random videos
+      const selected = videos.slice(0, 6);
+
+      const grid = document.getElementById('videoGrid');
+      grid.innerHTML = '';
+
+      selected.forEach(video => {
+        const videoId = video.link.split('v=')[1];
+        const thumbnail = `https://i.ytimg.com/vi/${videoId}/maxresdefault.jpg`;
+
+        const el = document.createElement('a');
+        el.href = video.link;
+        el.target = "_blank";
+        el.className = "thumb";
+
+        el.innerHTML = `
+          <img src="${thumbnail}" alt="${video.title}">
+          <div class="overlay">
+            <span class="vevo">vevo</span>
+            <div class="title">${video.title}</div>
+          </div>
+          <i class="fas fa-play-circle play-icon"></i>
+        `;
+
+        grid.appendChild(el);
+      });
+
+    } catch (err) {
+      console.error('Failed to load videos:', err);
+    }
+  }
+
+  loadRandomVideos();
 </script>
 </body>
 </html>
