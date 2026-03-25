@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mailing List | Dakota Rayne</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
     body {
       margin: 0;
@@ -67,6 +68,11 @@
       opacity: 0.75;
       margin-top: 18px;
     }
+    .status {
+      margin-top: 16px;
+      font-size: 15px;
+      min-height: 22px;
+    }
     a {
       color: #ffd7aa;
       text-decoration: none;
@@ -88,16 +94,18 @@
     <p>Get new music, video drops, and major Dakota Rayne updates direct to your inbox.</p>
 
     <div class="card">
-      <form>
-        <input type="email" placeholder="Enter your email address" required>
+      <form id="mailing-list-form">
+        <input type="email" id="email" placeholder="Enter your email address" required>
 
         <label>
-          <input type="checkbox" required>
+          <input type="checkbox" id="consent" required>
           I agree to receive email updates from Dakota Rayne and understand I can unsubscribe at any time.
         </label>
 
         <button type="submit">Join the Mailing List</button>
       </form>
+
+      <div class="status" id="status"></div>
 
       <p class="small">
         By signing up, you agree to the handling of your information as described in the
@@ -107,5 +115,61 @@
 
     <a class="back-link" href="index.html">← Back to Home</a>
   </div>
+
+  <script>
+    const SUPABASE_URL = 'YOUR_SUPABASE_URL';
+    const SUPABASE_ANON_KEY = 'YOUR_PUBLISHABLE_KEY';
+
+    const { createClient } = supabase;
+    const client = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    const form = document.getElementById('mailing-list-form');
+    const emailInput = document.getElementById('email');
+    const consentInput = document.getElementById('consent');
+    const statusEl = document.getElementById('status');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const email = emailInput.value.trim().toLowerCase();
+      const consent = consentInput.checked;
+
+      if (!email) {
+        statusEl.textContent = 'Please enter your email address.';
+        return;
+      }
+
+      if (!consent) {
+        statusEl.textContent = 'Please tick the consent box to join the mailing list.';
+        return;
+      }
+
+      statusEl.textContent = 'Joining...';
+
+      const { error } = await client
+        .from('mailing_list')
+        .insert([
+          {
+            email,
+            consent,
+            source: 'website'
+          }
+        ]);
+
+      if (error) {
+        if (error.code === '23505') {
+          statusEl.textContent = 'That email is already on the mailing list.';
+          return;
+        }
+
+        statusEl.textContent = 'Something went wrong. Please try again.';
+        console.error(error);
+        return;
+      }
+
+      form.reset();
+      statusEl.textContent = 'Thanks — you’re on the list.';
+    });
+  </script>
 </body>
 </html>
