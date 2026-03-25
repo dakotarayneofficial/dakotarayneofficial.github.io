@@ -292,7 +292,7 @@
       </div>
     </div>
     <div class="section">
-      <h2>Latest Music Video: A Night with Dakota</h2>
+      <h2 id="latestVideoTitle">Latest Music Video</h2>
       <div class="video-embed">
         <iframe
           id="latestVideo"
@@ -439,5 +439,48 @@
       }
     }
   </script>
+  <script>
+  const YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY';
+  const CHANNEL_ID = 'UC5BRDu0rLn0mi3KebYC29Vw';
+
+  async function loadLatestVideo() {
+    try {
+      // 1. Get uploads playlist ID for the channel
+      const channelRes = await fetch(
+        `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${CHANNEL_ID}&key=${YOUTUBE_API_KEY}`
+      );
+      const channelData = await channelRes.json();
+
+      const uploadsPlaylistId =
+        channelData.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+
+      if (!uploadsPlaylistId) return;
+
+      // 2. Get the newest uploaded video from that playlist
+      const playlistRes = await fetch(
+        `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=1&key=${YOUTUBE_API_KEY}`
+      );
+      const playlistData = await playlistRes.json();
+
+      const latestItem = playlistData.items?.[0];
+      if (!latestItem) return;
+
+      const videoTitle = latestItem.snippet.title;
+      const videoId = latestItem.snippet.resourceId.videoId;
+
+      // 3. Update the heading
+      document.getElementById('latestVideoTitle').textContent =
+        `Latest Music Video: ${videoTitle}`;
+
+      // 4. Update iframe to the exact latest video
+      const iframe = document.getElementById('latestVideo');
+      iframe.src = `https://www.youtube.com/embed/${videoId}?enablejsapi=1`;
+    } catch (error) {
+      console.error('Failed to load latest video:', error);
+    }
+  }
+
+  loadLatestVideo();
+</script>
 </body>
 </html>
