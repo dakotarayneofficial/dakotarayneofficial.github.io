@@ -222,6 +222,64 @@
       opacity: 1;
     }
 
+    .art-feature {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.art-card {
+  background: linear-gradient(135deg, rgba(255,215,170,0.12), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,215,170,0.35);
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(255,215,170,0.18);
+}
+
+.art-card img {
+  width: 100%;
+  max-width: 520px;
+  display: block;
+  margin: 0 auto 24px;
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+}
+
+.art-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  letter-spacing: 2px;
+  margin: 0 0 10px;
+  color: #ffd7aa;
+}
+
+.art-caption {
+  max-width: 620px;
+  margin: 0 auto;
+  font-size: 17px;
+  line-height: 1.7;
+  opacity: 0.95;
+}
+
+.art-coming-soon {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,215,170,0.45);
+  color: #ffd7aa;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
     .footer {
       margin-top: 100px;
       font-size: 12px;
@@ -342,6 +400,31 @@
         <p>Dakota: The AI Country Star. Crafted to deliver genuine heart & joy through music.</p>
       </div>
     </div>
+
+    <div class="section art-feature">
+  <h2>Art From Dakota</h2>
+  <p class="promo-text">
+    Dakota has taken up painting. The art world has been warned.
+  </p>
+
+  <div class="art-card">
+    <img src="horse.png" alt="Dakota Rayne horse painting called Midnight Spirit">
+
+    <div class="art-title">Midnight Spirit</div>
+
+    <div class="art-caption">
+      <p>
+        Dakota’s debut masterpiece captures the untamed beauty of a horse, the mystery of a moonlit sky, and absolutely no understanding of horse anatomy.
+      </p>
+
+      <p>
+        Prints, originals, and highly questionable collector pieces may be available soon.
+      </p>
+
+      <span class="art-coming-soon">Available soon</span>
+    </div>
+  </div>
+</div>
 
     <div class="section">
       <h2>Latest Music Video</h2>
