@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dakota Rayne | Art Gallery</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: white;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #3a2230 0%, #130d16 45%, #050508 100%);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: 3px;
+      text-shadow: 0 0 25px rgba(255,215,170,0.35);
+    }
+
+    h1 {
+      font-size: 82px;
+      margin: 0 0 10px;
+    }
+
+    .tagline {
+      font-size: 17px;
+      opacity: 0.85;
+      margin-bottom: 50px;
+      font-style: italic;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-bottom: 50px;
+      color: #ffd7aa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 34px;
+    }
+
+    .art-card {
+      background: linear-gradient(135deg, rgba(255,215,170,0.12), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,215,170,0.35);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.55);
+      backdrop-filter: blur(8px);
+    }
+
+    .art-card img {
+      width: 100%;
+      border-radius: 22px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.6);
+      margin-bottom: 22px;
+    }
+
+    .art-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 40px;
+      letter-spacing: 2px;
+      color: #ffd7aa;
+      margin-bottom: 10px;
+    }
+
+    .art-details {
+      font-size: 14px;
+      opacity: 0.75;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .art-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      opacity: 0.92;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px;
+      text-decoration: none;
+      color: #ffffff;
+      background: linear-gradient(135deg, rgba(255,215,170,0.18), rgba(255,255,255,0.06));
+      border-radius: 16px;
+      border: 1px solid rgba(255,215,170,0.4);
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(255,215,170,0.25);
+    }
+
+    .footer {
+      margin-top: 80px;
+      font-size: 12px;
+      opacity: 0.55;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 58px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a class="back-link" href="index.html">← Back to Dakota Rayne</a>
+
+    <h1>Dakota Art Gallery</h1>
+
+    <p class="tagline">
+      Original artistic visions from Dakota Rayne. The canvas may never recover.
+    </p>
+
+    <div class="gallery">
+
+      <div class="art-card">
+        <img src="/horse.png?v=3" alt="Midnight Spirit by Dakota Rayne">
+
+        <div class="art-title">Midnight Spirit</div>
+
+        <div class="art-details">
+          50 × 50 canvas reprint · Printed to order
+        </div>
+
+        <div class="art-desc">
+          A study of instinct, motion, and quiet defiance. In Midnight Spirit, Dakota explores the space between form and feeling, where structure gives way to expression and interpretation takes the lead.
+          <br><br>
+          The subject emerges not as it appears, but as it is remembered — untamed, imperfect, and entirely its own.
+        </div>
+
+        <a class="btn" href="https://buy.stripe.com/4gM4gsaWk3EXbqJbxz1RC00" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-shopping-cart"></i> Purchase Canvas Print
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer">
+      © Dakota Rayne. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>
