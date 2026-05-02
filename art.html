@@ -24,15 +24,12 @@
       text-align: center;
     }
 
-    h1, h2 {
+    h1 {
       font-family: 'Bebas Neue', sans-serif;
+      font-size: 82px;
       letter-spacing: 3px;
       text-shadow: 0 0 25px rgba(255,215,170,0.35);
-    }
-
-    h1 {
-      font-size: 82px;
-      margin: 0 0 10px;
+      margin-bottom: 10px;
     }
 
     .tagline {
@@ -74,7 +71,7 @@
 
     .art-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: 40px;
+      font-size: 34px;
       letter-spacing: 2px;
       color: #ffd7aa;
       margin-bottom: 10px;
@@ -89,10 +86,10 @@
     }
 
     .art-desc {
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: 15px;
+      line-height: 1.6;
       opacity: 0.92;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .btn {
@@ -100,7 +97,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      padding: 16px;
+      padding: 14px;
       text-decoration: none;
       color: #ffffff;
       background: linear-gradient(135deg, rgba(255,215,170,0.18), rgba(255,255,255,0.06));
@@ -115,16 +112,16 @@
       box-shadow: 0 10px 30px rgba(255,215,170,0.25);
     }
 
+    .delivery {
+      margin-top: 10px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+
     .footer {
       margin-top: 80px;
       font-size: 12px;
       opacity: 0.55;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 58px;
-      }
     }
   </style>
 </head>
@@ -136,32 +133,89 @@
     <h1>Dakota Art Gallery</h1>
 
     <p class="tagline">
-      Original artistic visions from Dakota Rayne. The canvas may never recover.
+      Collection I — instinct, memory, and form beyond convention.
     </p>
 
     <div class="gallery">
 
+      <!-- Midnight Spirit -->
       <div class="art-card">
-        <img src="/horse.png?v=3" alt="Midnight Spirit by Dakota Rayne">
-
+        <img src="/horse.png" alt="Midnight Spirit">
         <div class="art-title">Midnight Spirit</div>
+        <div class="art-details">50cm × 50cm canvas reprint</div>
+        <div class="art-desc">A study of instinct and imperfect form beneath a fractured night sky.</div>
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank"><i class="fas fa-shopping-cart"></i> Purchase Canvas Print</a>
+        <div class="delivery">Produced to order · Allow up to 30 days delivery</div>
+      </div>
 
-        <div class="art-details">
-          50cm × 50cm canvas reprint · Printed to order
-        </div>
+      <!-- Golden Reckoning -->
+      <div class="art-card">
+        <img src="/golden-reckoning.png" alt="Golden Reckoning">
+        <div class="art-title">Golden Reckoning</div>
+        <div class="art-details">50cm × 50cm canvas reprint</div>
+        <div class="art-desc">Light becomes weight in a moment that refuses resolution.</div>
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank"><i class="fas fa-shopping-cart"></i> Purchase Canvas Print</a>
+        <div class="delivery">Produced to order · Allow up to 30 days delivery</div>
+      </div>
 
-        <div class="art-desc">
-          A study of instinct, motion, and quiet defiance. In Midnight Spirit, Dakota explores the space between form and feeling, where structure gives way to expression and interpretation takes the lead.
-          <br><br>
-          The subject emerges not as it appears, but as it is remembered — untamed, imperfect, and entirely its own.
-        </div>
+      <!-- Echoes of Stillness -->
+      <div class="art-card">
+        <img src="/echoes-of-stillness.png" alt="Echoes of Stillness">
+        <div class="art-title">Echoes of Stillness</div>
+        <div class="art-details">50cm × 50cm canvas reprint</div>
+        <div class="art-desc">A quiet composition where absence carries the meaning.</div>
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank"><i class="fas fa-shopping-cart"></i> Purchase Canvas Print</a>
+        <div class="delivery">Produced to order · Allow up to 30 days delivery</div>
+      </div>
 
-        <a class="btn" href="https://buy.stripe.com/4gM4gsaWk3EXbqJbxz1RC00" target="_blank" rel="noopener noreferrer">
-          <i class="fas fa-shopping-cart"></i> Purchase Canvas Print
-        </a>
-        <div style="margin-top:12px; font-size:13px; opacity:0.65;">
-  Each piece is produced to order. Please allow up to 30 days for delivery.
-</div>
+      <!-- Unbroken Silence -->
+      <div class="art-card">
+        <img src="/unbroken-silence.png" alt="Unbroken Silence">
+        <div class="art-title">Unbroken Silence</div>
+        <div class="art-details">50cm × 50cm canvas reprint</div>
+        <div class="art-desc">A form that resists interruption and holds its ground.</div>
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank"><i class="fas fa-shopping-cart"></i> Purchase Canvas Print</a>
+        <div class="delivery">Produced to order · Allow up to 30 days delivery</div>
+      </div>
+
+      <!-- Silent Horizon -->
+      <div class="art-card">
+        <img src="/silent-horizon.png" alt="Silent Horizon">
+        <div class="art-title">Silent Horizon</div>
+        <div class="art-details">50cm × 50cm canvas reprint</div>
+        <div class="art-desc">A distant edge where movement pauses and waits.</div>
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank"><i class="fas fa-shopping-cart"></i> Purchase Canvas Print</a>
+        <div class="delivery">Produced to order · Allow up to 30 days delivery</div>
+      </div>
+
+      <!-- Weight of Light -->
+      <div class="art-card">
+        <img src="/weight-of-light.png" alt="Weight of Light">
+        <div class="art-title">Weight of Light</div>
+        <div class="art-details">50cm × 50cm canvas reprint</div>
+        <div class="art-desc">Brightness becomes pressure in a still, unresolved moment.</div>
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank"><i class="fas fa-shopping-cart"></i> Purchase Canvas Print</a>
+        <div class="delivery">Produced to order · Allow up to 30 days delivery</div>
+      </div>
+
+      <!-- Feral Memory -->
+      <div class="art-card">
+        <img src="/feral-memory.png" alt="Feral Memory">
+        <div class="art-title">Feral Memory</div>
+        <div class="art-details">50cm × 50cm canvas reprint</div>
+        <div class="art-desc">A fragment of instinct preserved in distorted recollection.</div>
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank"><i class="fas fa-shopping-cart"></i> Purchase Canvas Print</a>
+        <div class="delivery">Produced to order · Allow up to 30 days delivery</div>
+      </div>
+
+      <!-- Shape of Waiting -->
+      <div class="art-card">
+        <img src="/shape-of-waiting.png" alt="The Shape of Waiting">
+        <div class="art-title">The Shape of Waiting</div>
+        <div class="art-details">50cm × 50cm canvas reprint</div>
+        <div class="art-desc">Stillness held just before something that never arrives.</div>
+        <a class="btn" href="PASTE_STRIPE_LINK_HERE" target="_blank"><i class="fas fa-shopping-cart"></i> Purchase Canvas Print</a>
+        <div class="delivery">Produced to order · Allow up to 30 days delivery</div>
       </div>
 
     </div>
