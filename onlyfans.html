@@ -1,1 +1,311 @@
+Use this as your full `onlyfans.html`:
+
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dakota Rayne | OnlyFans</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #fff;
+      background:
+        radial-gradient(circle at top, rgba(255,215,170,0.18), transparent 35%),
+        linear-gradient(to bottom, #050505, #0b0708 45%, #020202);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 70px 20px 90px;
+    }
+
+    .back {
+      display: inline-block;
+      color: #ffd7aa;
+      text-decoration: none;
+      margin-bottom: 40px;
+      font-size: 14px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(70px, 12vw, 150px);
+      letter-spacing: 6px;
+      margin: 0;
+      text-shadow: 0 0 35px rgba(255,215,170,0.35);
+      line-height: 0.9;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 25px auto 0;
+      font-size: 18px;
+      line-height: 1.8;
+      opacity: 0.88;
+    }
+
+    .warning {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 12px 22px;
+      border: 1px solid rgba(255,215,170,0.4);
+      border-radius: 999px;
+      color: #ffd7aa;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 34px;
+    }
+
+    .fan-card {
+      background: linear-gradient(145deg, rgba(255,215,170,0.12), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,215,170,0.28);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .fan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 26px 65px rgba(255,215,170,0.16);
+      border-color: rgba(255,215,170,0.55);
+    }
+
+    .fan-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      background: #111;
+    }
+
+    .fan-content {
+      padding: 26px;
+    }
+
+    .fan-number {
+      color: #ffd7aa;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      letter-spacing: 2px;
+      line-height: 1;
+      margin: 0 0 16px;
+      color: #fff;
+    }
+
+    .fan-content p {
+      margin: 0;
+      font-size: 15.5px;
+      line-height: 1.75;
+      opacity: 0.88;
+    }
+
+    .rating {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,215,170,0.22);
+      color: #ffd7aa;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 80px;
+      font-size: 12px;
+      opacity: 0.55;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding-top: 40px;
+      }
+
+      h1 {
+        letter-spacing: 3px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <a class="back" href="index.html">← Back to Dakota Rayne</a>
+
+    <section class="hero">
+      <h1>Dakota’s OnlyFans</h1>
+      <p class="subtitle">
+        Welcome to Dakota’s most exclusive private collection: a carefully curated gallery of premium airflow, vintage engineering, polished cages, elegant oscillation and emotionally complicated fan behaviour.
+      </p>
+      <div class="warning">Premium airflow content</div>
+    </section>
+
+    <section class="grid">
+
+      <article class="fan-card">
+        <img src="/fan1.png" alt="Crompton Sovereign Oscillator 1967">
+        <div class="fan-content">
+          <div class="fan-number">Fan 01</div>
+          <h2>Crompton Sovereign Oscillator 1967</h2>
+          <p>
+            A heavy brushed-steel British pedestal fan with real presence. The polished chrome cage gives it a refined mid-century authority, while the cream rotary controls add just enough domestic charm to stop it looking like it belongs in a factory boiler room. The large metal blades suggest serious airflow rather than decorative breeze. This is the kind of fan that does not ask for attention. It simply occupies the room until everyone understands who is in charge.
+          </p>
+          <div class="rating">Oscillation rating: Regal</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan2.png" alt="Westinghouse AirMaster Deluxe 1954">
+        <div class="fan-content">
+          <div class="fan-number">Fan 02</div>
+          <h2>Westinghouse AirMaster Deluxe 1954</h2>
+          <p>
+            A glossy black enamel desk fan with beautiful art-deco curves and a warm brass centre badge. It feels like something that should be sitting in a private detective’s office next to a half-finished whisky and a stack of unpaid invoices. Compact, confident and beautifully reflective, this fan balances elegance with mechanical seriousness. The rounded housing gives it a softer silhouette, but the metal blades make it very clear this is not a toy.
+          </p>
+          <div class="rating">Desk presence: Dangerous</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan3.png" alt="Panasonic WhisperFlow Tower 1989">
+        <div class="fan-content">
+          <div class="fan-number">Fan 03</div>
+          <h2>Panasonic WhisperFlow Tower 1989</h2>
+          <p>
+            A late-eighties tower fan with smoked translucent plastic, amber indicator lights and a quiet retro-futuristic confidence. This is the fan equivalent of a luxury stereo system in a Tokyo apartment at midnight. The vertical form makes it feel sophisticated and space-saving, while the glowing controls give it just enough mystery to suggest it may also control a small satellite. Under low light, the plastic shell becomes moody, sleek and unexpectedly glamorous.
+          </p>
+          <div class="rating">Night mode: Immaculate</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan4.png" alt="Dyson Phantom Airblade X1">
+        <div class="fan-content">
+          <div class="fan-number">Fan 04</div>
+          <h2>Dyson Phantom Airblade X1</h2>
+          <p>
+            A futuristic bladeless fan with a matte black body and brushed aluminium accents. It has the clean, slightly intimidating look of something designed by a billionaire who refuses to open windows. The shape is minimal, sculptural and almost too polished for ordinary domestic life. There are no visible blades, no messy cage and no obvious drama. Just controlled airflow delivered with the emotional warmth of a private security system.
+          </p>
+          <div class="rating">Blade visibility: None</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan5.png" alt="General Electric BreezeMaster 1948">
+        <div class="fan-content">
+          <div class="fan-number">Fan 05</div>
+          <h2>General Electric BreezeMaster 1948</h2>
+          <p>
+            A massive industrial floor fan with aged green painted steel, thick brass blades and a motor housing that looks like it has survived several workplace incidents without filing a report. The chipped paint and heavy base give it real warehouse credibility. This is not a fan for a bedside table or a polite summer evening. This is a fan for moving air, dust, smoke, secrets and possibly small furniture across a room.
+          </p>
+          <div class="rating">Workplace hazard: Beautiful</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan6.png" alt="Toshiba SilentWind Executive 1993">
+        <div class="fan-content">
+          <div class="fan-number">Fan 06</div>
+          <h2>Toshiba SilentWind Executive 1993</h2>
+          <p>
+            A silver-grey executive office fan with a retro LCD display and serious boardroom energy. It looks like it was designed for someone who owned a fax machine, a leather briefcase and at least three opinions about interest rates. The styling is pure early-nineties premium technology: smooth plastics, practical buttons and a quiet belief that the future would involve more grey. Under polished office lighting, it becomes strangely dignified.
+          </p>
+          <div class="rating">Corporate breeze: Senior management</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan7.png" alt="AeroJet Turbine 5000">
+        <div class="fan-content">
+          <div class="fan-number">Fan 07</div>
+          <h2>AeroJet Turbine 5000</h2>
+          <p>
+            An aggressive industrial airflow fan with exposed aircraft-style turbine blades, gunmetal construction and enough bolts to make engineers emotional. It looks less like a household appliance and more like something removed from a classified propulsion test. The circular intake, deep shadowed blades and heavy frame all suggest overwhelming power. It is excessive, dramatic and completely impractical for a living room, which is exactly why it deserves respect.
+          </p>
+          <div class="rating">Airflow threat level: Severe</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan8.png" alt="Honeywell Summer Breeze Compact 1978">
+        <div class="fan-content">
+          <div class="fan-number">Fan 08</div>
+          <h2>Honeywell Summer Breeze Compact 1978</h2>
+          <p>
+            A soft beige table fan with warm seventies bedroom energy and an almost sentimental sense of purpose. The cream plastic housing, simple grille and push-button controls make it feel familiar, gentle and quietly dependable. It is not trying to dominate the room or impress collectors with chrome and brass. It just wants to sit on a bedside table, hum through a summer night and keep the wallpaper from peeling off in July.
+          </p>
+          <div class="rating">Nostalgia output: High</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan9.png" alt="Vornado ChromeJet Supreme">
+        <div class="fan-content">
+          <div class="fan-number">Fan 09</div>
+          <h2>Vornado ChromeJet Supreme</h2>
+          <p>
+            A mirror-polished chrome air circulator with a finish so reflective it almost becomes rude. Every curve catches the light, every surface looks expensive, and the deep black background makes it feel like a luxury watch pretending to be a fan. This is not a humble cooling device. It is a vanity object with airflow capabilities. The compact body and immaculate grille make it perfect for anyone who wants their breeze delivered with unnecessary glamour.
+          </p>
+          <div class="rating">Chrome confidence: Excessive</div>
+        </div>
+      </article>
+
+      <article class="fan-card">
+        <img src="/fan10.png" alt="Mitsubishi ArcticFlow Pro 2001">
+        <div class="fan-content">
+          <div class="fan-number">Fan 10</div>
+          <h2>Mitsubishi ArcticFlow Pro 2001</h2>
+          <p>
+            An early-2000s silver pedestal fan with clean Japanese industrial styling and a calm, premium technology feel. The metallic finish, minimalist stand and balanced circular head make it look more advanced than it probably needed to be. It belongs in the era when every appliance wanted to look like a hi-fi system. Sleek, controlled and quietly futuristic, it proves that even ordinary pedestal fans can have main-character energy under the right lighting.
+          </p>
+          <div class="rating">Millennium elegance: Confirmed</div>
+        </div>
+      </article>
+
+    </section>
+
+    <div class="footer">
+      © Dakota Rayne. Premium airflow. No refunds.
+    </div>
+  </div>
+</body>
+</html>
+```
 
