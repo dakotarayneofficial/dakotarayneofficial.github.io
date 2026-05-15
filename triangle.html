@@ -1,1 +1,613 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dakota Triangle Opportunity | Dakota Rayne</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #020202;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 8%, rgba(255, 204, 120, 0.16), transparent 32%),
+        radial-gradient(circle at 18% 28%, rgba(255, 204, 120, 0.08), transparent 26%),
+        linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.92));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 36px 20px 80px;
+      position: relative;
+    }
+
+    .home-link {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 215, 170, 0.28);
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+
+    .home-link:hover {
+      color: #ffd7aa;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+    .hero-inner {
+      width: min(1120px, 100%);
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .poster-wrap {
+      position: relative;
+      max-width: 430px;
+      margin: 0 auto;
+    }
+
+    .poster-wrap::before {
+      content: "";
+      position: absolute;
+      inset: -18px;
+      background: linear-gradient(135deg, rgba(255,215,170,0.32), transparent, rgba(255,215,170,0.12));
+      border-radius: 34px;
+      filter: blur(18px);
+      opacity: 0.75;
+      z-index: -1;
+    }
+
+    .poster {
+      width: 100%;
+      display: block;
+      border-radius: 28px;
+      box-shadow: 0 28px 90px rgba(0,0,0,0.75);
+      border: 1px solid rgba(255,215,170,0.22);
+    }
+
+    .eyebrow {
+      color: #ffd7aa;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(66px, 10vw, 124px);
+      line-height: 0.86;
+      margin: 0 0 22px;
+      letter-spacing: 4px;
+      text-shadow: 0 0 38px rgba(255, 215, 170, 0.28);
+    }
+
+    .subhead {
+      max-width: 640px;
+      font-size: clamp(18px, 2.1vw, 25px);
+      line-height: 1.55;
+      color: rgba(255,255,255,0.88);
+      margin: 0 0 28px;
+    }
+
+    .gold {
+      color: #ffd7aa;
+      font-weight: 700;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 34px 0 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 15px 22px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      font-size: 13px;
+      border: 1px solid rgba(255,215,170,0.36);
+      background: linear-gradient(135deg, rgba(255,215,170,0.22), rgba(255,255,255,0.05));
+      box-shadow: 0 12px 35px rgba(0,0,0,0.35);
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 45px rgba(255,215,170,0.18);
+      border-color: rgba(255,215,170,0.7);
+    }
+
+    .btn.secondary {
+      background: rgba(255,255,255,0.035);
+    }
+
+    .micro-warning {
+      max-width: 660px;
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-left: 3px solid #ffd7aa;
+      background: rgba(255,255,255,0.045);
+      color: rgba(255,255,255,0.76);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .section {
+      padding: 90px 20px;
+    }
+
+    .section-inner {
+      width: min(1060px, 100%);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 7vw, 76px);
+      margin: 0 0 18px;
+      letter-spacing: 3px;
+    }
+
+    .section-text {
+      max-width: 720px;
+      margin: 0 auto 42px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.75;
+      font-size: 18px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .step-card {
+      min-height: 220px;
+      padding: 28px 22px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, rgba(255,215,170,0.13), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,215,170,0.24);
+      box-shadow: 0 14px 42px rgba(0,0,0,0.38);
+    }
+
+    .step-card i {
+      font-size: 34px;
+      color: #ffd7aa;
+      margin-bottom: 18px;
+    }
+
+    .step-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      letter-spacing: 2px;
+      margin: 0 0 12px;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: rgba(255,255,255,0.75);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 42px;
+    }
+
+    .tier-card {
+      padding: 34px 24px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,215,170,0.26);
+      background: rgba(255,255,255,0.04);
+      box-shadow: 0 18px 55px rgba(0,0,0,0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tier-card.featured {
+      background: linear-gradient(135deg, rgba(255,215,170,0.18), rgba(255,255,255,0.045));
+      transform: translateY(-10px);
+    }
+
+    .tier-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(255,215,170,0.22), transparent 38%);
+      pointer-events: none;
+    }
+
+    .tier-card h3 {
+      position: relative;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      letter-spacing: 2px;
+      margin: 0 0 8px;
+    }
+
+    .price {
+      position: relative;
+      font-size: 42px;
+      font-weight: 700;
+      color: #ffd7aa;
+      margin-bottom: 18px;
+    }
+
+    .tier-card ul {
+      position: relative;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      color: rgba(255,255,255,0.78);
+      line-height: 1.85;
+      font-size: 14px;
+    }
+
+    .tier-card li::before {
+      content: "△";
+      color: #ffd7aa;
+      margin-right: 9px;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 42px;
+    }
+
+    .quote {
+      text-align: left;
+      padding: 26px;
+      border-radius: 24px;
+      border: 1px solid rgba(255,215,170,0.22);
+      background: rgba(255,255,255,0.04);
+      line-height: 1.7;
+      color: rgba(255,255,255,0.82);
+    }
+
+    .quote strong {
+      display: block;
+      color: #ffd7aa;
+      margin-top: 18px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .final-cta {
+      padding: 110px 20px 70px;
+      text-align: center;
+      background: radial-gradient(circle at center top, rgba(255,215,170,0.15), transparent 40%);
+    }
+
+    .final-cta h2 {
+      margin-bottom: 10px;
+    }
+
+    .risk {
+      margin-top: 42px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(28px, 5vw, 54px);
+      letter-spacing: 4px;
+      color: #ffd7aa;
+    }
+
+    .legal {
+      max-width: 860px;
+      margin: 36px auto 0;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,215,170,0.25);
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .footer {
+      padding: 36px 20px 46px;
+      text-align: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 12px;
+    }
+
+    .footer a {
+      color: #ffd7aa;
+      text-decoration: none;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 58px;
+      }
+
+      .subhead,
+      .micro-warning {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-row {
+        justify-content: center;
+      }
+
+      .steps,
+      .tiers,
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tier-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .home-link {
+        left: 16px;
+        top: 16px;
+      }
+
+      .hero {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .poster-wrap {
+        max-width: 330px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4H8ETCF8E"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-P4H8ETCF8E');
+  </script>
+</head>
+
+<body>
+  <main class="page">
+    <section class="hero">
+      <a class="home-link" href="index.html"><i class="fas fa-arrow-left"></i> Back to Dakota</a>
+
+      <div class="hero-inner">
+        <div class="poster-wrap">
+          <img class="poster" src="/triangle.png?v=1" alt="Dakota Triangle Opportunity promotional poster">
+        </div>
+
+        <div class="hero-copy">
+          <div class="eyebrow">Exclusive Founder Invitation</div>
+          <h1>Dakota Triangle Opportunity</h1>
+          <p class="subhead">
+            Wanna get rich quick? Join Dakota's glamorous triangular wealth acceleration structure and discover the power of telling two friends absolutely nothing useful.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn" href="#join" onclick="if(window.gtag){gtag('event','click',{event_category:'engagement',event_label:'Triangle Join CTA'});}">
+              <i class="fas fa-crown"></i> Become A Founder
+            </a>
+            <a class="btn secondary" href="#how">
+              <i class="fas fa-chart-line"></i> See The System
+            </a>
+          </div>
+
+          <div class="micro-warning">
+            This is not financial advice. It is barely advice. Dakota Triangle Opportunity is not regulated by anyone with common sense.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="section-inner">
+        <h2>How The Triangle Works</h2>
+        <p class="section-text">
+          A revolutionary three-point business model based on confidence, confusion, and very good lighting.
+        </p>
+
+        <div class="steps">
+          <div class="step-card">
+            <i class="fas fa-user-plus"></i>
+            <h3>You Tell Two Friends</h3>
+            <p>Preferably during a dinner they thought was just dinner.</p>
+          </div>
+
+          <div class="step-card">
+            <i class="fas fa-people-arrows"></i>
+            <h3>They Tell Two Friends</h3>
+            <p>The triangle expands. The room becomes tense. Nobody asks enough questions.</p>
+          </div>
+
+          <div class="step-card">
+            <i class="fas fa-champagne-glasses"></i>
+            <h3>Nobody Makes Money</h3>
+            <p>But the glasses are tall and the charts point upward, so morale remains confusingly high.</p>
+          </div>
+
+          <div class="step-card">
+            <i class="fas fa-face-grimace"></i>
+            <h3>Everyone Gets Regret</h3>
+            <p>Not profit. Not dividends. Just a polished sense of having attended something expensive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="join">
+      <div class="section-inner">
+        <h2>Choose Your Level</h2>
+        <p class="section-text">
+          All tiers include access to the same opportunity, which is mostly Dakota explaining the triangle again with more confidence.
+        </p>
+
+        <div class="tiers">
+          <div class="tier-card">
+            <h3>Bronze Doubter</h3>
+            <div class="price">£0</div>
+            <ul>
+              <li>One suspicious welcome email</li>
+              <li>Basic emotional exposure</li>
+              <li>No badge</li>
+              <li>Some regret</li>
+            </ul>
+          </div>
+
+          <div class="tier-card featured">
+            <h3>Gold Founder</h3>
+            <div class="price">£0</div>
+            <ul>
+              <li>Premium imaginary status</li>
+              <li>Access to upward arrows</li>
+              <li>One glass of pretend champagne</li>
+              <li>Moderate regret</li>
+            </ul>
+          </div>
+
+          <div class="tier-card">
+            <h3>Diamond Visionary</h3>
+            <div class="price">£0</div>
+            <ul>
+              <li>Advanced triangle awareness</li>
+              <li>Permission to nod seriously</li>
+              <li>Founder energy</li>
+              <li>Severe regret</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <h2>What Members Are Saying</h2>
+        <p class="section-text">
+          Real statements from fictional people who definitely attended the seminar and left different.
+        </p>
+
+        <div class="testimonial-grid">
+          <div class="quote">
+            “I arrived with questions and left with a triangle. That has to mean something.”
+            <strong>Confused Founder</strong>
+          </div>
+
+          <div class="quote">
+            “The charts went up, Dakota smiled, and I stopped checking my bank app.”
+            <strong>Gold Founder</strong>
+          </div>
+
+          <div class="quote">
+            “I told two friends. They no longer answer my calls. Powerful stuff.”
+            <strong>Diamond Visionary</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="section-inner">
+        <h2>Tell Two Friends</h2>
+        <p class="section-text">
+          Change nothing. Embrace regret. Visit the official Dakota Rayne universe for more music, fake business ventures, and questionable lifestyle choices.
+        </p>
+
+        <a class="btn" href="index.html" onclick="if(window.gtag){gtag('event','click',{event_category:'engagement',event_label:'Triangle Back To Home'});}">
+          <i class="fas fa-music"></i> Return To DakotaRayne.com
+        </a>
+
+        <div class="risk">Your investment is at serious risk.</div>
+
+        <div class="legal">
+          Dakota Triangle Opportunity is a fictional comedy page created for entertainment. No investment is offered, accepted, managed, multiplied, enhanced, accelerated, triangulated, emotionally laundered, or otherwise made available. Any resemblance to a real wealth opportunity is unfortunate and probably a sign to leave the room.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    © Dakota Rayne. All rights reserved. <a href="index.html">Back to main site</a>
+  </footer>
+</body>
+</html>
 
