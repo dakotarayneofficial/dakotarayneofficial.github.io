@@ -191,6 +191,28 @@ display: block;
       display: block;
       transition: transform 0.4s ease;
     }
+    .triangle-feature {
+  max-width: 520px;
+  margin: 40px auto 0;
+}
+
+.triangle-card {
+  display: block;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.triangle-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 22px 55px rgba(255,215,170,0.22);
+}
+
+.triangle-card img {
+  width: 100%;
+  display: block;
+}
 
     .thumb:hover img {
       transform: scale(1.1);
@@ -402,6 +424,17 @@ display: block;
 
     <img src="/onlyfans.png?v=1"
          alt="Enter Dakota Rayne OnlyFans section">
+
+  </a>
+</div>
+
+    <div class="triangle-feature">
+  <a class="triangle-card"
+     href="triangle.html"
+     onclick="if(window.gtag){gtag('event','click',{event_category:'engagement',event_label:'Triangle Opportunity Section'});}">
+
+    <img src="/triangle.png?v=1"
+         alt="Enter Dakota Triangle Opportunity">
 
   </a>
 </div>
