@@ -1,752 +1,3927 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dakota Rayne | Official</title>
-  <meta name="description" content="Official home of Dakota Rayne — the AI Country Star. Stream new music every Friday, watch the latest videos, and explore Dakota After Dark.">
-  <meta name="theme-color" content="#0a080f">
-  <meta name="robots" content="index, follow">
 
-  <!-- Open Graph -->
+  <title>Dakota Rayne | Official</title>
+
+  <meta
+    name="description"
+    content="The official home of Dakota Rayne. Stream the latest music, watch official videos and enter the world of Dakota Rayne."
+  >
+
+  <meta name="theme-color" content="#09070d">
+
+  <!-- Social sharing -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Dakota Rayne | Official">
-  <meta property="og:description" content="Official home of Dakota Rayne — the AI Country Star. Stream new music every Friday, watch the latest videos, and explore Dakota After Dark.">
-  <meta property="og:image" content="https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg">
-  <meta property="og:image:alt" content="Dakota Rayne">
+  <meta
+    property="og:description"
+    content="Official music, videos and more from Dakota Rayne."
+  >
+  <meta
+    property="og:image"
+    content="https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg"
+  >
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Dakota Rayne | Official">
-  <meta name="twitter:description" content="Official home of Dakota Rayne — the AI Country Star. Stream new music every Friday, watch the latest videos, and explore Dakota After Dark.">
-  <meta name="twitter:image" content="https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg">
+  <meta
+    name="twitter:description"
+    content="Official music, videos and more from Dakota Rayne."
+  >
+  <meta
+    name="twitter:image"
+    content="https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg"
+  >
 
   <link rel="icon" href="/favicon.png" type="image/png">
+
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://i.ytimg.com">
+  <link rel="preconnect" href="https://www.youtube.com">
+  <link rel="preconnect" href="https://open.spotify.com">
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Font Awesome -->
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    rel="stylesheet"
+  >
 
   <style>
+
+    /* =========================================================
+       ROOT
+       ========================================================= */
+
     :root {
+      --bg: #08070b;
+      --bg-soft: #100d15;
+      --panel: rgba(20, 16, 26, 0.74);
+      --panel-light: rgba(255, 255, 255, 0.055);
+
       --gold: #ffd7aa;
-      --gold-soft: rgba(255, 215, 170, 0.35);
-      --bg-dark: rgba(5, 5, 10, 0.95);
-      --radius: 28px;
-      --radius-sm: 16px;
-      --shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-      --transition: 0.3s ease;
+      --gold-bright: #ffe5c8;
+      --gold-soft: rgba(255, 215, 170, 0.18);
+      --gold-border: rgba(255, 215, 170, 0.32);
+
+      --text: #ffffff;
+      --muted: rgba(255, 255, 255, 0.72);
+      --faint: rgba(255, 255, 255, 0.52);
+
+      --radius-small: 14px;
+      --radius: 22px;
+      --radius-large: 30px;
+
+      --shadow:
+        0 22px 60px rgba(0, 0, 0, 0.48);
+
+      --max-width: 1180px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
-      font-family: 'Montserrat', system-ui, sans-serif;
-      color: #fff;
       min-height: 100vh;
-      background: url('https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg') center center / cover no-repeat fixed;
-      position: relative;
-      line-height: 1.5;
+
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+
+      background:
+        radial-gradient(
+          circle at 50% -10%,
+          rgba(95, 52, 79, 0.28),
+          transparent 38%
+        ),
+        var(--bg);
+
+      overflow-x: hidden;
     }
 
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(20, 10, 30, 0.6) 0%, rgba(10, 8, 15, 0.85) 60%, rgba(5, 5, 10, 0.95) 100%);
-      z-index: 0;
+    body.menu-open {
+      overflow: hidden;
     }
 
-    /* Accessibility: skip link */
-    .skip-link {
-      position: absolute;
-      top: -100px;
-      left: 16px;
-      background: var(--gold);
-      color: #111;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-weight: 600;
-      z-index: 100;
-      text-decoration: none;
-      transition: top 0.2s ease;
-    }
-    .skip-link:focus {
-      top: 16px;
+    img {
+      max-width: 100%;
     }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 100px 20px 80px;
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+
+    /* =========================================================
+       UTILITIES
+       ========================================================= */
+
+    .page-width {
+      width: min(
+        calc(100% - 40px),
+        var(--max-width)
+      );
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+
+      color: var(--gold);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+
+      font-family: 'Bebas Neue', sans-serif;
+
+      font-size: clamp(42px, 6vw, 68px);
+      font-weight: 400;
+
+      line-height: 0.95;
+      letter-spacing: 2px;
+    }
+
+    .section-intro {
+      max-width: 680px;
+
+      margin:
+        0
+        auto
+        48px;
+
+      color: var(--muted);
+
+      font-size: 17px;
+      line-height: 1.75;
+
       text-align: center;
     }
 
-    h1 {
+    .section {
+      position: relative;
+
+      padding:
+        110px
+        0;
+
+      scroll-margin-top: 80px;
+    }
+
+    .section-heading {
+      margin-bottom: 50px;
+      text-align: center;
+    }
+
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .site-header {
+      position: fixed;
+
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 1000;
+
+      height: 74px;
+
+      border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+      background:
+        rgba(8, 7, 11, 0.72);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .header-inner {
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3.5rem, 12vw, 6.25rem);
-      margin: 0 0 10px;
-      letter-spacing: 4px;
-      text-shadow: 0 0 30px rgba(255, 215, 170, 0.4);
-      animation: fadeIn 1.4s ease forwards;
+
+      font-size: 28px;
+
+      letter-spacing: 2px;
+
+      text-decoration: none;
+
+      white-space: nowrap;
     }
 
-    .tagline {
-      font-size: 0.95rem;
-      letter-spacing: 3px;
+    .brand-dot {
+      color: var(--gold);
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+
+      gap: 28px;
+    }
+
+    .desktop-nav a {
+      color: rgba(255, 255, 255, 0.82);
+
+      font-size: 13px;
+      font-weight: 600;
+
+      letter-spacing: 1px;
+      text-decoration: none;
       text-transform: uppercase;
-      opacity: 0;
-      margin-bottom: 48px;
-      animation: fadeIn 1.4s ease 0.25s forwards;
+
+      transition:
+        color 0.2s ease;
     }
 
-    /* Navigation links */
-    .links {
+    .desktop-nav a:hover {
+      color: var(--gold);
+    }
+
+    .nav-contact {
+      padding:
+        10px
+        16px;
+
+      border:
+        1px solid
+        var(--gold-border);
+
+      border-radius: 999px;
+    }
+
+    .mobile-menu-button {
+      display: none;
+
+      width: 46px;
+      height: 46px;
+
+      padding: 0;
+
+      border: 0;
+      border-radius: 50%;
+
+      color: white;
+      background: transparent;
+
+      cursor: pointer;
+
+      font-size: 21px;
+    }
+
+
+    /* =========================================================
+       MOBILE NAV
+       ========================================================= */
+
+    .mobile-nav {
+      display: none;
+
+      position: fixed;
+
+      inset:
+        74px
+        0
+        0
+        0;
+
+      z-index: 999;
+
+      padding:
+        42px
+        30px;
+
+      background:
+        rgba(8, 7, 11, 0.98);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+
+    .mobile-nav.active {
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      max-width: 480px;
-      margin: 0 auto 56px;
-      opacity: 0;
-      animation: fadeIn 1.4s ease 0.5s forwards;
+
+      gap: 26px;
     }
 
-    .btn {
+    .mobile-nav a {
+      font-family: 'Bebas Neue', sans-serif;
+
+      font-size: 32px;
+
+      letter-spacing: 2px;
+
+      text-decoration: none;
+    }
+
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      --hero-image:
+        url('https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg');
+
+      position: relative;
+
+      min-height: 100svh;
+
+      display: flex;
+      align-items: flex-end;
+
+      padding:
+        150px
+        0
+        70px;
+
+      overflow: hidden;
+
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: -3;
+
+      background-image:
+        var(--hero-image);
+
+      background-size: cover;
+      background-position: center 28%;
+
+      transform: scale(1.025);
+
+      transition:
+        background-image
+        0.7s ease;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      z-index: -2;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(5, 4, 8, 0.22) 0%,
+          rgba(5, 4, 8, 0.30) 28%,
+          rgba(5, 4, 8, 0.73) 68%,
+          #08070b 100%
+        );
+    }
+
+    .hero-side-gradient {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: -1;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 4, 8, 0.48) 0%,
+          rgba(5, 4, 8, 0.10) 55%,
+          rgba(5, 4, 8, 0.24) 100%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1.35fr)
+        minmax(300px, 0.65fr);
+
+      gap: 70px;
+
+      align-items: end;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 10px;
+
+      margin-bottom: 13px;
+
+      color: var(--gold);
+
+      font-size: 12px;
+      font-weight: 700;
+
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .hero-kicker::before {
+      content: "";
+
+      width: 32px;
+      height: 1px;
+
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      margin:
+        0
+        0
+        18px;
+
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size:
+        clamp(78px, 11vw, 150px);
+
+      font-weight: 400;
+
+      line-height: 0.82;
+
+      letter-spacing: 3px;
+
+      text-shadow:
+        0
+        8px
+        30px
+        rgba(0, 0, 0, 0.46);
+    }
+
+    .hero-tagline {
+      max-width: 580px;
+
+      margin:
+        0
+        0
+        30px;
+
+      color: rgba(255, 255, 255, 0.86);
+
+      font-size:
+        clamp(16px, 2vw, 20px);
+
+      line-height: 1.65;
+    }
+
+    .hero-socials {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 12px;
+    }
+
+    .social-icon {
+      width: 44px;
+      height: 44px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+
+      border-radius: 50%;
+
+      color: white;
+
+      background:
+        rgba(0, 0, 0, 0.24);
+
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-3px);
+
+      border-color: var(--gold);
+
+      background:
+        rgba(255, 215, 170, 0.12);
+    }
+
+
+    /* =========================================================
+       CURRENT RELEASE CARD
+       ========================================================= */
+
+    .release-card {
+      width: 100%;
+
+      padding: 16px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.14);
+
+      border-radius: var(--radius-large);
+
+      background:
+        rgba(10, 8, 14, 0.68);
+
+      box-shadow:
+        0
+        24px
+        70px
+        rgba(0, 0, 0, 0.42);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .release-artwork-wrapper {
+      position: relative;
+
+      overflow: hidden;
+
+      aspect-ratio: 16 / 9;
+
+      border-radius: 20px;
+
+      background: #16131a;
+    }
+
+    .release-artwork {
+      width: 100%;
+      height: 100%;
+
+      display: block;
+
+      object-fit: cover;
+
+      transition:
+        transform
+        0.5s ease;
+    }
+
+    .release-card:hover .release-artwork {
+      transform: scale(1.035);
+    }
+
+    .release-play {
+      position: absolute;
+
+      left: 18px;
+      bottom: 18px;
+
+      width: 50px;
+      height: 50px;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
-      padding: 17px 20px;
-      text-decoration: none;
-      color: #fff;
-      background: linear-gradient(135deg, rgba(255, 215, 170, 0.12), rgba(255, 255, 255, 0.05));
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--gold-soft);
-      backdrop-filter: blur(8px);
-      font-weight: 600;
-      font-size: 1.05rem;
+
+      border-radius: 50%;
+
+      color: #09070d;
+
+      background: var(--gold);
+
+      box-shadow:
+        0
+        8px
+        26px
+        rgba(0, 0, 0, 0.38);
+
+      font-size: 17px;
+
+      pointer-events: none;
+    }
+
+    .release-details {
+      padding:
+        22px
+        8px
+        7px;
+    }
+
+    .release-label {
+      margin-bottom: 7px;
+
+      color: var(--gold);
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .release-title {
+      margin:
+        0
+        0
+        7px;
+
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size:
+        clamp(30px, 4vw, 43px);
+
+      font-weight: 400;
+
+      line-height: 1;
+
+      letter-spacing: 1.5px;
+    }
+
+    .release-date {
+      min-height: 20px;
+
+      margin:
+        0
+        0
+        22px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .release-actions {
+      display: grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 10px;
+    }
+
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
+    .button {
+      min-height: 52px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      padding:
+        13px
+        18px;
+
+      border:
+        1px solid
+        var(--gold-border);
+
+      border-radius: var(--radius-small);
+
+      color: white;
+
+      background:
+        rgba(255, 255, 255, 0.045);
+
+      font-size: 13px;
+      font-weight: 700;
+
       letter-spacing: 0.4px;
-      transition: transform var(--transition), background var(--transition), box-shadow var(--transition);
+
+      text-align: center;
+      text-decoration: none;
+
       cursor: pointer;
+
+      transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease;
     }
 
-    .btn i { font-size: 1.35em; }
+    .button:hover {
+      transform: translateY(-2px);
 
-    .btn:hover,
-    .btn:focus-visible {
-      background: linear-gradient(135deg, rgba(255, 215, 170, 0.28), rgba(255, 255, 255, 0.1));
-      transform: translateY(-4px);
-      box-shadow: 0 10px 28px rgba(255, 215, 170, 0.28);
-      outline: none;
+      border-color:
+        rgba(255, 215, 170, 0.68);
+
+      background:
+        rgba(255, 215, 170, 0.10);
     }
 
-    .btn:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 3px;
+    .button-primary {
+      color: #09070d;
+
+      border-color: var(--gold);
+
+      background: var(--gold);
     }
 
-    /* Sections */
-    .section {
-      margin-top: 88px;
+    .button-primary:hover {
+      color: #09070d;
+
+      border-color: var(--gold-bright);
+
+      background: var(--gold-bright);
     }
 
-    h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2rem, 6vw, 2.85rem);
-      margin: 0 0 28px;
-      letter-spacing: 2px;
-      text-shadow: 0 0 20px rgba(255, 215, 170, 0.3);
+
+    /* =========================================================
+       STREAMING SECTION
+       ========================================================= */
+
+    .stream-section {
+      padding-top: 85px;
     }
 
-    .bio {
-      max-width: 760px;
-      margin: 0 auto 48px;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      opacity: 0.95;
+    .stream-links {
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 12px;
+
+      margin-bottom: 42px;
     }
 
-    .bio p { margin: 0 0 1.1em; }
-    .bio p:last-child { margin-bottom: 0; }
+    .stream-button {
+      min-width: 160px;
 
-    .promo-text {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 10px;
+
+      padding:
+        14px
+        20px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+      border-radius: 999px;
+
+      color: white;
+
+      background:
+        var(--panel-light);
+
+      text-decoration: none;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      transition:
+        transform 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    .stream-button:hover {
+      transform: translateY(-3px);
+
+      border-color: var(--gold);
+    }
+
+    .stream-button i {
+      font-size: 19px;
+    }
+
+    .spotify-embed {
       max-width: 720px;
-      margin: 0 auto 36px;
-      font-size: 1.05rem;
-      opacity: 0.9;
-      font-style: italic;
-    }
 
-    /* Spotify */
-    .spotify-wrap {
-      max-width: 700px;
-      margin: 0 auto;
-      border-radius: 20px;
+      margin: auto;
+
       overflow: hidden;
+
+      border-radius: 22px;
+
       box-shadow: var(--shadow);
     }
 
-    /* Video embed */
-    .video-embed {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      margin-bottom: 64px;
-      background: #111;
-    }
+    .spotify-embed iframe {
+      display: block;
 
-    .video-embed iframe {
-      position: absolute;
-      inset: 0;
       width: 100%;
-      height: 100%;
+
       border: 0;
     }
 
-    /* Video grid */
-    .thumbnails {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-      min-height: 120px;
+    .follow-note {
+      margin:
+        24px
+        0
+        0;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      text-align: center;
     }
 
-    .thumbnails[aria-busy="true"]::after,
-    .video-status {
-      grid-column: 1 / -1;
-      padding: 40px 20px;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 1rem;
+
+    /* =========================================================
+       VIDEO
+       ========================================================= */
+
+    .video-section {
+      background:
+        linear-gradient(
+          180deg,
+          transparent,
+          rgba(255, 215, 170, 0.025),
+          transparent
+        );
     }
 
-    .thumb {
+    .video-frame {
       position: relative;
-      display: block;
-      overflow: hidden;
-      border-radius: var(--radius);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
-      text-decoration: none;
-      color: inherit;
-      transition: transform 0.35s ease;
-    }
 
-    .thumb:hover,
-    .thumb:focus-visible {
-      transform: translateY(-8px);
-      outline: none;
-    }
-
-    .thumb:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 4px;
-    }
-
-    .thumb img {
       width: 100%;
-      display: block;
+
       aspect-ratio: 16 / 9;
-      object-fit: cover;
-      transition: transform 0.4s ease;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+      border-radius: 28px;
+
+      background: #050507;
+
+      box-shadow:
+        0
+        26px
+        80px
+        rgba(0, 0, 0, 0.5);
     }
 
-    .thumb:hover img,
-    .thumb:focus-visible img {
-      transform: scale(1.08);
-    }
-
-    .thumb .overlay {
+    .video-frame iframe {
       position: absolute;
+
       inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.35) 55%, transparent 80%);
-      pointer-events: none;
+
+      width: 100%;
+      height: 100%;
+
+      border: 0;
     }
 
-    .thumb .vevo {
+
+    /* =========================================================
+       VIDEO GRID
+       ========================================================= */
+
+    .video-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 24px;
+    }
+
+    .video-card {
+      position: relative;
+
+      display: block;
+
+      overflow: hidden;
+
+      aspect-ratio: 16 / 9;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+      border-radius: 22px;
+
+      color: white;
+
+      background: #141017;
+
+      box-shadow:
+        0
+        15px
+        42px
+        rgba(0, 0, 0, 0.30);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.28s ease,
+        border-color 0.28s ease;
+    }
+
+    .video-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(255, 215, 170, 0.35);
+    }
+
+    .video-card-image {
       position: absolute;
-      bottom: 14px;
-      left: 16px;
-      font-size: 0.8rem;
+
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform
+        0.45s ease;
+    }
+
+    .video-card:hover .video-card-image {
+      transform: scale(1.05);
+    }
+
+    .video-card-gradient {
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(4, 3, 6, 0.95) 0%,
+          rgba(4, 3, 6, 0.22) 58%,
+          rgba(4, 3, 6, 0.04) 100%
+        );
+    }
+
+    .video-card-content {
+      position: absolute;
+
+      left: 20px;
+      right: 20px;
+      bottom: 18px;
+
+      z-index: 2;
+    }
+
+    .video-card-label {
+      margin-bottom: 4px;
+
+      color: var(--gold);
+
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 1px;
-      opacity: 0.85;
+
+      letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    .thumb .title {
-      position: absolute;
-      bottom: 36px;
-      left: 0;
-      right: 0;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.15rem;
+    .video-card-title {
+      margin: 0;
+
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size: 25px;
+      font-weight: 400;
+
+      line-height: 1;
+
       letter-spacing: 1px;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
-      padding: 0 14px;
-      line-height: 1.25;
     }
 
-    .thumb .play-icon {
+    .video-play-icon {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 3.5rem;
-      color: rgba(255, 255, 255, 0.92);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      pointer-events: none;
+
+      top: 16px;
+      right: 16px;
+
+      z-index: 2;
+
+      width: 40px;
+      height: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      color: white;
+
+      background:
+        rgba(0, 0, 0, 0.46);
+
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+
+      font-size: 13px;
     }
 
-    .thumb:hover .play-icon,
-    .thumb:focus-visible .play-icon {
-      opacity: 1;
+    .video-loading {
+      grid-column: 1 / -1;
+
+      padding: 40px;
+
+      color: var(--muted);
+
+      text-align: center;
     }
 
-    /* Feature cards (After Dark + Art) */
-    .feature-card,
-    .art-card {
-      display: block;
-      border-radius: var(--radius);
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
+    .about-section {
       overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      text-decoration: none;
-      color: inherit;
     }
 
-    .feature-card:hover,
-    .feature-card:focus-visible,
-    .art-card:hover,
-    .art-card:focus-visible {
-      transform: translateY(-8px) scale(1.015);
-      box-shadow: 0 22px 55px rgba(255, 215, 170, 0.22);
-      outline: none;
+    .about-layout {
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(0, 1.2fr);
+
+      gap: 80px;
+
+      align-items: center;
     }
 
-    .feature-card:focus-visible,
-    .art-card:focus-visible {
-      outline: 2px solid var(--gold);
-      outline-offset: 4px;
+    .about-heading {
+      margin: 0;
+
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size:
+        clamp(66px, 9vw, 116px);
+
+      font-weight: 400;
+
+      line-height: 0.83;
+
+      letter-spacing: 2px;
     }
 
-    .feature-card img {
-      width: 100%;
+    .about-heading span {
+      color: var(--gold);
+    }
+
+    .about-copy {
+      font-size: 17px;
+      line-height: 1.85;
+
+      color: var(--muted);
+    }
+
+    .about-copy p {
+      margin:
+        0
+        0
+        18px;
+    }
+
+    .dakota-quote {
+      margin:
+        30px
+        0;
+
+      padding:
+        26px
+        0
+        26px
+        26px;
+
+      border-left:
+        2px solid
+        var(--gold);
+
+      color: white;
+
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size:
+        clamp(28px, 4vw, 40px);
+
+      line-height: 1.1;
+      letter-spacing: 1px;
+    }
+
+    .ai-disclosure {
+      color: var(--faint);
+
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       AFTER DARK
+       ========================================================= */
+
+    .after-dark-section {
+      position: relative;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          rgba(94, 43, 82, 0.18),
+          transparent 45%
+        ),
+        #060508;
+
+      border-top:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+
+      border-bottom:
+        1px solid
+        rgba(255, 255, 255, 0.06);
+    }
+
+    .after-dark-heading {
+      text-align: center;
+
+      margin-bottom: 52px;
+    }
+
+    .after-dark-heading .section-title {
+      font-size:
+        clamp(58px, 8vw, 94px);
+    }
+
+    .after-dark-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 26px;
+
+      max-width: 920px;
+
+      margin: auto;
+    }
+
+    .after-card {
+      position: relative;
+
       display: block;
+
+      overflow: hidden;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.10);
+
+      border-radius: 28px;
+
+      background: #120f15;
+
+      box-shadow:
+        0
+        20px
+        52px
+        rgba(0, 0, 0, 0.44);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
     }
 
-    .fansonly-feature,
-    .triangle-feature {
-      max-width: 520px;
-      margin: 40px auto 0;
+    .after-card:hover {
+      transform:
+        translateY(-8px);
+
+      border-color:
+        rgba(255, 215, 170, 0.38);
     }
+
+    .after-card img {
+      width: 100%;
+
+      display: block;
+
+      transition:
+        transform 0.45s ease;
+    }
+
+    .after-card:hover img {
+      transform: scale(1.025);
+    }
+
+
+    /* =========================================================
+       ART
+       ========================================================= */
 
     .art-feature {
-      max-width: 760px;
-      margin: 70px auto 0;
+      max-width: 820px;
+
+      margin:
+        80px
+        auto
+        0;
+    }
+
+    .art-heading {
+      margin-bottom: 32px;
+
+      text-align: center;
     }
 
     .art-card {
-      background: linear-gradient(135deg, rgba(255, 215, 170, 0.12), rgba(255, 255, 255, 0.04));
-      border: 1px solid var(--gold-soft);
-      padding: 24px;
-      backdrop-filter: blur(8px);
+      display: grid;
+
+      grid-template-columns:
+        minmax(220px, 0.9fr)
+        minmax(0, 1.1fr);
+
+      align-items: center;
+
+      gap: 34px;
+
+      padding: 26px;
+
+      border:
+        1px solid
+        var(--gold-border);
+
+      border-radius: 30px;
+
+      color: inherit;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 215, 170, 0.10),
+          rgba(255, 255, 255, 0.025)
+        );
+
+      box-shadow:
+        0
+        20px
+        54px
+        rgba(0, 0, 0, 0.4);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
     }
 
-    .art-card img {
+    .art-card:hover {
+      transform: translateY(-7px);
+
+      border-color:
+        rgba(255, 215, 170, 0.62);
+    }
+
+    .art-image {
       width: 100%;
-      max-width: 520px;
+
       display: block;
-      margin: 0 auto 22px;
-      border-radius: 22px;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
-    }
 
-    .art-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.2rem;
-      letter-spacing: 2px;
-      margin: 0 0 10px;
-      color: var(--gold);
-    }
-
-    .art-caption {
-      max-width: 620px;
-      margin: 0 auto;
-      font-size: 1.05rem;
-      line-height: 1.7;
-      opacity: 0.95;
-    }
-
-    .art-coming-soon {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 215, 170, 0.45);
-      color: var(--gold);
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-    }
-
-    /* DistroKid */
-    .distro-link {
-      display: inline-block;
-      transition: transform var(--transition);
-    }
-
-    .distro-link:hover,
-    .distro-link:focus-visible {
-      transform: translateY(-6px);
-      outline: none;
-    }
-
-    .distro-link img {
-      max-width: 400px;
-      width: 100%;
       border-radius: 20px;
-      box-shadow: var(--shadow);
+
+      box-shadow:
+        0
+        12px
+        34px
+        rgba(0, 0, 0, 0.48);
     }
 
-    /* Footer */
-    .footer {
-      margin-top: 100px;
-      font-size: 0.8rem;
-      opacity: 0.65;
-      line-height: 1.8;
-    }
+    .art-card-title {
+      margin:
+        0
+        0
+        12px;
 
-    .footer a {
       color: var(--gold);
+
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size: 42px;
+      font-weight: 400;
+
+      letter-spacing: 1.5px;
+    }
+
+    .art-card-copy {
+      margin:
+        0
+        0
+        22px;
+
+      color: var(--muted);
+
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .small-pill {
+      display: inline-block;
+
+      padding:
+        10px
+        15px;
+
+      border:
+        1px solid
+        var(--gold-border);
+
+      border-radius: 999px;
+
+      color: var(--gold);
+
+      font-size: 10px;
+      font-weight: 700;
+
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       CONNECT
+       ========================================================= */
+
+    .connect-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap: 20px;
+    }
+
+    .connect-card {
+      min-height: 230px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 28px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.09);
+
+      border-radius: 24px;
+
+      background:
+        rgba(255, 255, 255, 0.03);
+
+      text-decoration: none;
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+    }
+
+    .connect-card:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        var(--gold-border);
+
+      background:
+        rgba(255, 215, 170, 0.055);
+    }
+
+    .connect-icon {
+      color: var(--gold);
+
+      font-size: 25px;
+    }
+
+    .connect-card h3 {
+      margin:
+        26px
+        0
+        8px;
+
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size: 32px;
+      font-weight: 400;
+
+      letter-spacing: 1px;
+    }
+
+    .connect-card p {
+      margin: 0;
+
+      color: var(--muted);
+
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .connect-arrow {
+      align-self: flex-end;
+
+      margin-top: 24px;
+
+      color: var(--gold);
+    }
+
+
+    /* =========================================================
+       DISTROKID
+       ========================================================= */
+
+    .partner-section {
+      padding:
+        50px
+        0
+        80px;
+    }
+
+    .partner-card {
+      max-width: 720px;
+
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 24px;
+
+      padding:
+        24px
+        28px;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.07);
+
+      border-radius: 20px;
+
+      background:
+        rgba(255, 255, 255, 0.025);
+    }
+
+    .partner-copy {
+      min-width: 0;
+    }
+
+    .partner-label {
+      margin-bottom: 5px;
+
+      color: var(--faint);
+
+      font-size: 9px;
+      font-weight: 700;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .partner-title {
+      margin: 0;
+
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .partner-link {
+      flex-shrink: 0;
+
+      color: var(--gold);
+
+      font-size: 12px;
+      font-weight: 600;
+
       text-decoration: none;
     }
 
-    .footer a:hover,
-    .footer a:focus-visible {
-      text-decoration: underline;
-      outline: none;
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    .site-footer {
+      padding:
+        36px
+        0
+        48px;
+
+      border-top:
+        1px solid
+        rgba(255, 255, 255, 0.07);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(28px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .footer-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+
+      margin-bottom: 26px;
     }
 
-    /* Mobile */
-    @media (max-width: 600px) {
-      body { background-attachment: scroll; }
-      .container { padding-top: 72px; }
-      .btn { font-size: 0.95rem; padding: 15px 16px; }
-      .thumb .title { font-size: 1.05rem; bottom: 32px; }
-      .art-title { font-size: 1.8rem; }
+    .footer-brand {
+      font-family:
+        'Bebas Neue',
+        sans-serif;
+
+      font-size: 25px;
+
+      letter-spacing: 2px;
     }
+
+    .footer-socials {
+      display: flex;
+      align-items: center;
+
+      gap: 15px;
+    }
+
+    .footer-socials a {
+      color:
+        rgba(255, 255, 255, 0.60);
+
+      text-decoration: none;
+
+      transition:
+        color
+        0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+
+      color: var(--faint);
+
+      font-size: 10px;
+    }
+
+    .legal-links {
+      display: flex;
+      flex-wrap: wrap;
+
+      gap: 15px;
+    }
+
+    .legal-links a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .legal-links a:hover {
+      color: var(--gold);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 950px) {
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .mobile-menu-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+
+        gap: 44px;
+      }
+
+      .release-card {
+        max-width: 520px;
+      }
+
+      .video-grid {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
+      }
+
+      .about-layout {
+        grid-template-columns: 1fr;
+
+        gap: 38px;
+      }
+
+      .about-heading {
+        max-width: 680px;
+      }
+
+      .connect-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .connect-card {
+        min-height: 180px;
+      }
+
+    }
+
+
+    @media (max-width: 680px) {
+
+      .page-width {
+        width:
+          min(
+            calc(100% - 28px),
+            var(--max-width)
+          );
+      }
+
+      .section {
+        padding:
+          82px
+          0;
+      }
+
+      .site-header {
+        height: 66px;
+      }
+
+      .mobile-nav {
+        inset:
+          66px
+          0
+          0
+          0;
+      }
+
+      .hero {
+        min-height: auto;
+
+        padding:
+          125px
+          0
+          58px;
+      }
+
+      .hero::before {
+        background-position: center top;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(68px, 22vw, 100px);
+      }
+
+      .hero-tagline {
+        font-size: 15px;
+      }
+
+      .release-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+      }
+
+      .after-dark-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .art-card {
+        grid-template-columns: 1fr;
+
+        padding: 20px;
+      }
+
+      .footer-top,
+      .footer-bottom {
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+
+      .partner-card {
+        align-items: flex-start;
+
+        flex-direction: column;
+      }
+
+      .section-title {
+        font-size: 46px;
+      }
+
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+
+      html {
+        scroll-behavior: auto;
       }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+
     }
+
   </style>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P4H8ETCF8E"></script>
+
+  <!-- =======================================================
+       GOOGLE ANALYTICS
+       Existing GA4 ID preserved
+       ======================================================= -->
+
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-P4H8ETCF8E">
+  </script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
-    gtag('config', 'G-P4H8ETCF8E');
+
+    gtag(
+      'config',
+      'G-P4H8ETCF8E'
+    );
   </script>
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MusicGroup",
-    "name": "Dakota Rayne",
-    "description": "AI Country Star. Songs that hit where truth and fiction blur.",
-    "genre": "Country",
-    "sameAs": [
-      "https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp",
-      "https://www.youtube.com/@DakotaRayneVEVO",
-      "https://music.apple.com/gb/artist/dakota-rayne/1844519098",
-      "https://www.instagram.com/dakotarayneofficial/",
-      "https://www.tiktok.com/@dakotarayneofficial"
-    ]
-  }
-  </script>
 </head>
+
+
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
 
-  <main id="main" class="container">
-    <h1>Dakota Rayne</h1>
-    <p class="tagline">Official Music &amp; Links</p>
 
-    <nav class="links" aria-label="Primary">
-      <a class="btn" href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp" target="_blank" rel="noopener noreferrer"
-         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Spotify'});}">
-        <i class="fab fa-spotify" aria-hidden="true"></i> Stream on Spotify
-      </a>
-      <a class="btn" href="https://www.youtube.com/@DakotaRayneVEVO" target="_blank" rel="noopener noreferrer"
-         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'YouTube'});}">
-        <i class="fab fa-youtube" aria-hidden="true"></i> Watch on YouTube / VEVO
-      </a>
-      <a class="btn" href="https://music.apple.com/gb/artist/dakota-rayne/1844519098" target="_blank" rel="noopener noreferrer"
-         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Apple Music'});}">
-        <i class="fab fa-apple" aria-hidden="true"></i> Apple Music
-      </a>
-      <a class="btn" href="https://www.instagram.com/dakotarayneofficial/" target="_blank" rel="noopener noreferrer"
-         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'Instagram'});}">
-        <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
-      </a>
-      <a class="btn" href="https://www.tiktok.com/@dakotarayneofficial" target="_blank" rel="noopener noreferrer"
-         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'TikTok'});}">
-        <i class="fab fa-tiktok" aria-hidden="true"></i> TikTok
-      </a>
-      <a class="btn" href="about.html">
-        <i class="fas fa-user" aria-hidden="true"></i> About
-      </a>
-      <a class="btn" href="experience.html">
-        <i class="fas fa-star" aria-hidden="true"></i> Experience
-      </a>
-      <a class="btn" href="contact.html">
-        <i class="fas fa-envelope" aria-hidden="true"></i> Contact / Booking
-      </a>
-      <a class="btn" href="mailing-list.html">
-        <i class="fas fa-paper-plane" aria-hidden="true"></i> Join Mailing List
-      </a>
-    </nav>
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
 
-    <!-- Spotify -->
-    <section class="section" aria-labelledby="spotify-heading">
-      <h2 id="spotify-heading">Listen on Spotify</h2>
-      <div class="spotify-wrap">
-        <iframe
-          style="border-radius:20px"
-          src="https://open.spotify.com/embed/artist/6goTvZkqQf25HQ2lTyRCSp?utm_source=generator"
-          width="100%"
-          height="380"
-          frameborder="0"
-          allowfullscreen
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          loading="lazy"
-          title="Dakota Rayne on Spotify">
-        </iframe>
-      </div>
-      <p class="promo-text">Follow Dakota on Spotify for new releases every Friday.</p>
-    </section>
+  <header class="site-header">
 
-    <!-- Latest video -->
-    <section class="section" aria-labelledby="latest-heading">
-      <h2 id="latest-heading">Latest Music Video</h2>
-      <div class="video-embed">
-        <iframe
-          id="latestVideo"
-          src="https://www.youtube.com/embed?listType=playlist&list=UU5BRDu0rLn0mi3KebYC29Vw&enablejsapi=1"
-          title="Latest Dakota Rayne music video"
-          allow="autoplay; encrypted-media; picture-in-picture"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
-      </div>
-    </section>
+    <div class="page-width header-inner">
 
-    <!-- More videos -->
-    <section class="section" aria-labelledby="more-videos-heading">
-      <h2 id="more-videos-heading">More Music Videos</h2>
-      <div class="thumbnails" id="videoGrid" aria-live="polite" aria-busy="true">
-        <p class="video-status">Loading videos…</p>
-      </div>
-    </section>
+      <a
+        href="#top"
+        class="brand"
+        aria-label="Dakota Rayne home"
+      >
+        Dakota Rayne<span class="brand-dot">.</span>
+      </a>
 
-    <!-- About -->
-    <section class="section" aria-labelledby="about-heading">
-      <h2 id="about-heading">About Dakota Rayne</h2>
-      <div class="bio">
-        <p>Somewhere between Nashville and nowhere, Dakota Rayne writes songs that hit where truth and fiction blur. Her voice carries the warmth of Southern nights and the edge of a storm rolling in.</p>
-        <p>Equal parts heart and grit.</p>
-        <p>“I’m as real as you need me to be. Lose yourself in the music and forget what you don’t know.”</p>
-        <p>Dakota: The AI Country Star. Crafted to deliver genuine heart &amp; joy through music.</p>
-      </div>
-    </section>
 
-    <!-- After Dark -->
-    <section class="section" aria-labelledby="afterdark-heading">
-      <h2 id="afterdark-heading">Dakota After Dark</h2>
-      <p class="promo-text">Music, questionable business ventures and occasional works of art.</p>
+      <nav
+        class="desktop-nav"
+        aria-label="Primary navigation"
+      >
 
-      <div class="fansonly-feature">
-        <a class="feature-card" href="fansonly.html"
-           onclick="if(window.gtag){gtag('event','click',{event_category:'engagement',event_label:'FansOnly Section'});}">
-          <img src="/fansonly.png?v=1" alt="Enter Dakota Rayne FansOnly section" width="520" height="auto" loading="lazy">
+        <a href="#music">Music</a>
+
+        <a href="#videos">Videos</a>
+
+        <a href="#about">About</a>
+
+        <a href="#after-dark">After Dark</a>
+
+        <a href="experience.html">
+          Experience
         </a>
-      </div>
 
-      <div class="triangle-feature">
-        <a class="feature-card" href="triangle.html"
-           onclick="if(window.gtag){gtag('event','click',{event_category:'engagement',event_label:'Triangle Opportunity Section'});}">
-          <img src="/triangle.png?v=1" alt="Enter Dakota Triangle Opportunity" width="520" height="auto" loading="lazy">
+        <a
+          href="contact.html"
+          class="nav-contact"
+        >
+          Contact
         </a>
+
+      </nav>
+
+
+      <button
+        class="mobile-menu-button"
+        id="mobileMenuButton"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileNav"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       MOBILE NAVIGATION
+       ======================================================= -->
+
+  <nav
+    class="mobile-nav"
+    id="mobileNav"
+    aria-label="Mobile navigation"
+  >
+
+    <a href="#music">Music</a>
+
+    <a href="#videos">Videos</a>
+
+    <a href="#about">About</a>
+
+    <a href="#after-dark">After Dark</a>
+
+    <a href="experience.html">
+      Experience
+    </a>
+
+    <a href="mailing-list.html">
+      Mailing List
+    </a>
+
+    <a href="contact.html">
+      Contact / Booking
+    </a>
+
+  </nav>
+
+
+  <!-- =======================================================
+       HERO
+       Automatically updated from latest VEVO upload
+       ======================================================= -->
+
+  <section
+    class="hero"
+    id="top"
+  >
+
+    <div class="hero-side-gradient"></div>
+
+
+    <div class="page-width hero-content">
+
+
+      <!-- HERO COPY -->
+
+      <div class="hero-copy">
+
+        <div class="hero-kicker">
+          Official
+        </div>
+
+        <h1>
+          Dakota<br>
+          Rayne
+        </h1>
+
+        <p class="hero-tagline">
+          Country music with heart, grit and just enough trouble.
+        </p>
+
+
+        <div class="hero-socials">
+
+          <a
+            class="social-icon tracked-link"
+            href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+            data-track="Spotify"
+          >
+            <i class="fab fa-spotify"></i>
+          </a>
+
+          <a
+            class="social-icon tracked-link"
+            href="https://www.youtube.com/@DakotaRayneVEVO"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+            data-track="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+
+          <a
+            class="social-icon tracked-link"
+            href="https://music.apple.com/gb/artist/dakota-rayne/1844519098"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Apple Music"
+            data-track="Apple Music"
+          >
+            <i class="fab fa-apple"></i>
+          </a>
+
+          <a
+            class="social-icon tracked-link"
+            href="https://www.instagram.com/dakotarayneofficial/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            data-track="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a
+            class="social-icon tracked-link"
+            href="https://www.tiktok.com/@dakotarayneofficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+            data-track="TikTok"
+          >
+            <i class="fab fa-tiktok"></i>
+          </a>
+
+        </div>
+
       </div>
 
-      <div class="art-feature">
-        <h2>Art From Dakota</h2>
-        <p class="promo-text">Dakota has taken up painting. The art world has been warned.</p>
-        <a href="art.html" class="art-card">
-          <img src="/horse.png?v=3" alt="Dakota Rayne painting titled Midnight Spirit — a horse under a moonlit sky" width="520" height="auto" loading="lazy">
-          <div class="art-title">Midnight Spirit</div>
-          <div class="art-caption">
-            <p>Dakota’s debut masterpiece captures the untamed beauty of a horse, the mystery of a moonlit sky, and absolutely no understanding of horse anatomy.</p>
-            <span class="art-coming-soon">View Gallery</span>
+
+      <!-- AUTOMATIC CURRENT RELEASE -->
+
+      <article class="release-card">
+
+        <a
+          id="heroVideoLink"
+          href="https://www.youtube.com/@DakotaRayneVEVO"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="release-artwork-wrapper tracked-link"
+          data-track="Hero Latest Video"
+          aria-label="Watch latest Dakota Rayne video"
+        >
+
+          <img
+            id="latestReleaseArtwork"
+            class="release-artwork"
+            src="https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg"
+            alt="Latest Dakota Rayne release"
+          >
+
+          <span class="release-play">
+            <i class="fas fa-play"></i>
+          </span>
+
+        </a>
+
+
+        <div class="release-details">
+
+          <div class="release-label">
+            Latest Release
           </div>
-        </a>
+
+          <h2
+            class="release-title"
+            id="latestReleaseTitle"
+          >
+            Latest from Dakota Rayne
+          </h2>
+
+          <p
+            class="release-date"
+            id="latestReleaseDate"
+          >
+            Loading latest release...
+          </p>
+
+
+          <div class="release-actions">
+
+            <a
+              class="button button-primary tracked-link"
+              id="heroWatchButton"
+              href="https://www.youtube.com/@DakotaRayneVEVO"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="Watch Latest Video"
+            >
+              <i class="fas fa-play"></i>
+              Watch
+            </a>
+
+            <a
+              class="button tracked-link"
+              href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="Hero Spotify"
+            >
+              <i class="fab fa-spotify"></i>
+              Listen
+            </a>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <main>
+
+
+    <!-- =====================================================
+         MUSIC / STREAMING
+         ===================================================== -->
+
+    <section
+      class="section stream-section"
+      id="music"
+    >
+
+      <div class="page-width">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            Listen
+          </p>
+
+          <h2 class="section-title">
+            Music
+          </h2>
+
+          <p class="section-intro">
+            Stream Dakota Rayne wherever you listen.
+          </p>
+
+        </div>
+
+
+        <div class="stream-links">
+
+          <a
+            class="stream-button tracked-link"
+            href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="Spotify"
+          >
+            <i class="fab fa-spotify"></i>
+            Spotify
+          </a>
+
+
+          <a
+            class="stream-button tracked-link"
+            href="https://music.apple.com/gb/artist/dakota-rayne/1844519098"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="Apple Music"
+          >
+            <i class="fab fa-apple"></i>
+            Apple Music
+          </a>
+
+
+          <a
+            class="stream-button tracked-link"
+            href="https://www.youtube.com/@DakotaRayneVEVO"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="YouTube VEVO"
+          >
+            <i class="fab fa-youtube"></i>
+            YouTube / VEVO
+          </a>
+
+        </div>
+
+
+        <div class="spotify-embed">
+
+          <iframe
+            src="https://open.spotify.com/embed/artist/6goTvZkqQf25HQ2lTyRCSp?utm_source=generator"
+            width="100%"
+            height="380"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            title="Dakota Rayne on Spotify">
+          </iframe>
+
+        </div>
+
+
+        <p class="follow-note">
+          Follow Dakota on Spotify for new releases.
+        </p>
+
       </div>
+
     </section>
 
-    <!-- DistroKid -->
-    <section class="section" aria-labelledby="distro-heading">
-      <h2 id="distro-heading">Start Your Own Music Journey</h2>
-      <a class="distro-link" href="https://distrokid.com/vip/seven/10480046" target="_blank" rel="noopener noreferrer"
-         onclick="if(window.gtag){gtag('event','click',{event_category:'outbound',event_label:'DistroKid Referral'});}">
-        <img src="https://zjtytzhrxgvahwtgpzgc.supabase.co/storage/v1/object/public/portraits/distro.jpg"
-             alt="Join DistroKid — release your music worldwide"
-             width="400" height="auto" loading="lazy">
-      </a>
-      <p class="promo-text">Release your music worldwide in minutes. Keep 100% of your royalties.</p>
+
+    <!-- =====================================================
+         LATEST VIDEO
+         Updated automatically
+         ===================================================== -->
+
+    <section
+      class="section video-section"
+      id="videos"
+    >
+
+      <div class="page-width">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            Watch
+          </p>
+
+          <h2 class="section-title">
+            Latest Music Video
+          </h2>
+
+        </div>
+
+
+        <div class="video-frame">
+
+          <iframe
+            id="latestVideo"
+            src="https://www.youtube.com/embed/sJvWebzSqSQ?enablejsapi=1"
+            title="Latest Dakota Rayne music video"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+
+        </div>
+
+      </div>
+
     </section>
 
-    <footer class="footer">
-      <p>© Dakota Rayne. All rights reserved.</p>
-      <p>
-        <a href="privacy.html">Privacy Policy</a> ·
-        <a href="cookies.html">Cookie Policy</a> ·
-        <a href="terms.html">Terms of Use</a> ·
-        <a href="contact.html">Contact</a>
-      </p>
-    </footer>
+
+    <!-- =====================================================
+         MORE VIDEOS
+         Automatically generated
+         ===================================================== -->
+
+    <section class="section">
+
+      <div class="page-width">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            VEVO
+          </p>
+
+          <h2 class="section-title">
+            More Music Videos
+          </h2>
+
+          <p class="section-intro">
+            More from Dakota Rayne.
+          </p>
+
+        </div>
+
+
+        <div
+          class="video-grid"
+          id="videoGrid"
+        >
+
+          <div class="video-loading">
+            Loading videos...
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+         ===================================================== -->
+
+    <section
+      class="section about-section"
+      id="about"
+    >
+
+      <div class="page-width about-layout">
+
+
+        <div>
+
+          <p class="eyebrow">
+            About
+          </p>
+
+          <h2 class="about-heading">
+            Heart.<br>
+            Grit.<br>
+            <span>Rayne.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="about-copy">
+
+          <p>
+            Somewhere between Nashville and nowhere,
+            Dakota Rayne makes songs where truth and fiction
+            blur.
+          </p>
+
+          <p>
+            Her music carries the warmth of Southern nights,
+            the edge of a storm rolling in and stories that
+            feel familiar even when you have never lived them.
+          </p>
+
+
+          <div class="dakota-quote">
+            "I'm as real as you need me to be.
+            Lose yourself in the music and forget what
+            you don't know."
+          </div>
+
+
+          <p>
+            Equal parts heart, grit and trouble.
+          </p>
+
+          <p class="ai-disclosure">
+            Dakota Rayne is an AI-created country music project
+            built around original music, visual storytelling
+            and an ever-growing fictional world.
+          </p>
+
+
+          <a
+            href="about.html"
+            class="button"
+            style="margin-top: 16px;"
+          >
+            More About Dakota
+            <i class="fas fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AFTER DARK
+         ===================================================== -->
+
+    <section
+      class="section after-dark-section"
+      id="after-dark"
+    >
+
+      <div class="page-width">
+
+
+        <div class="after-dark-heading">
+
+          <p class="eyebrow">
+            Things Get Strange
+          </p>
+
+          <h2 class="section-title">
+            Dakota After Dark
+          </h2>
+
+          <p class="section-intro">
+            Music, questionable business ventures
+            and occasional works of art.
+          </p>
+
+        </div>
+
+
+        <div class="after-dark-grid">
+
+
+          <!-- FANSONLY -->
+
+          <a
+            class="after-card tracked-link"
+            href="fansonly.html"
+            data-track="FansOnly Section"
+          >
+
+            <img
+              src="/fansonly.png?v=1"
+              alt="Enter Dakota Rayne FansOnly"
+              loading="lazy"
+            >
+
+          </a>
+
+
+          <!-- TRIANGLE OPPORTUNITY -->
+
+          <a
+            class="after-card tracked-link"
+            href="triangle.html"
+            data-track="Triangle Opportunity Section"
+          >
+
+            <img
+              src="/triangle.png?v=1"
+              alt="Enter Dakota Triangle Opportunity"
+              loading="lazy"
+            >
+
+          </a>
+
+        </div>
+
+
+        <!-- ART -->
+
+        <div class="art-feature">
+
+          <div class="art-heading">
+
+            <p class="eyebrow">
+              Fine Art. Allegedly.
+            </p>
+
+            <h2 class="section-title">
+              Art From Dakota
+            </h2>
+
+          </div>
+
+
+          <a
+            href="art.html"
+            class="art-card tracked-link"
+            data-track="Dakota Art Gallery"
+          >
+
+            <img
+              class="art-image"
+              src="/horse.png?v=3"
+              alt="Dakota Rayne painting Midnight Spirit"
+              loading="lazy"
+            >
+
+
+            <div>
+
+              <h3 class="art-card-title">
+                Midnight Spirit
+              </h3>
+
+              <p class="art-card-copy">
+                Dakota's debut masterpiece captures the
+                untamed beauty of a horse, the mystery of a
+                moonlit sky and absolutely no understanding
+                of horse anatomy.
+              </p>
+
+              <span class="small-pill">
+                View Gallery
+              </span>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONNECT
+         ===================================================== -->
+
+    <section class="section">
+
+      <div class="page-width">
+
+        <div class="section-heading">
+
+          <p class="eyebrow">
+            Stay Close
+          </p>
+
+          <h2 class="section-title">
+            Enter Dakota's World
+          </h2>
+
+        </div>
+
+
+        <div class="connect-grid">
+
+
+          <!-- EXPERIENCE -->
+
+          <a
+            href="experience.html"
+            class="connect-card tracked-link"
+            data-track="Experience"
+          >
+
+            <div>
+
+              <i class="fas fa-star connect-icon"></i>
+
+              <h3>
+                Experience
+              </h3>
+
+              <p>
+                Go deeper into the music, stories
+                and world of Dakota Rayne.
+              </p>
+
+            </div>
+
+            <i class="fas fa-arrow-right connect-arrow"></i>
+
+          </a>
+
+
+          <!-- MAILING LIST -->
+
+          <a
+            href="mailing-list.html"
+            class="connect-card tracked-link"
+            data-track="Mailing List"
+          >
+
+            <div>
+
+              <i class="fas fa-paper-plane connect-icon"></i>
+
+              <h3>
+                Join The List
+              </h3>
+
+              <p>
+                New releases, videos and occasional
+                Dakota-related nonsense.
+              </p>
+
+            </div>
+
+            <i class="fas fa-arrow-right connect-arrow"></i>
+
+          </a>
+
+
+          <!-- CONTACT -->
+
+          <a
+            href="contact.html"
+            class="connect-card tracked-link"
+            data-track="Contact Booking"
+          >
+
+            <div>
+
+              <i class="fas fa-envelope connect-icon"></i>
+
+              <h3>
+                Contact
+              </h3>
+
+              <p>
+                Press, collaborations, licensing
+                and booking enquiries.
+              </p>
+
+            </div>
+
+            <i class="fas fa-arrow-right connect-arrow"></i>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         DISTROKID REFERRAL
+         Kept, but deliberately less prominent
+         ===================================================== -->
+
+    <section class="partner-section">
+
+      <div class="page-width">
+
+        <div class="partner-card">
+
+          <div class="partner-copy">
+
+            <div class="partner-label">
+              For Artists
+            </div>
+
+            <p class="partner-title">
+              Want to release your own music?
+            </p>
+
+          </div>
+
+
+          <a
+            class="partner-link tracked-link"
+            href="https://distrokid.com/vip/seven/10480046"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="DistroKid Referral"
+          >
+            Release with DistroKid
+            <i class="fas fa-arrow-right"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
   </main>
 
-  <!-- YouTube IFrame API -->
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    let player;
-    let hasTrackedPlay = false;
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('latestVideo', {
-        events: {
-          onStateChange: onPlayerStateChange
-        }
-      });
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer class="site-footer">
+
+    <div class="page-width">
+
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+          Dakota Rayne<span class="brand-dot">.</span>
+        </div>
+
+
+        <div class="footer-socials">
+
+          <a
+            href="https://open.spotify.com/artist/6goTvZkqQf25HQ2lTyRCSp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
+          >
+            <i class="fab fa-spotify"></i>
+          </a>
+
+          <a
+            href="https://www.youtube.com/@DakotaRayneVEVO"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <i class="fab fa-youtube"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/dakotarayneofficial/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@dakotarayneofficial"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok"
+          >
+            <i class="fab fa-tiktok"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <div>
+          © <span id="copyrightYear"></span>
+          Dakota Rayne. All rights reserved.
+        </div>
+
+
+        <div class="legal-links">
+
+          <a href="privacy.html">
+            Privacy
+          </a>
+
+          <a href="cookies.html">
+            Cookies
+          </a>
+
+          <a href="terms.html">
+            Terms
+          </a>
+
+          <a href="contact.html">
+            Contact
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
+  <script>
+
+    /* =======================================================
+       CONFIGURATION
+
+       The VEVO channel is the automatic content source.
+
+       When Dakota uploads a new video to this channel:
+       - hero artwork changes
+       - hero title changes
+       - hero release date changes
+       - Watch button changes
+       - Latest Music Video changes
+       - More Videos grid changes
+
+       No manual homepage update required.
+       ======================================================= */
+
+    const CHANNEL_ID =
+      'UC5BRDu0rLn0mi3KebYC29Vw';
+
+    const CHANNEL_URL =
+      'https://www.youtube.com/@DakotaRayneVEVO';
+
+    const FALLBACK_VIDEO_ID =
+      'sJvWebzSqSQ';
+
+    const NUMBER_OF_EXTRA_VIDEOS =
+      6;
+
+
+    /* =======================================================
+       MOBILE MENU
+       ======================================================= */
+
+    const mobileMenuButton =
+      document.getElementById(
+        'mobileMenuButton'
+      );
+
+    const mobileNav =
+      document.getElementById(
+        'mobileNav'
+      );
+
+
+    function closeMobileMenu() {
+
+      mobileNav.classList.remove(
+        'active'
+      );
+
+      document.body.classList.remove(
+        'menu-open'
+      );
+
+      mobileMenuButton.setAttribute(
+        'aria-expanded',
+        'false'
+      );
+
+      mobileMenuButton.innerHTML =
+        '<i class="fas fa-bars"></i>';
+
     }
 
-    function onPlayerStateChange(event) {
-      if (event.data === YT.PlayerState.PLAYING && !hasTrackedPlay) {
-        hasTrackedPlay = true;
-        if (window.gtag) {
-          gtag('event', 'video_play', {
-            event_category: 'engagement',
-            event_label: 'Latest Music Video'
-          });
+
+    function openMobileMenu() {
+
+      mobileNav.classList.add(
+        'active'
+      );
+
+      document.body.classList.add(
+        'menu-open'
+      );
+
+      mobileMenuButton.setAttribute(
+        'aria-expanded',
+        'true'
+      );
+
+      mobileMenuButton.innerHTML =
+        '<i class="fas fa-times"></i>';
+
+    }
+
+
+    mobileMenuButton.addEventListener(
+      'click',
+      function () {
+
+        const isOpen =
+          mobileNav.classList.contains(
+            'active'
+          );
+
+        if (isOpen) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
         }
+
       }
+    );
+
+
+    mobileNav
+      .querySelectorAll('a')
+      .forEach(
+        function (link) {
+
+          link.addEventListener(
+            'click',
+            closeMobileMenu
+          );
+
+        }
+      );
+
+
+    /* =======================================================
+       COPYRIGHT YEAR
+       ======================================================= */
+
+    document.getElementById(
+      'copyrightYear'
+    ).textContent =
+      new Date().getFullYear();
+
+
+    /* =======================================================
+       GENERIC ANALYTICS TRACKING
+       ======================================================= */
+
+    document
+      .querySelectorAll('.tracked-link')
+      .forEach(
+        function (link) {
+
+          link.addEventListener(
+            'click',
+            function () {
+
+              if (!window.gtag) {
+                return;
+              }
+
+              const label =
+                link.dataset.track ||
+                link.textContent.trim();
+
+              gtag(
+                'event',
+                'click',
+                {
+                  event_category:
+                    'engagement',
+
+                  event_label:
+                    label
+                }
+              );
+
+            }
+          );
+
+        }
+      );
+
+
+    /* =======================================================
+       CLEAN YOUTUBE VIDEO TITLE
+
+       Removes common extra wording so something like:
+
+       Dakota Rayne - Exit Wounds (Official Music Video)
+
+       becomes:
+
+       Exit Wounds
+       ======================================================= */
+
+    function cleanVideoTitle(
+      title
+    ) {
+
+      if (!title) {
+        return 'Latest from Dakota Rayne';
+      }
+
+
+      let clean =
+        title.trim();
+
+
+      clean =
+        clean.replace(
+          /^Dakota Rayne\s*[-:|]\s*/i,
+          ''
+        );
+
+
+      clean =
+        clean.replace(
+          /\s*\(Official Music Video\)\s*/gi,
+          ''
+        );
+
+
+      clean =
+        clean.replace(
+          /\s*\(Official Video\)\s*/gi,
+          ''
+        );
+
+
+      clean =
+        clean.replace(
+          /\s*\(Official Audio\)\s*/gi,
+          ''
+        );
+
+
+      clean =
+        clean.replace(
+          /\s*\(Lyric Video\)\s*/gi,
+          ''
+        );
+
+
+      clean =
+        clean.replace(
+          /\s*\(Visualizer\)\s*/gi,
+          ''
+        );
+
+
+      clean =
+        clean.replace(
+          /\s*\[Official Music Video\]\s*/gi,
+          ''
+        );
+
+
+      clean =
+        clean.replace(
+          /\s*\[Official Video\]\s*/gi,
+          ''
+        );
+
+
+      return clean.trim();
+
     }
-  </script>
 
-  <!-- Dynamic video grid -->
-  <script>
-    const CHANNEL_ID = 'UC5BRDu0rLn0mi3KebYC29Vw';
-    const FEATURED_VIDEO_ID = 'sJvWebzSqSQ';
 
-    async function loadRandomVideos() {
-      const grid = document.getElementById('videoGrid');
-      if (!grid) return;
+    /* =======================================================
+       FORMAT RELEASE DATE
+       ======================================================= */
+
+    function formatReleaseDate(
+      dateValue
+    ) {
+
+      if (!dateValue) {
+        return '';
+      }
+
+
+      const date =
+        new Date(dateValue);
+
+
+      if (
+        Number.isNaN(
+          date.getTime()
+        )
+      ) {
+        return '';
+      }
+
+
+      return new Intl.DateTimeFormat(
+        'en-GB',
+        {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        }
+      ).format(date);
+
+    }
+
+
+    /* =======================================================
+       GET YOUTUBE VIDEO ID
+       ======================================================= */
+
+    function getVideoId(
+      item
+    ) {
+
+      if (!item) {
+        return '';
+      }
+
+
+      /*
+       * RSS2JSON occasionally supplies slightly different
+       * properties depending on feed formatting.
+       */
+
+      if (item.guid) {
+
+        const guidMatch =
+          String(item.guid).match(
+            /(?:video:|videos\/)([A-Za-z0-9_-]{11})/
+          );
+
+        if (guidMatch) {
+          return guidMatch[1];
+        }
+
+      }
+
+
+      if (item.link) {
+
+        try {
+
+          const url =
+            new URL(item.link);
+
+          const id =
+            url.searchParams.get(
+              'v'
+            );
+
+          if (id) {
+            return id;
+          }
+
+        }
+        catch (error) {
+
+          const match =
+            String(item.link).match(
+              /[?&]v=([A-Za-z0-9_-]{11})/
+            );
+
+          if (match) {
+            return match[1];
+          }
+
+        }
+
+      }
+
+
+      return '';
+
+    }
+
+
+    /* =======================================================
+       YOUTUBE THUMBNAILS
+       ======================================================= */
+
+    function maxResolutionThumbnail(
+      videoId
+    ) {
+
+      return (
+        'https://i.ytimg.com/vi/' +
+        videoId +
+        '/maxresdefault.jpg'
+      );
+
+    }
+
+
+    function highQualityThumbnail(
+      videoId
+    ) {
+
+      return (
+        'https://i.ytimg.com/vi/' +
+        videoId +
+        '/hqdefault.jpg'
+      );
+
+    }
+
+
+    /* =======================================================
+       UPDATE HERO
+       ======================================================= */
+
+    function updateHero(
+      latestVideo
+    ) {
+
+      const videoId =
+        latestVideo.videoId;
+
+      const cleanTitle =
+        cleanVideoTitle(
+          latestVideo.title
+        );
+
+      const formattedDate =
+        formatReleaseDate(
+          latestVideo.pubDate
+        );
+
+      const videoUrl =
+        latestVideo.link ||
+        (
+          'https://www.youtube.com/watch?v=' +
+          videoId
+        );
+
+
+      const artwork =
+        document.getElementById(
+          'latestReleaseArtwork'
+        );
+
+      const title =
+        document.getElementById(
+          'latestReleaseTitle'
+        );
+
+      const date =
+        document.getElementById(
+          'latestReleaseDate'
+        );
+
+      const heroVideoLink =
+        document.getElementById(
+          'heroVideoLink'
+        );
+
+      const heroWatchButton =
+        document.getElementById(
+          'heroWatchButton'
+        );
+
+      const hero =
+        document.querySelector(
+          '.hero'
+        );
+
+
+      /*
+       * Release artwork
+       */
+
+      artwork.src =
+        maxResolutionThumbnail(
+          videoId
+        );
+
+      artwork.onerror =
+        function () {
+
+          artwork.onerror =
+            null;
+
+          artwork.src =
+            highQualityThumbnail(
+              videoId
+            );
+
+        };
+
+
+      artwork.alt =
+        cleanTitle +
+        ' by Dakota Rayne';
+
+
+      /*
+       * Release information
+       */
+
+      title.textContent =
+        cleanTitle;
+
+      date.textContent =
+        formattedDate
+          ? 'Released ' + formattedDate
+          : 'Latest release';
+
+
+      /*
+       * Video links
+       */
+
+      heroVideoLink.href =
+        videoUrl;
+
+      heroWatchButton.href =
+        videoUrl;
+
+
+      /*
+       * Full hero background
+       */
+
+      hero.style.setProperty(
+        '--hero-image',
+        "url('" +
+        maxResolutionThumbnail(
+          videoId
+        ) +
+        "')"
+      );
+
+
+      /*
+       * Update browser tab title
+       */
+
+      document.title =
+        cleanTitle +
+        ' | Dakota Rayne';
+
+    }
+
+
+    /* =======================================================
+       UPDATE LATEST VIDEO EMBED
+       ======================================================= */
+
+    let youtubePlayer = null;
+    let youtubeApiReady = false;
+    let hasTrackedVideoPlay = false;
+
+
+    function updateLatestVideo(
+      videoId
+    ) {
+
+      hasTrackedVideoPlay =
+        false;
+
+
+      if (
+        youtubePlayer &&
+        typeof youtubePlayer.cueVideoById ===
+          'function'
+      ) {
+
+        youtubePlayer.cueVideoById(
+          videoId
+        );
+
+        return;
+
+      }
+
+
+      const iframe =
+        document.getElementById(
+          'latestVideo'
+        );
+
+
+      iframe.src =
+        'https://www.youtube.com/embed/' +
+        videoId +
+        '?enablejsapi=1';
+
+    }
+
+
+    /* =======================================================
+       BUILD VIDEO GRID
+       ======================================================= */
+
+    function buildVideoGrid(
+      videos
+    ) {
+
+      const grid =
+        document.getElementById(
+          'videoGrid'
+        );
+
+
+      grid.innerHTML =
+        '';
+
+
+      if (
+        !videos ||
+        videos.length === 0
+      ) {
+
+        const message =
+          document.createElement(
+            'div'
+          );
+
+        message.className =
+          'video-loading';
+
+        message.innerHTML =
+          'More videos are available on ' +
+          '<a href="' +
+          CHANNEL_URL +
+          '" target="_blank" rel="noopener noreferrer">' +
+          'Dakota Rayne VEVO</a>.';
+
+        grid.appendChild(
+          message
+        );
+
+        return;
+
+      }
+
+
+      videos.forEach(
+        function (video) {
+
+          const card =
+            document.createElement(
+              'a'
+            );
+
+
+          card.className =
+            'video-card';
+
+
+          card.href =
+            video.link ||
+            (
+              'https://www.youtube.com/watch?v=' +
+              video.videoId
+            );
+
+
+          card.target =
+            '_blank';
+
+
+          card.rel =
+            'noopener noreferrer';
+
+
+          /*
+           * IMAGE
+           */
+
+          const image =
+            document.createElement(
+              'img'
+            );
+
+
+          image.className =
+            'video-card-image';
+
+
+          image.src =
+            maxResolutionThumbnail(
+              video.videoId
+            );
+
+
+          image.alt =
+            cleanVideoTitle(
+              video.title
+            );
+
+
+          image.loading =
+            'lazy';
+
+
+          image.onerror =
+            function () {
+
+              image.onerror =
+                null;
+
+              image.src =
+                highQualityThumbnail(
+                  video.videoId
+                );
+
+            };
+
+
+          /*
+           * GRADIENT
+           */
+
+          const gradient =
+            document.createElement(
+              'div'
+            );
+
+
+          gradient.className =
+            'video-card-gradient';
+
+
+          /*
+           * PLAY ICON
+           */
+
+          const play =
+            document.createElement(
+              'div'
+            );
+
+
+          play.className =
+            'video-play-icon';
+
+
+          play.innerHTML =
+            '<i class="fas fa-play"></i>';
+
+
+          /*
+           * TEXT
+           */
+
+          const content =
+            document.createElement(
+              'div'
+            );
+
+
+          content.className =
+            'video-card-content';
+
+
+          const label =
+            document.createElement(
+              'div'
+            );
+
+
+          label.className =
+            'video-card-label';
+
+
+          label.textContent =
+            'VEVO';
+
+
+          const title =
+            document.createElement(
+              'h3'
+            );
+
+
+          title.className =
+            'video-card-title';
+
+
+          title.textContent =
+            cleanVideoTitle(
+              video.title
+            );
+
+
+          content.appendChild(
+            label
+          );
+
+
+          content.appendChild(
+            title
+          );
+
+
+          card.appendChild(
+            image
+          );
+
+
+          card.appendChild(
+            gradient
+          );
+
+
+          card.appendChild(
+            play
+          );
+
+
+          card.appendChild(
+            content
+          );
+
+
+          /*
+           * ANALYTICS
+           */
+
+          card.addEventListener(
+            'click',
+            function () {
+
+              if (!window.gtag) {
+                return;
+              }
+
+
+              gtag(
+                'event',
+                'click',
+                {
+                  event_category:
+                    'engagement',
+
+                  event_label:
+                    'Video: ' +
+                    cleanVideoTitle(
+                      video.title
+                    )
+                }
+              );
+
+            }
+          );
+
+
+          grid.appendChild(
+            card
+          );
+
+        }
+      );
+
+    }
+
+
+    /* =======================================================
+       LOAD AUTOMATIC CHANNEL CONTENT
+       ======================================================= */
+
+    async function loadAutomaticContent() {
 
       try {
-        const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
-        const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
-        const res = await fetch(apiUrl);
-        if (!res.ok) throw new Error('Network response was not ok');
+        const rssUrl =
+          'https://www.youtube.com/feeds/videos.xml?channel_id=' +
+          CHANNEL_ID;
 
-        const data = await res.json();
 
-        if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
-          throw new Error('No videos returned');
+        const apiUrl =
+          'https://api.rss2json.com/v1/api.json?rss_url=' +
+          encodeURIComponent(
+            rssUrl
+          );
+
+
+        const response =
+          await fetch(
+            apiUrl,
+            {
+              cache: 'no-store'
+            }
+          );
+
+
+        if (!response.ok) {
+
+          throw new Error(
+            'Video feed request failed with status ' +
+            response.status
+          );
+
         }
 
-        let videos = data.items
-          .map(video => {
-            let videoId = '';
-            try {
-              const url = new URL(video.link);
-              videoId = url.searchParams.get('v') || '';
-            } catch (e) {
-              console.warn('Invalid video URL:', video.link);
-            }
-            return { ...video, videoId };
-          })
-          .filter(video => video.videoId && video.videoId !== FEATURED_VIDEO_ID);
 
-        // Shuffle
-        videos.sort(() => Math.random() - 0.5);
-        const selected = videos.slice(0, 6);
+        const data =
+          await response.json();
 
-        grid.innerHTML = '';
-        grid.setAttribute('aria-busy', 'false');
 
-        if (selected.length === 0) {
-          grid.innerHTML = '<p class="video-status">No additional videos available right now.</p>';
-          return;
+        if (
+          !data.items ||
+          !Array.isArray(
+            data.items
+          ) ||
+          data.items.length === 0
+        ) {
+
+          throw new Error(
+            'No videos returned from Dakota Rayne VEVO feed.'
+          );
+
         }
 
-        selected.forEach(video => {
-          const thumb = document.createElement('a');
-          thumb.href = video.link;
-          thumb.target = '_blank';
-          thumb.rel = 'noopener noreferrer';
-          thumb.className = 'thumb';
-          thumb.setAttribute('aria-label', `Watch ${video.title}`);
 
-          const maxres = `https://i.ytimg.com/vi/${video.videoId}/maxresdefault.jpg`;
-          const fallback = `https://i.ytimg.com/vi/${video.videoId}/hqdefault.jpg`;
+        /*
+         * Convert feed items into easier objects
+         */
 
-          thumb.innerHTML = `
-            <img src="${maxres}" alt="" onerror="this.onerror=null;this.src='${fallback}';" loading="lazy" width="480" height="270">
-            <div class="overlay">
-              <span class="vevo">VEVO</span>
-              <div class="title">${video.title}</div>
-            </div>
-            <i class="fas fa-play-circle play-icon" aria-hidden="true"></i>
-          `;
+        const videos =
+          data.items
+            .map(
+              function (item) {
 
-          thumb.addEventListener('click', () => {
-            if (window.gtag) {
-              gtag('event', 'click', {
-                event_category: 'engagement',
-                event_label: `Random Video: ${video.title}`
-              });
+                return {
+                  title:
+                    item.title || '',
+
+                  link:
+                    item.link || '',
+
+                  pubDate:
+                    item.pubDate || '',
+
+                  videoId:
+                    getVideoId(item)
+                };
+
+              }
+            )
+            .filter(
+              function (video) {
+
+                return Boolean(
+                  video.videoId
+                );
+
+              }
+            );
+
+
+        if (
+          videos.length === 0
+        ) {
+
+          throw new Error(
+            'No valid video IDs found.'
+          );
+
+        }
+
+
+        /*
+         * YouTube RSS returns newest first.
+         */
+
+        const latestVideo =
+          videos[0];
+
+
+        /*
+         * Update automatic homepage areas.
+         */
+
+        updateHero(
+          latestVideo
+        );
+
+
+        updateLatestVideo(
+          latestVideo.videoId
+        );
+
+
+        /*
+         * Skip latest video and show next six.
+         */
+
+        const extraVideos =
+          videos
+            .slice(
+              1,
+              1 +
+              NUMBER_OF_EXTRA_VIDEOS
+            );
+
+
+        buildVideoGrid(
+          extraVideos
+        );
+
+
+        /*
+         * Analytics
+         */
+
+        if (window.gtag) {
+
+          gtag(
+            'event',
+            'automatic_content_loaded',
+            {
+              event_category:
+                'site',
+
+              event_label:
+                cleanVideoTitle(
+                  latestVideo.title
+                )
             }
-          });
+          );
 
-          grid.appendChild(thumb);
-        });
-      } catch (err) {
-        console.error('Failed to load videos:', err);
-        grid.setAttribute('aria-busy', 'false');
-        grid.innerHTML = '<p class="video-status">Videos temporarily unavailable. Check back soon or visit the YouTube channel.</p>';
+        }
+
       }
+      catch (error) {
+
+        console.error(
+          'Automatic Dakota content failed:',
+          error
+        );
+
+
+        /*
+         * Do not break the website if RSS2JSON
+         * is temporarily unavailable.
+         */
+
+        document.getElementById(
+          'latestReleaseDate'
+        ).textContent =
+          'Latest release';
+
+
+        buildVideoGrid(
+          []
+        );
+
+      }
+
     }
 
-    loadRandomVideos();
+
+    /* =======================================================
+       YOUTUBE PLAYER ANALYTICS
+       ======================================================= */
+
+    function onYouTubeIframeAPIReady() {
+
+      youtubeApiReady =
+        true;
+
+
+      const iframe =
+        document.getElementById(
+          'latestVideo'
+        );
+
+
+      if (
+        !iframe ||
+        !window.YT
+      ) {
+        return;
+      }
+
+
+      youtubePlayer =
+        new YT.Player(
+          'latestVideo',
+          {
+            events: {
+
+              onStateChange:
+                function (event) {
+
+                  if (
+                    event.data ===
+                      YT.PlayerState.PLAYING &&
+                    !hasTrackedVideoPlay
+                  ) {
+
+                    hasTrackedVideoPlay =
+                      true;
+
+
+                    if (
+                      window.gtag
+                    ) {
+
+                      gtag(
+                        'event',
+                        'video_play',
+                        {
+                          event_category:
+                            'engagement',
+
+                          event_label:
+                            'Latest Music Video'
+                        }
+                      );
+
+                    }
+
+                  }
+
+                }
+
+            }
+          }
+        );
+
+    }
+
+
+    /*
+     * Make callback available globally for
+     * YouTube iframe API.
+     */
+
+    window.onYouTubeIframeAPIReady =
+      onYouTubeIframeAPIReady;
+
+
+    /* =======================================================
+       START
+       ======================================================= */
+
+    loadAutomaticContent();
+
   </script>
+
+
+  <!-- YouTube iframe API -->
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+
+
 </body>
+
 </html>
