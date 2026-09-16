@@ -1837,6 +1837,29 @@
 
     }
 
+
+    /* Presave links frame the Music heading on desktop. */
+    .music-presave-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items: center;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+    .music-presave-heading .section-heading { margin: 0; }
+    .presave-button { min-width: 210px; max-width: 100%; }
+    .presave-dakota { justify-self: start; }
+    .presave-outlaws { justify-self: end; }
+    .presave-button:focus-visible {
+      outline: 3px solid var(--gold-bright);
+      outline-offset: 5px;
+    }
+    @media (max-width: 700px) {
+      .music-presave-heading { grid-template-columns: 1fr; gap: 18px; }
+      .music-presave-heading .section-heading { grid-row: 1; }
+      .presave-button { justify-self: center; width: min(100%, 320px); }
+    }
+
   </style>
 
 
@@ -2159,22 +2182,25 @@
 
       <div class="page-width">
 
-        <div class="section-heading">
-
-          <p class="eyebrow">
-            Listen
-          </p>
-
-          <h2 class="section-title">
-            Music
-          </h2>
-
-          <p class="section-intro">
-            Stream Dakota Rayne wherever you listen.
-          </p>
-
+        <div class="music-presave-heading">
+          <a class="button button-primary tracked-link presave-button presave-dakota"
+             href="https://digitaloutlaws.github.io/?artist=dakota-rayne"
+             target="_blank" rel="noopener noreferrer" data-track="Dakota Pre-Saves">
+            DAKOTA PRE-SAVES
+          </a>
+          <div class="section-heading">
+            <p class="eyebrow">Listen</p>
+            <h2 class="section-title">Music</h2>
+          </div>
+          <a class="button tracked-link presave-button presave-outlaws"
+             href="https://digitaloutlaws.github.io/"
+             target="_blank" rel="noopener noreferrer" data-track="The Outlaws Pre-saves">
+            The Outlaws Pre-saves
+          </a>
         </div>
-
+        <p class="section-intro">
+          Stream Dakota Rayne wherever you listen.
+        </p>
 
         <div class="stream-links">
 
