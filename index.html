@@ -1847,7 +1847,25 @@
       margin-bottom: 24px;
     }
     .music-presave-heading .section-heading { margin: 0; }
-    .presave-button { min-width: 210px; max-width: 100%; }
+    .presave-button {
+      display: block;
+      width: 100%;
+      max-width: 360px;
+      min-width: 0;
+      border-radius: 14px;
+      text-decoration: none;
+      transition: transform 0.22s ease, filter 0.22s ease;
+    }
+    .presave-button img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: inherit;
+    }
+    .presave-button:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+    }
     .presave-dakota { justify-self: start; }
     .presave-outlaws { justify-self: end; }
     .presave-button:focus-visible {
@@ -2183,19 +2201,19 @@
       <div class="page-width">
 
         <div class="music-presave-heading">
-          <a class="button button-primary tracked-link presave-button presave-dakota"
+          <a class="tracked-link presave-button presave-dakota"
              href="https://digitaloutlaws.github.io/?artist=dakota-rayne"
              target="_blank" rel="noopener noreferrer" data-track="Dakota Pre-Saves">
-            DAKOTA PRE-SAVES
+            <img src="dak-pre-save.png" alt="Dakota Rayne: pre-save on Spotify" loading="lazy" decoding="async">
           </a>
           <div class="section-heading">
             <p class="eyebrow">Listen</p>
             <h2 class="section-title">Music</h2>
           </div>
-          <a class="button tracked-link presave-button presave-outlaws"
+          <a class="tracked-link presave-button presave-outlaws"
              href="https://digitaloutlaws.github.io/"
              target="_blank" rel="noopener noreferrer" data-track="The Outlaws Pre-saves">
-            The Outlaws Pre-saves
+            <img src="outlaw-pre-save.png" alt="The Outlaws: pre-save on Spotify" loading="lazy" decoding="async">
           </a>
         </div>
         <p class="section-intro">
