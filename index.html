@@ -606,6 +606,7 @@
     }
 
     .release-artwork-wrapper {
+      display: block;
       position: relative;
 
       overflow: hidden;
@@ -1841,7 +1842,7 @@
     /* Presave links frame the Music heading on desktop. */
     .music-presave-heading {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1.4fr) auto minmax(0, 0.85fr);
       align-items: center;
       gap: 28px;
       margin-bottom: 24px;
@@ -1867,7 +1868,7 @@
       filter: brightness(1.08);
     }
     .presave-dakota { justify-self: start; }
-    .presave-outlaws { justify-self: end; }
+    .presave-outlaws { justify-self: end; max-width: 240px; }
     .presave-button:focus-visible {
       outline: 3px solid var(--gold-bright);
       outline-offset: 5px;
@@ -1876,6 +1877,26 @@
       .music-presave-heading { grid-template-columns: 1fr; gap: 18px; }
       .music-presave-heading .section-heading { grid-row: 1; }
       .presave-button { justify-self: center; width: min(100%, 320px); }
+    }
+
+
+    /* Campaign visibility and smaller partner pre-save. */
+    .hero-campaign { margin-bottom: 26px; }
+    .hero-presave { min-height: 54px; padding-inline: 24px; }
+    .hero-campaign-note {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--gold-bright);
+      outline-offset: 5px;
+    }
+    .video-gallery-footer { margin-top: 28px; text-align: center; }
+    @media (max-width: 700px) {
+      .presave-outlaws { width: min(100%, 230px); }
+      .hero-presave { width: 100%; max-width: 360px; }
     }
 
   </style>
@@ -2007,7 +2028,7 @@
 
   <!-- =======================================================
        HERO
-       Automatically updated from latest VEVO upload
+       Featured fallback, automatically updated from latest VEVO upload
        ======================================================= -->
 
   <section
@@ -2038,6 +2059,16 @@
           Country music with heart, grit and just enough trouble.
         </p>
 
+
+        <div class="hero-campaign">
+          <a class="button button-primary tracked-link hero-presave"
+             href="https://digitaloutlaws.github.io/?artist=dakota-rayne"
+             target="_blank" rel="noopener noreferrer" data-track="Hero Dakota Pre-Save">
+            <i class="fab fa-spotify" aria-hidden="true"></i>
+            Pre-save Dakota on Spotify
+          </a>
+          <p class="hero-campaign-note">Be ready for the next release.</p>
+        </div>
 
         <div class="hero-socials">
 
@@ -2101,25 +2132,25 @@
       </div>
 
 
-      <!-- AUTOMATIC CURRENT RELEASE -->
+      <!-- Featured video fallback; refreshed automatically from VEVO. -->
 
       <article class="release-card">
 
         <a
           id="heroVideoLink"
-          href="https://www.youtube.com/@DakotaRayneVEVO"
+          href="https://www.youtube.com/watch?v=sJvWebzSqSQ"
           target="_blank"
           rel="noopener noreferrer"
           class="release-artwork-wrapper tracked-link"
           data-track="Hero Latest Video"
-          aria-label="Watch latest Dakota Rayne video"
+          aria-label="Watch Play with Fire by Dakota Rayne"
         >
 
           <img
             id="latestReleaseArtwork"
             class="release-artwork"
             src="https://i.ytimg.com/vi/sJvWebzSqSQ/maxresdefault.jpg"
-            alt="Latest Dakota Rayne release"
+            alt="Play with Fire by Dakota Rayne"
           >
 
           <span class="release-play">
@@ -2131,22 +2162,22 @@
 
         <div class="release-details">
 
-          <div class="release-label">
-            Latest Release
+          <div class="release-label" id="latestReleaseLabel">
+            Featured Music Video
           </div>
 
           <h2
             class="release-title"
             id="latestReleaseTitle"
           >
-            Latest from Dakota Rayne
+            Play with Fire
           </h2>
 
           <p
             class="release-date"
             id="latestReleaseDate"
           >
-            Loading latest release...
+            Official music video
           </p>
 
 
@@ -2155,7 +2186,7 @@
             <a
               class="button button-primary tracked-link"
               id="heroWatchButton"
-              href="https://www.youtube.com/@DakotaRayneVEVO"
+              href="https://www.youtube.com/watch?v=sJvWebzSqSQ"
               target="_blank"
               rel="noopener noreferrer"
               data-track="Watch Latest Video"
@@ -2303,8 +2334,8 @@
             Watch
           </p>
 
-          <h2 class="section-title">
-            Latest Music Video
+          <h2 class="section-title" id="latestVideoHeading">
+            Featured Music Video
           </h2>
 
         </div>
@@ -2315,7 +2346,8 @@
           <iframe
             id="latestVideo"
             src="https://www.youtube.com/embed/sJvWebzSqSQ?enablejsapi=1"
-            title="Latest Dakota Rayne music video"
+            title="Play with Fire by Dakota Rayne: official music video"
+            loading="lazy"
             allow="autoplay; encrypted-media; picture-in-picture"
             allowfullscreen>
           </iframe>
@@ -2358,10 +2390,49 @@
           id="videoGrid"
         >
 
-          <div class="video-loading">
-            Loading videos...
-          </div>
+          <a class="video-card tracked-link" href="https://www.youtube.com/watch?v=_gj_KMHuzr4"
+             target="_blank" rel="noopener noreferrer" data-track="Video: Pretty Little Disaster">
+            <img class="video-card-image" src="https://i.ytimg.com/vi/_gj_KMHuzr4/hqdefault.jpg"
+                 alt="Pretty Little Disaster" loading="lazy" decoding="async">
+            <div class="video-card-gradient"></div>
+            <div class="video-play-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+            <div class="video-card-content">
+              <div class="video-card-label">VEVO</div>
+              <h3 class="video-card-title">Pretty Little Disaster</h3>
+            </div>
+          </a>
 
+          <a class="video-card tracked-link" href="https://www.youtube.com/watch?v=38KeUOs27qw"
+             target="_blank" rel="noopener noreferrer" data-track="Video: Diamonds and Diesel">
+            <img class="video-card-image" src="https://i.ytimg.com/vi/38KeUOs27qw/hqdefault.jpg"
+                 alt="Diamonds and Diesel" loading="lazy" decoding="async">
+            <div class="video-card-gradient"></div>
+            <div class="video-play-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+            <div class="video-card-content">
+              <div class="video-card-label">VEVO</div>
+              <h3 class="video-card-title">Diamonds and Diesel</h3>
+            </div>
+          </a>
+
+          <a class="video-card tracked-link" href="https://www.youtube.com/watch?v=QZ17RFVNDQw"
+             target="_blank" rel="noopener noreferrer" data-track="Video: Light the Fuse">
+            <img class="video-card-image" src="https://i.ytimg.com/vi/QZ17RFVNDQw/hqdefault.jpg"
+                 alt="Light the Fuse" loading="lazy" decoding="async">
+            <div class="video-card-gradient"></div>
+            <div class="video-play-icon" aria-hidden="true"><i class="fas fa-play"></i></div>
+            <div class="video-card-content">
+              <div class="video-card-label">VEVO</div>
+              <h3 class="video-card-title">Light the Fuse</h3>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="video-gallery-footer">
+          <a class="button tracked-link" href="https://www.youtube.com/@DakotaRayneVEVO/videos"
+             target="_blank" rel="noopener noreferrer" data-track="All VEVO Videos">
+            All videos on VEVO <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
         </div>
 
       </div>
@@ -2831,1130 +2902,295 @@
 
   <script>
 
-    /* =======================================================
-       CONFIGURATION
+    'use strict';
 
-       The VEVO channel is the automatic content source.
-
-       When Dakota uploads a new video to this channel:
-       - hero artwork changes
-       - hero title changes
-       - hero release date changes
-       - Watch button changes
-       - Latest Music Video changes
-       - More Videos grid changes
-
-       No manual homepage update required.
-       ======================================================= */
-
-    const CHANNEL_ID =
-      'UC5BRDu0rLn0mi3KebYC29Vw';
-
-    const CHANNEL_URL =
-      'https://www.youtube.com/@DakotaRayneVEVO';
-
-    const FALLBACK_VIDEO_ID =
-      'sJvWebzSqSQ';
-
-    const NUMBER_OF_EXTRA_VIDEOS =
-      6;
-
-
-    /* =======================================================
-       MOBILE MENU
-       ======================================================= */
-
-    const mobileMenuButton =
-      document.getElementById(
-        'mobileMenuButton'
-      );
-
-    const mobileNav =
-      document.getElementById(
-        'mobileNav'
-      );
-
-
-    function closeMobileMenu() {
-
-      mobileNav.classList.remove(
-        'active'
-      );
-
-      document.body.classList.remove(
-        'menu-open'
-      );
-
-      mobileMenuButton.setAttribute(
-        'aria-expanded',
-        'false'
-      );
-
-      mobileMenuButton.innerHTML =
-        '<i class="fas fa-bars"></i>';
-
-    }
-
-
-    function openMobileMenu() {
-
-      mobileNav.classList.add(
-        'active'
-      );
-
-      document.body.classList.add(
-        'menu-open'
-      );
-
-      mobileMenuButton.setAttribute(
-        'aria-expanded',
-        'true'
-      );
-
-      mobileMenuButton.innerHTML =
-        '<i class="fas fa-times"></i>';
-
-    }
-
-
-    mobileMenuButton.addEventListener(
-      'click',
-      function () {
-
-        const isOpen =
-          mobileNav.classList.contains(
-            'active'
-          );
-
-        if (isOpen) {
-          closeMobileMenu();
-        } else {
-          openMobileMenu();
-        }
-
+    const CHANNEL_ID = 'UC5BRDu0rLn0mi3KebYC29Vw';
+    const NUMBER_OF_EXTRA_VIDEOS = 6;
+    const CACHE_KEY = 'dakota-vevo-videos-v1';
+    const CACHE_MAX_AGE = 7 * 24 * 60 * 60 * 1000;
+    const FALLBACK_VIDEO = {
+      videoId: 'sJvWebzSqSQ', title: 'Play with Fire', pubDate: ''
+    };
+    // Verified VEVO backups. Keep these available even without JavaScript.
+    const FALLBACK_EXTRA_VIDEOS = [
+      {
+            "videoId": "_gj_KMHuzr4",
+            "title": "Pretty Little Disaster",
+            "pubDate": ""
+      },
+      {
+            "videoId": "38KeUOs27qw",
+            "title": "Diamonds and Diesel",
+            "pubDate": ""
+      },
+      {
+            "videoId": "QZ17RFVNDQw",
+            "title": "Light the Fuse",
+            "pubDate": ""
       }
-    );
+];
+    const VIDEO_ID_PATTERN = /^[A-Za-z0-9_-]{11}$/;
+    const videoUrl = id => 'https://www.youtube.com/watch?v=' + id;
+    const thumbnail = (id, quality = 'maxresdefault') =>
+      'https://i.ytimg.com/vi/' + id + '/' + quality + '.jpg';
 
-
-    mobileNav
-      .querySelectorAll('a')
-      .forEach(
-        function (link) {
-
-          link.addEventListener(
-            'click',
-            closeMobileMenu
-          );
-
-        }
-      );
-
-
-    /* =======================================================
-       COPYRIGHT YEAR
-       ======================================================= */
-
-    document.getElementById(
-      'copyrightYear'
-    ).textContent =
-      new Date().getFullYear();
-
-
-    /* =======================================================
-       GENERIC ANALYTICS TRACKING
-       ======================================================= */
-
-    document
-      .querySelectorAll('.tracked-link')
-      .forEach(
-        function (link) {
-
-          link.addEventListener(
-            'click',
-            function () {
-
-              if (!window.gtag) {
-                return;
-              }
-
-              const label =
-                link.dataset.track ||
-                link.textContent.trim();
-
-              gtag(
-                'event',
-                'click',
-                {
-                  event_category:
-                    'engagement',
-
-                  event_label:
-                    label
-                }
-              );
-
-            }
-          );
-
-        }
-      );
-
-
-    /* =======================================================
-       CLEAN YOUTUBE VIDEO TITLE
-
-       Removes common extra wording so something like:
-
-       Dakota Rayne - Exit Wounds (Official Music Video)
-
-       becomes:
-
-       Exit Wounds
-       ======================================================= */
-
-    function cleanVideoTitle(
-      title
-    ) {
-
-      if (!title) {
-        return 'Latest from Dakota Rayne';
+    function track(label, eventName = 'click', category = 'engagement') {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, {
+          event_category: category, event_label: label
+        });
       }
-
-
-      let clean =
-        title.trim();
-
-
-      clean =
-        clean.replace(
-          /^Dakota Rayne\s*[-:|]\s*/i,
-          ''
-        );
-
-
-      clean =
-        clean.replace(
-          /\s*\(Official Music Video\)\s*/gi,
-          ''
-        );
-
-
-      clean =
-        clean.replace(
-          /\s*\(Official Video\)\s*/gi,
-          ''
-        );
-
-
-      clean =
-        clean.replace(
-          /\s*\(Official Audio\)\s*/gi,
-          ''
-        );
-
-
-      clean =
-        clean.replace(
-          /\s*\(Lyric Video\)\s*/gi,
-          ''
-        );
-
-
-      clean =
-        clean.replace(
-          /\s*\(Visualizer\)\s*/gi,
-          ''
-        );
-
-
-      clean =
-        clean.replace(
-          /\s*\[Official Music Video\]\s*/gi,
-          ''
-        );
-
-
-      clean =
-        clean.replace(
-          /\s*\[Official Video\]\s*/gi,
-          ''
-        );
-
-
-      return clean.trim();
-
     }
 
+    document.querySelectorAll('.tracked-link').forEach(link => {
+      link.addEventListener('click', () =>
+        track(link.dataset.track || link.textContent.trim()));
+    });
+    document.getElementById('copyrightYear').textContent = new Date().getFullYear();
 
-    /* =======================================================
-       FORMAT RELEASE DATE
-       ======================================================= */
-
-    function formatReleaseDate(
-      dateValue
-    ) {
-
-      if (!dateValue) {
-        return '';
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileNav = document.getElementById('mobileNav');
+    function setMobileMenu(open, returnFocus = false) {
+      mobileNav.classList.toggle('active', open);
+      document.body.classList.toggle('menu-open', open);
+      mobileMenuButton.setAttribute('aria-expanded', String(open));
+      mobileMenuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      mobileMenuButton.innerHTML = open
+        ? '<i class="fas fa-times" aria-hidden="true"></i>'
+        : '<i class="fas fa-bars" aria-hidden="true"></i>';
+      if (open) mobileNav.querySelector('a').focus();
+      else if (returnFocus) mobileMenuButton.focus();
+    }
+    mobileMenuButton.addEventListener('click', () =>
+      setMobileMenu(!mobileNav.classList.contains('active')));
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMobileMenu(false, true));
+    });
+    document.addEventListener('keydown', event => {
+      if (!mobileNav.classList.contains('active')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMobileMenu(false, true);
       }
-
-
-      const date =
-        new Date(dateValue);
-
-
-      if (
-        Number.isNaN(
-          date.getTime()
-        )
-      ) {
-        return '';
-      }
-
-
-      return new Intl.DateTimeFormat(
-        'en-GB',
-        {
-          day: 'numeric',
-          month: 'long',
-          year: 'numeric'
+      if (event.key === 'Tab') {
+        const links = [...mobileNav.querySelectorAll('a')];
+        const first = mobileMenuButton;
+        const last = links[links.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault(); last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault(); first.focus();
         }
-      ).format(date);
-
-    }
-
-
-    /* =======================================================
-       GET YOUTUBE VIDEO ID
-       ======================================================= */
-
-    function getVideoId(
-      item
-    ) {
-
-      if (!item) {
-        return '';
       }
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 950) setMobileMenu(false);
+    });
 
+    function cleanVideoTitle(title) {
+      return String(title || '').trim()
+        .replace(/^Dakota Rayne\s*[-:|]\s*/i, '')
+        .replace(/\s*[\[(](?:Official Music Video|Official Video|Official Audio|Lyric Video|Visualizer)[\])]\s*/gi, '')
+        .trim() || 'Dakota Rayne';
+    }
 
-      /*
-       * RSS2JSON occasionally supplies slightly different
-       * properties depending on feed formatting.
-       */
+    function formatVideoDate(value) {
+      if (!value) return '';
+      const date = new Date(value);
+      return Number.isNaN(date.getTime()) ? '' : new Intl.DateTimeFormat('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/London'
+      }).format(date);
+    }
 
-      if (item.guid) {
+    function getVideoId(item) {
+      if (!item || typeof item !== 'object') return '';
+      if (VIDEO_ID_PATTERN.test(item.videoId || '')) return item.videoId;
+      const guidMatch = String(item.guid || '').match(/(?:video:|videos\/)([A-Za-z0-9_-]{11})(?:$|[^A-Za-z0-9_-])/);
+      if (guidMatch) return guidMatch[1];
+      try {
+        const url = new URL(item.link);
+        const host = url.hostname.toLowerCase();
+        if (!['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtu.be'].includes(host)) return '';
+        const id = host === 'youtu.be' ? url.pathname.slice(1) : url.searchParams.get('v');
+        return VIDEO_ID_PATTERN.test(id || '') ? id : '';
+      } catch (_) { return ''; }
+    }
 
-        const guidMatch =
-          String(item.guid).match(
-            /(?:video:|videos\/)([A-Za-z0-9_-]{11})/
-          );
+    function normalizeVideos(items) {
+      if (!Array.isArray(items)) return [];
+      const seen = new Set();
+      return items.slice(0, 30).map(item => {
+        const videoId = getVideoId(item);
+        if (!videoId || seen.has(videoId)) return null;
+        seen.add(videoId);
+        return { videoId, title: cleanVideoTitle(item.title), pubDate: String(item.pubDate || '') };
+      }).filter(Boolean).sort((a, b) => {
+        const dateA = Date.parse(a.pubDate), dateB = Date.parse(b.pubDate);
+        return Number.isFinite(dateA) && Number.isFinite(dateB) ? dateB - dateA : 0;
+      });
+    }
 
-        if (guidMatch) {
-          return guidMatch[1];
-        }
+    function readCachedVideos() {
+      try {
+        const cached = JSON.parse(localStorage.getItem(CACHE_KEY));
+        const age = Date.now() - cached.savedAt;
+        if (!Number.isFinite(age) || age < 0 || age > CACHE_MAX_AGE) return [];
+        return normalizeVideos(cached.videos);
+      } catch (_) { return []; }
+    }
+    function saveCachedVideos(videos) {
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ savedAt: Date.now(), videos })); }
+      catch (_) { /* Private browsing or full storage must not interrupt the page. */ }
+    }
 
+    function setThumbnail(image, id) {
+      image.onload = () => {
+        // YouTube may return a small placeholder with HTTP 200 for missing HD artwork.
+        if (image.naturalWidth <= 120) useBackup();
+      };
+      image.onerror = useBackup;
+      function useBackup() {
+        image.onload = null;
+        image.onerror = null;
+        image.src = thumbnail(id, 'hqdefault');
       }
+      image.src = thumbnail(id);
+    }
 
-
-      if (item.link) {
-
-        try {
-
-          const url =
-            new URL(item.link);
-
-          const id =
-            url.searchParams.get(
-              'v'
-            );
-
-          if (id) {
-            return id;
-          }
-
+    let heroImageRequest = 0;
+    function setHeroBackground(id) {
+      const request = ++heroImageRequest;
+      const image = new Image();
+      function apply(quality) {
+        if (request === heroImageRequest) {
+          document.querySelector('.hero').style.setProperty('--hero-image',
+            'url("' + thumbnail(id, quality) + '")');
         }
-        catch (error) {
-
-          const match =
-            String(item.link).match(
-              /[?&]v=([A-Za-z0-9_-]{11})/
-            );
-
-          if (match) {
-            return match[1];
-          }
-
-        }
-
       }
-
-
-      return '';
-
+      image.onload = () => apply(image.naturalWidth > 120 ? 'maxresdefault' : 'hqdefault');
+      image.onerror = () => apply('hqdefault');
+      image.src = thumbnail(id);
     }
 
-
-    /* =======================================================
-       YOUTUBE THUMBNAILS
-       ======================================================= */
-
-    function maxResolutionThumbnail(
-      videoId
-    ) {
-
-      return (
-        'https://i.ytimg.com/vi/' +
-        videoId +
-        '/maxresdefault.jpg'
-      );
-
-    }
-
-
-    function highQualityThumbnail(
-      videoId
-    ) {
-
-      return (
-        'https://i.ytimg.com/vi/' +
-        videoId +
-        '/hqdefault.jpg'
-      );
-
-    }
-
-
-    /* =======================================================
-       UPDATE HERO
-       ======================================================= */
-
-    function updateHero(
-      latestVideo
-    ) {
-
-      const videoId =
-        latestVideo.videoId;
-
-      const cleanTitle =
-        cleanVideoTitle(
-          latestVideo.title
-        );
-
-      const formattedDate =
-        formatReleaseDate(
-          latestVideo.pubDate
-        );
-
-      const videoUrl =
-        latestVideo.link ||
-        (
-          'https://www.youtube.com/watch?v=' +
-          videoId
-        );
-
-
-      const artwork =
-        document.getElementById(
-          'latestReleaseArtwork'
-        );
-
-      const title =
-        document.getElementById(
-          'latestReleaseTitle'
-        );
-
-      const date =
-        document.getElementById(
-          'latestReleaseDate'
-        );
-
-      const heroVideoLink =
-        document.getElementById(
-          'heroVideoLink'
-        );
-
-      const heroWatchButton =
-        document.getElementById(
-          'heroWatchButton'
-        );
-
-      const hero =
-        document.querySelector(
-          '.hero'
-        );
-
-
-      /*
-       * Release artwork
-       */
-
-      artwork.src =
-        maxResolutionThumbnail(
-          videoId
-        );
-
-      artwork.onerror =
-        function () {
-
-          artwork.onerror =
-            null;
-
-          artwork.src =
-            highQualityThumbnail(
-              videoId
-            );
-
-        };
-
-
-      artwork.alt =
-        cleanTitle +
-        ' by Dakota Rayne';
-
-
-      /*
-       * Release information
-       */
-
-      title.textContent =
-        cleanTitle;
-
-      date.textContent =
-        formattedDate
-          ? 'Released ' + formattedDate
-          : 'Latest release';
-
-
-      /*
-       * Video links
-       */
-
-      heroVideoLink.href =
-        videoUrl;
-
-      heroWatchButton.href =
-        videoUrl;
-
-
-      /*
-       * Full hero background
-       */
-
-      hero.style.setProperty(
-        '--hero-image',
-        "url('" +
-        maxResolutionThumbnail(
-          videoId
-        ) +
-        "')"
-      );
-
-
-      /*
-       * Update browser tab title
-       */
-
-      document.title =
-        cleanTitle +
-        ' | Dakota Rayne';
-
-    }
-
-
-    /* =======================================================
-       UPDATE LATEST VIDEO EMBED
-       ======================================================= */
-
+    let currentVideoId = FALLBACK_VIDEO.videoId;
     let youtubePlayer = null;
-    let youtubeApiReady = false;
-    let hasTrackedVideoPlay = false;
-
-
-    function updateLatestVideo(
-      videoId
-    ) {
-
-      hasTrackedVideoPlay =
-        false;
-
-
-      if (
-        youtubePlayer &&
-        typeof youtubePlayer.cueVideoById ===
-          'function'
-      ) {
-
-        youtubePlayer.cueVideoById(
-          videoId
-        );
-
-        return;
-
+    let playerReady = false;
+    let trackedVideoId = '';
+    function updateLatestVideo(video) {
+      const changed = currentVideoId !== video.videoId;
+      currentVideoId = video.videoId;
+      if (changed) trackedVideoId = '';
+      const iframe = document.getElementById('latestVideo');
+      iframe.title = cleanVideoTitle(video.title) + ' by Dakota Rayne: official music video';
+      if (playerReady) {
+        if (changed) youtubePlayer.cueVideoById(currentVideoId);
+      } else if (!youtubePlayer && changed) {
+        iframe.src = 'https://www.youtube.com/embed/' + currentVideoId + '?enablejsapi=1';
       }
-
-
-      const iframe =
-        document.getElementById(
-          'latestVideo'
-        );
-
-
-      iframe.src =
-        'https://www.youtube.com/embed/' +
-        videoId +
-        '?enablejsapi=1';
-
+      // If the player is still initializing, its onReady callback cues currentVideoId.
     }
 
-
-    /* =======================================================
-       BUILD VIDEO GRID
-       ======================================================= */
-
-    function buildVideoGrid(
-      videos
-    ) {
-
-      const grid =
-        document.getElementById(
-          'videoGrid'
-        );
-
-
-      grid.innerHTML =
-        '';
-
-
-      if (
-        !videos ||
-        videos.length === 0
-      ) {
-
-        const message =
-          document.createElement(
-            'div'
-          );
-
-        message.className =
-          'video-loading';
-
-        message.innerHTML =
-          'More videos are available on ' +
-          '<a href="' +
-          CHANNEL_URL +
-          '" target="_blank" rel="noopener noreferrer">' +
-          'Dakota Rayne VEVO</a>.';
-
-        grid.appendChild(
-          message
-        );
-
-        return;
-
-      }
-
-
-      videos.forEach(
-        function (video) {
-
-          const card =
-            document.createElement(
-              'a'
-            );
-
-
-          card.className =
-            'video-card';
-
-
-          card.href =
-            video.link ||
-            (
-              'https://www.youtube.com/watch?v=' +
-              video.videoId
-            );
-
-
-          card.target =
-            '_blank';
-
-
-          card.rel =
-            'noopener noreferrer';
-
-
-          /*
-           * IMAGE
-           */
-
-          const image =
-            document.createElement(
-              'img'
-            );
-
-
-          image.className =
-            'video-card-image';
-
-
-          image.src =
-            maxResolutionThumbnail(
-              video.videoId
-            );
-
-
-          image.alt =
-            cleanVideoTitle(
-              video.title
-            );
-
-
-          image.loading =
-            'lazy';
-
-
-          image.onerror =
-            function () {
-
-              image.onerror =
-                null;
-
-              image.src =
-                highQualityThumbnail(
-                  video.videoId
-                );
-
-            };
-
-
-          /*
-           * GRADIENT
-           */
-
-          const gradient =
-            document.createElement(
-              'div'
-            );
-
-
-          gradient.className =
-            'video-card-gradient';
-
-
-          /*
-           * PLAY ICON
-           */
-
-          const play =
-            document.createElement(
-              'div'
-            );
-
-
-          play.className =
-            'video-play-icon';
-
-
-          play.innerHTML =
-            '<i class="fas fa-play"></i>';
-
-
-          /*
-           * TEXT
-           */
-
-          const content =
-            document.createElement(
-              'div'
-            );
-
-
-          content.className =
-            'video-card-content';
-
-
-          const label =
-            document.createElement(
-              'div'
-            );
-
-
-          label.className =
-            'video-card-label';
-
-
-          label.textContent =
-            'VEVO';
-
-
-          const title =
-            document.createElement(
-              'h3'
-            );
-
-
-          title.className =
-            'video-card-title';
-
-
-          title.textContent =
-            cleanVideoTitle(
-              video.title
-            );
-
-
-          content.appendChild(
-            label
-          );
-
-
-          content.appendChild(
-            title
-          );
-
-
-          card.appendChild(
-            image
-          );
-
-
-          card.appendChild(
-            gradient
-          );
-
-
-          card.appendChild(
-            play
-          );
-
-
-          card.appendChild(
-            content
-          );
-
-
-          /*
-           * ANALYTICS
-           */
-
-          card.addEventListener(
-            'click',
-            function () {
-
-              if (!window.gtag) {
-                return;
-              }
-
-
-              gtag(
-                'event',
-                'click',
-                {
-                  event_category:
-                    'engagement',
-
-                  event_label:
-                    'Video: ' +
-                    cleanVideoTitle(
-                      video.title
-                    )
-                }
-              );
-
-            }
-          );
-
-
-          grid.appendChild(
-            card
-          );
-
-        }
-      );
-
+    function updateHero(video, liveFeed = false) {
+      const title = cleanVideoTitle(video.title);
+      const date = formatVideoDate(video.pubDate);
+      const artwork = document.getElementById('latestReleaseArtwork');
+      setThumbnail(artwork, video.videoId);
+      artwork.alt = title + ' by Dakota Rayne';
+      document.getElementById('latestReleaseTitle').textContent = title;
+      document.getElementById('latestReleaseDate').textContent = date
+        ? 'Video published ' + date : 'Official music video';
+      const label = liveFeed ? 'Latest Music Video' : 'Featured Music Video';
+      document.getElementById('latestReleaseLabel').textContent = label;
+      document.getElementById('latestVideoHeading').textContent = label;
+      const artworkLink = document.getElementById('heroVideoLink');
+      artworkLink.href = videoUrl(video.videoId);
+      artworkLink.setAttribute('aria-label', 'Watch ' + title + ' by Dakota Rayne');
+      document.getElementById('heroWatchButton').href = videoUrl(video.videoId);
+      setHeroBackground(video.videoId);
+      updateLatestVideo(video);
     }
 
+    function buildVideoGrid(videos) {
+      if (!videos.length) return; // Retain the complete static backup gallery.
+      const grid = document.getElementById('videoGrid');
+      const fragment = document.createDocumentFragment();
+      videos.forEach(video => {
+        const card = document.createElement('a');
+        card.className = 'video-card';
+        card.href = videoUrl(video.videoId);
+        card.target = '_blank'; card.rel = 'noopener noreferrer';
+        const image = document.createElement('img');
+        image.className = 'video-card-image'; image.alt = cleanVideoTitle(video.title);
+        image.loading = 'lazy'; image.decoding = 'async';
+        setThumbnail(image, video.videoId);
+        const gradient = document.createElement('div');
+        gradient.className = 'video-card-gradient';
+        const play = document.createElement('div');
+        play.className = 'video-play-icon'; play.setAttribute('aria-hidden', 'true');
+        play.innerHTML = '<i class="fas fa-play"></i>';
+        const content = document.createElement('div');
+        content.className = 'video-card-content';
+        const label = document.createElement('div');
+        label.className = 'video-card-label'; label.textContent = 'VEVO';
+        const title = document.createElement('h3');
+        title.className = 'video-card-title'; title.textContent = cleanVideoTitle(video.title);
+        content.append(label, title); card.append(image, gradient, play, content);
+        card.addEventListener('click', () => track('Video: ' + title.textContent));
+        fragment.appendChild(card);
+      });
+      grid.replaceChildren(fragment);
+    }
 
-    /* =======================================================
-       LOAD AUTOMATIC CHANNEL CONTENT
-       ======================================================= */
+    function showVideos(videos, liveFeed = false) {
+      const featured = videos[0] || FALLBACK_VIDEO;
+      updateHero(featured, liveFeed);
+      const extra = videos.slice(1, 1 + NUMBER_OF_EXTRA_VIDEOS);
+      const extrasToShow = extra.length ? extra : FALLBACK_EXTRA_VIDEOS
+        .filter(video => video.videoId !== featured.videoId);
+      buildVideoGrid(extrasToShow);
+    }
 
     async function loadAutomaticContent() {
-
+      const cached = readCachedVideos();
+      showVideos(cached.length ? cached : [FALLBACK_VIDEO, ...FALLBACK_EXTRA_VIDEOS]);
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
       try {
-
-        const rssUrl =
-          'https://www.youtube.com/feeds/videos.xml?channel_id=' +
-          CHANNEL_ID;
-
-
-        const apiUrl =
-          'https://api.rss2json.com/v1/api.json?rss_url=' +
-          encodeURIComponent(
-            rssUrl
-          );
-
-
-        const response =
-          await fetch(
-            apiUrl,
-            {
-              cache: 'no-store'
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            'Video feed request failed with status ' +
-            response.status
-          );
-
-        }
-
-
-        const data =
-          await response.json();
-
-
-        if (
-          !data.items ||
-          !Array.isArray(
-            data.items
-          ) ||
-          data.items.length === 0
-        ) {
-
-          throw new Error(
-            'No videos returned from Dakota Rayne VEVO feed.'
-          );
-
-        }
-
-
-        /*
-         * Convert feed items into easier objects
-         */
-
-        const videos =
-          data.items
-            .map(
-              function (item) {
-
-                return {
-                  title:
-                    item.title || '',
-
-                  link:
-                    item.link || '',
-
-                  pubDate:
-                    item.pubDate || '',
-
-                  videoId:
-                    getVideoId(item)
-                };
-
-              }
-            )
-            .filter(
-              function (video) {
-
-                return Boolean(
-                  video.videoId
-                );
-
-              }
-            );
-
-
-        if (
-          videos.length === 0
-        ) {
-
-          throw new Error(
-            'No valid video IDs found.'
-          );
-
-        }
-
-
-        /*
-         * YouTube RSS returns newest first.
-         */
-
-        const latestVideo =
-          videos[0];
-
-
-        /*
-         * Update automatic homepage areas.
-         */
-
-        updateHero(
-          latestVideo
-        );
-
-
-        updateLatestVideo(
-          latestVideo.videoId
-        );
-
-
-        /*
-         * Skip latest video and show next six.
-         */
-
-        const extraVideos =
-          videos
-            .slice(
-              1,
-              1 +
-              NUMBER_OF_EXTRA_VIDEOS
-            );
-
-
-        buildVideoGrid(
-          extraVideos
-        );
-
-
-        /*
-         * Analytics
-         */
-
-        if (window.gtag) {
-
-          gtag(
-            'event',
-            'automatic_content_loaded',
-            {
-              event_category:
-                'site',
-
-              event_label:
-                cleanVideoTitle(
-                  latestVideo.title
-                )
-            }
-          );
-
-        }
-
-      }
-      catch (error) {
-
-        console.error(
-          'Automatic Dakota content failed:',
-          error
-        );
-
-
-        /*
-         * Do not break the website if RSS2JSON
-         * is temporarily unavailable.
-         */
-
-        document.getElementById(
-          'latestReleaseDate'
-        ).textContent =
-          'Latest release';
-
-
-        buildVideoGrid(
-          []
-        );
-
-      }
-
+        const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + CHANNEL_ID;
+        const response = await fetch('https://api.rss2json.com/v1/api.json?rss_url=' +
+          encodeURIComponent(rssUrl), { cache: 'no-store', signal: controller.signal });
+        if (!response.ok) throw new Error('Video feed HTTP ' + response.status);
+        const data = await response.json();
+        if (data.status && data.status !== 'ok') throw new Error('Video feed unavailable');
+        const videos = normalizeVideos(data.items);
+        if (!videos.length) throw new Error('No valid videos returned');
+        showVideos(videos, true);
+        saveCachedVideos(videos);
+        track(videos[0].title, 'automatic_content_loaded', 'site');
+      } catch (error) {
+        console.warn('Showing saved or featured Dakota videos:', error.message);
+        // The page already has useful content. Keep it visible on a feed failure.
+      } finally { clearTimeout(timeout); }
     }
 
-
-    /* =======================================================
-       YOUTUBE PLAYER ANALYTICS
-       ======================================================= */
-
-    function onYouTubeIframeAPIReady() {
-
-      youtubeApiReady =
-        true;
-
-
-      const iframe =
-        document.getElementById(
-          'latestVideo'
-        );
-
-
-      if (
-        !iframe ||
-        !window.YT
-      ) {
-        return;
-      }
-
-
-      youtubePlayer =
-        new YT.Player(
-          'latestVideo',
-          {
-            events: {
-
-              onStateChange:
-                function (event) {
-
-                  if (
-                    event.data ===
-                      YT.PlayerState.PLAYING &&
-                    !hasTrackedVideoPlay
-                  ) {
-
-                    hasTrackedVideoPlay =
-                      true;
-
-
-                    if (
-                      window.gtag
-                    ) {
-
-                      gtag(
-                        'event',
-                        'video_play',
-                        {
-                          event_category:
-                            'engagement',
-
-                          event_label:
-                            'Latest Music Video'
-                        }
-                      );
-
-                    }
-
-                  }
-
-                }
-
+    window.onYouTubeIframeAPIReady = function () {
+      if (!window.YT || youtubePlayer) return;
+      youtubePlayer = new YT.Player('latestVideo', {
+        events: {
+          onReady(event) {
+            playerReady = true;
+            const loaded = event.target.getVideoData().video_id;
+            if (loaded !== currentVideoId) event.target.cueVideoById(currentVideoId);
+          },
+          onStateChange(event) {
+            if (event.data === YT.PlayerState.PLAYING && trackedVideoId !== currentVideoId) {
+              trackedVideoId = currentVideoId;
+              track(currentVideoId, 'video_play');
             }
           }
-        );
-
-    }
-
-
-    /*
-     * Make callback available globally for
-     * YouTube iframe API.
-     */
-
-    window.onYouTubeIframeAPIReady =
-      onYouTubeIframeAPIReady;
-
-
-    /* =======================================================
-       START
-       ======================================================= */
+        }
+      });
+    };
 
     loadAutomaticContent();
 
