@@ -1198,237 +1198,6 @@
     }
 
 
-    /* =========================================================
-       AFTER DARK
-       ========================================================= */
-
-    .after-dark-section {
-      position: relative;
-
-      background:
-        radial-gradient(
-          circle at 50% 0%,
-          rgba(94, 43, 82, 0.18),
-          transparent 45%
-        ),
-        #060508;
-
-      border-top:
-        1px solid
-        rgba(255, 255, 255, 0.06);
-
-      border-bottom:
-        1px solid
-        rgba(255, 255, 255, 0.06);
-    }
-
-    .after-dark-heading {
-      text-align: center;
-
-      margin-bottom: 52px;
-    }
-
-    .after-dark-heading .section-title {
-      font-size:
-        clamp(58px, 8vw, 94px);
-    }
-
-    .after-dark-grid {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-      gap: 26px;
-
-      max-width: 920px;
-
-      margin: auto;
-    }
-
-    .after-card {
-      position: relative;
-
-      display: block;
-
-      overflow: hidden;
-
-      border:
-        1px solid
-        rgba(255, 255, 255, 0.10);
-
-      border-radius: 28px;
-
-      background: #120f15;
-
-      box-shadow:
-        0
-        20px
-        52px
-        rgba(0, 0, 0, 0.44);
-
-      text-decoration: none;
-
-      transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
-    }
-
-    .after-card:hover {
-      transform:
-        translateY(-8px);
-
-      border-color:
-        rgba(255, 215, 170, 0.38);
-    }
-
-    .after-card img {
-      width: 100%;
-
-      display: block;
-
-      transition:
-        transform 0.45s ease;
-    }
-
-    .after-card:hover img {
-      transform: scale(1.025);
-    }
-
-
-    /* =========================================================
-       ART
-       ========================================================= */
-
-    .art-feature {
-      max-width: 820px;
-
-      margin:
-        80px
-        auto
-        0;
-    }
-
-    .art-heading {
-      margin-bottom: 32px;
-
-      text-align: center;
-    }
-
-    .art-card {
-      display: grid;
-
-      grid-template-columns:
-        minmax(220px, 0.9fr)
-        minmax(0, 1.1fr);
-
-      align-items: center;
-
-      gap: 34px;
-
-      padding: 26px;
-
-      border:
-        1px solid
-        var(--gold-border);
-
-      border-radius: 30px;
-
-      color: inherit;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255, 215, 170, 0.10),
-          rgba(255, 255, 255, 0.025)
-        );
-
-      box-shadow:
-        0
-        20px
-        54px
-        rgba(0, 0, 0, 0.4);
-
-      text-decoration: none;
-
-      transition:
-        transform 0.3s ease,
-        border-color 0.3s ease;
-    }
-
-    .art-card:hover {
-      transform: translateY(-7px);
-
-      border-color:
-        rgba(255, 215, 170, 0.62);
-    }
-
-    .art-image {
-      width: 100%;
-
-      display: block;
-
-      border-radius: 20px;
-
-      box-shadow:
-        0
-        12px
-        34px
-        rgba(0, 0, 0, 0.48);
-    }
-
-    .art-card-title {
-      margin:
-        0
-        0
-        12px;
-
-      color: var(--gold);
-
-      font-family:
-        'Bebas Neue',
-        sans-serif;
-
-      font-size: 42px;
-      font-weight: 400;
-
-      letter-spacing: 1.5px;
-    }
-
-    .art-card-copy {
-      margin:
-        0
-        0
-        22px;
-
-      color: var(--muted);
-
-      font-size: 15px;
-      line-height: 1.75;
-    }
-
-    .small-pill {
-      display: inline-block;
-
-      padding:
-        10px
-        15px;
-
-      border:
-        1px solid
-        var(--gold-border);
-
-      border-radius: 999px;
-
-      color: var(--gold);
-
-      font-size: 10px;
-      font-weight: 700;
-
-      letter-spacing: 1.6px;
-      text-transform: uppercase;
-    }
-
 
     /* =========================================================
        CONNECT
@@ -1788,15 +1557,7 @@
         gap: 18px;
       }
 
-      .after-dark-grid {
-        grid-template-columns: 1fr;
-      }
 
-      .art-card {
-        grid-template-columns: 1fr;
-
-        padding: 20px;
-      }
 
       .footer-top,
       .footer-bottom {
@@ -1961,7 +1722,6 @@
 
         <a href="#about">About</a>
 
-        <a href="#after-dark">After Dark</a>
 
         <a href="experience.html">
           Experience
@@ -2009,7 +1769,6 @@
 
     <a href="#about">About</a>
 
-    <a href="#after-dark">After Dark</a>
 
     <a href="experience.html">
       Experience
@@ -2516,133 +2275,6 @@
     </section>
 
 
-    <!-- =====================================================
-         AFTER DARK
-         ===================================================== -->
-
-    <section
-      class="section after-dark-section"
-      id="after-dark"
-    >
-
-      <div class="page-width">
-
-
-        <div class="after-dark-heading">
-
-          <p class="eyebrow">
-            Things Get Strange
-          </p>
-
-          <h2 class="section-title">
-            Dakota After Dark
-          </h2>
-
-          <p class="section-intro">
-            Music, questionable business ventures
-            and occasional works of art.
-          </p>
-
-        </div>
-
-
-        <div class="after-dark-grid">
-
-
-          <!-- FANSONLY -->
-
-          <a
-            class="after-card tracked-link"
-            href="fansonly.html"
-            data-track="FansOnly Section"
-          >
-
-            <img
-              src="/fansonly.png?v=1"
-              alt="Enter Dakota Rayne FansOnly"
-              loading="lazy"
-            >
-
-          </a>
-
-
-          <!-- TRIANGLE OPPORTUNITY -->
-
-          <a
-            class="after-card tracked-link"
-            href="triangle.html"
-            data-track="Triangle Opportunity Section"
-          >
-
-            <img
-              src="/triangle.png?v=1"
-              alt="Enter Dakota Triangle Opportunity"
-              loading="lazy"
-            >
-
-          </a>
-
-        </div>
-
-
-        <!-- ART -->
-
-        <div class="art-feature">
-
-          <div class="art-heading">
-
-            <p class="eyebrow">
-              Fine Art. Allegedly.
-            </p>
-
-            <h2 class="section-title">
-              Art From Dakota
-            </h2>
-
-          </div>
-
-
-          <a
-            href="art.html"
-            class="art-card tracked-link"
-            data-track="Dakota Art Gallery"
-          >
-
-            <img
-              class="art-image"
-              src="/horse.png?v=3"
-              alt="Dakota Rayne painting Midnight Spirit"
-              loading="lazy"
-            >
-
-
-            <div>
-
-              <h3 class="art-card-title">
-                Midnight Spirit
-              </h3>
-
-              <p class="art-card-copy">
-                Dakota's debut masterpiece captures the
-                untamed beauty of a horse, the mystery of a
-                moonlit sky and absolutely no understanding
-                of horse anatomy.
-              </p>
-
-              <span class="small-pill">
-                View Gallery
-              </span>
-
-            </div>
-
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
 
     <!-- =====================================================
          CONNECT
@@ -2713,8 +2345,8 @@
               </h3>
 
               <p>
-                New releases, videos and occasional
-                Dakota-related nonsense.
+                New releases, videos and updates
+                from Dakota Rayne.
               </p>
 
             </div>
