@@ -6,6 +6,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Dakota Rayne | Official</title>
+  <script>
+    (() => {
+      // January in London is GMT. Recheck suspended tabs when visitors return.
+      const start = Date.parse('2026-11-25T00:00:00Z');
+      const end = Date.parse('2027-01-01T00:00:00Z');
+      const now = Date.now();
+      if (now < start || now >= end) return;
+      const root = document.documentElement;
+      root.classList.add('christmas-2026');
+      document.title = 'Santa, Look Away | Christmas with Dakota Rayne';
+      const sheet = document.createElement('link');
+      sheet.rel = 'stylesheet';
+      sheet.href = 'christmas/2026/christmas.css';
+      document.head.append(sheet);
+      let timer;
+      function checkSeason() {
+        clearTimeout(timer);
+        const remaining = end - Date.now();
+        if (remaining <= 0) {
+          location.reload();
+          return;
+        }
+        timer = setTimeout(checkSeason, Math.min(remaining, 86400000));
+      }
+      checkSeason();
+      window.addEventListener('pageshow', checkSeason);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) checkSeason();
+      });
+    })();
+  </script>
 
   <meta
     name="description"
@@ -1691,7 +1722,7 @@
 </head>
 
 
-<body>
+<body id="top">
 
 
   <!-- =======================================================
@@ -1790,9 +1821,89 @@
        Featured fallback, automatically updated from latest VEVO upload
        ======================================================= -->
 
+  <template id="christmasCampaign">
+    <div class="holiday">
+      <section class="sleeve" aria-labelledby="santa-title">
+        <div class="sleeve-inner">
+          <div class="sleeve-copy">
+            <p class="letterpress"><span aria-hidden="true">✦</span> Dakota Rayne</p>
+            <p class="sleeve-kicker">The Christmas single</p>
+            <h1 id="santa-title">Santa,<br><em>Look Away</em></h1>
+            <p class="sleeve-line">You didn’t see a thing.</p>
+            <div class="sleeve-actions">
+              <button class="preview-button" type="button" id="santaPlay">
+                <span class="play-mark" aria-hidden="true"></span>
+                <span id="santaPlayLabel">Play the chorus</span>
+              </button>
+              <a class="single-link tracked-link" href="https://distrokid.com/hyperfollow/dakotarayne/santa-look-away" target="_blank" rel="noopener noreferrer" data-track="Santa Look Away HyperFollow">Get the single</a>
+            </div>
+            <div class="audio-panel" hidden>
+              <audio id="santaAudio" controls preload="none" aria-label="Santa, Look Away song preview"
+                     src="christmas/2026/santa-preview.mp3"></audio>
+              <p id="santaAudioStatus" role="status"></p>
+            </div>
+          </div>
+          <figure class="sleeve-photo">
+            <img src="christmas/2026/santa-cover.webp" alt="Dakota in red sequins, holding a finger to her lips as Santa covers his eyes." fetchpriority="high" width="1000" height="1000">
+          </figure>
+        </div>
+      </section>
+
+      <section class="christmas-listening" aria-labelledby="christmas-list-title">
+        <div class="christmas-spread">
+          <div class="winter-tracks">
+            <p class="holiday-label">The Christmas collection</p>
+            <h2 id="christmas-list-title">On the <em>turntable.</em></h2>
+            <div class="track-list">
+              <button type="button" class="track" id="trackPreview">
+                <img src="christmas/2026/santa-cover.webp" alt="" width="64" height="64" loading="lazy">
+                <span><strong>Santa, Look Away</strong><small>Hear the chorus · 26 sec</small></span>
+                <span class="track-play" aria-hidden="true"></span>
+              </button>
+              <a class="track tracked-link" href="https://music.apple.com/us/song/1846979026" target="_blank" rel="noopener noreferrer" data-track="Christmas Evergreen Heart">
+                <img src="christmas/2026/evergreen-heart.webp" alt="" width="64" height="64" loading="lazy">
+                <span><strong>Evergreen Heart</strong><small>Listen on Apple Music</small></span>
+                <span class="track-play" aria-hidden="true"></span>
+              </a>
+              <a class="track tracked-link" href="https://slaps.com/track/YGEat8n1" target="_blank" rel="noopener noreferrer" data-track="Christmas Jingle Bells">
+                <img src="christmas/2026/jingle-bells.webp" alt="" width="64" height="64" loading="lazy">
+                <span><strong>Jingle Bells</strong><small>Dakota’s Christmas Ride · Listen on Slaps</small></span>
+                <span class="track-play" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+          <div class="film-card" id="christmas-film">
+            <button class="film-cover" type="button" id="openFilm" aria-haspopup="dialog" aria-label="Play Christmas with Dakota, 51 seconds">
+              <img src="christmas/2026/film-poster.webp" loading="lazy" alt="" width="800" height="700">
+              <span class="film-duration">0:51</span>
+              <span class="film-play"><span class="play-mark" aria-hidden="true"></span></span>
+            </button>
+            <p class="holiday-label">The short film</p>
+            <h3>Christmas with Dakota</h3>
+          </div>
+        </div>
+      </section>
+      <dialog class="holiday-cinema" id="holidayCinema" aria-labelledby="cinemaTitle">
+        <div class="cinema-bar"><strong id="cinemaTitle">Christmas with Dakota</strong><button type="button" id="closeFilm" aria-label="Close film" autofocus>×</button></div>
+        <video id="christmasVideo" controls playsinline preload="none" poster="christmas/2026/film-poster.webp" aria-labelledby="cinemaTitle">
+          <source src="christmas/2026/christmas-film.mp4" type="video/mp4">
+          <track kind="captions" srclang="en" label="English" src="christmas/2026/film.vtt">
+        </video>
+      </dialog>
+    </div>
+  </template>
+  <script>
+    if (document.documentElement.classList.contains('christmas-2026')) {
+      const campaign = document.getElementById('christmasCampaign');
+      campaign.after(campaign.content.cloneNode(true));
+      const seasonalScript = document.createElement('script');
+      seasonalScript.src = 'christmas/2026/christmas.js';
+      document.head.append(seasonalScript);
+    }
+  </script>
+
   <section
     class="hero"
-    id="top"
   >
 
     <div class="hero-side-gradient"></div>
